@@ -1,0 +1,12 @@
+C:\Users\Tekin\Desktop\EloBuddy_PandaTeemo\bin\Release\EloBuddy_PandaTeemo.exe.config
+C:\Users\Tekin\Desktop\EloBuddy_PandaTeemo\bin\Release\EloBuddy_PandaTeemo.exe
+C:\Users\Tekin\Desktop\EloBuddy_PandaTeemo\bin\Release\EloBuddy_PandaTeemo.pdb
+C:\Users\Tekin\Desktop\EloBuddy_PandaTeemo\bin\Release\EloBuddy.dll
+C:\Users\Tekin\Desktop\EloBuddy_PandaTeemo\bin\Release\EloBuddy.Sandbox.dll
+C:\Users\Tekin\Desktop\EloBuddy_PandaTeemo\bin\Release\EloBuddy.SDK.dll
+C:\Users\Tekin\Desktop\EloBuddy_PandaTeemo\bin\Release\Newtonsoft.Json.dll
+C:\Users\Tekin\Desktop\EloBuddy_PandaTeemo\bin\Release\SharpDX.Direct3D9.dll
+C:\Users\Tekin\Desktop\EloBuddy_PandaTeemo\bin\Release\SharpDX.dll
+C:\Users\Tekin\Desktop\EloBuddy_PandaTeemo\obj\Release\TekinTeemo.csprojResolveAssemblyReference.cache
+C:\Users\Tekin\Desktop\EloBuddy_PandaTeemo\obj\Release\EloBuddy_PandaTeemo.exe
+C:\Users\Tekin\Desktop\EloBuddy_PandaTeemo\obj\Release\EloBuddy_PandaTeemo.pdb
