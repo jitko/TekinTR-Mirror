@@ -89,22 +89,22 @@ namespace Blessed_Riven
             Healthpot = new Item(2003, 0);
             _ignite = new Spell.Targeted(ObjectManager.Player.GetSpellSlotFromName("summonerdot"), 600);
 
-            Chat.Print("Blessed Riven Yuklendi.TekinTR Tarafindan Turkce Yapildi", Color.Brown);
+            Chat.Print("Blessed Riven Yuklendi.TekinTR Tarafindan Turkce Yapildi.", Color.Brown);
             Menu = MainMenu.AddMenu("Blessed Riven", "BlessedRiven");
 
             ComboMenu = Menu.AddSubMenu("Combo Settings", "ComboSettings");
             ComboMenu.AddLabel("Combo Settings");
-            ComboMenu.Add("QCombo", new CheckBox("Q Kullan"));
-            ComboMenu.Add("WCombo", new CheckBox("W Kullan"));
-            ComboMenu.Add("ECombo", new CheckBox("E Kullan"));
-            ComboMenu.Add("RCombo", new CheckBox("R Kullan"));
+            ComboMenu.Add("QCombo", new CheckBox("Kullan Q"));
+            ComboMenu.Add("WCombo", new CheckBox("Kullan W"));
+            ComboMenu.Add("ECombo", new CheckBox("Kullan E"));
+            ComboMenu.Add("RCombo", new CheckBox("Kullan R"));
             ComboMenu.Add("R2Combo", new CheckBox("Kullan R2(dusman olucekse)"));
-            ComboMenu.Add("FlashW", new KeyBind("Sıcra W", false, KeyBind.BindTypes.HoldActive, '5'));
-            ComboMenu.Add("FlashBurst", new KeyBind("Hamle(broken)", false, KeyBind.BindTypes.HoldActive, 'G'));
+            ComboMenu.Add("FlashW", new KeyBind("Flash W", false, KeyBind.BindTypes.HoldActive, '5'));
+            ComboMenu.Add("FlashBurst", new KeyBind("Burst(broken)", false, KeyBind.BindTypes.HoldActive, 'G'));
             ComboMenu.AddLabel("Burst = Select Target And Burst Key");
             ComboMenu.AddLabel("The flash has usesh");
             ComboMenu.AddLabel("If not perform without a flash");
-            ComboMenu.Add("ForcedR", new KeyBind("R Zorla", true, KeyBind.BindTypes.PressToggle, 'Z'));
+            ComboMenu.Add("ForcedR", new KeyBind("Forced R", true, KeyBind.BindTypes.PressToggle, 'Z'));
             ComboMenu.Add("useTiamat", new CheckBox("Item kullan"));
             ComboMenu.AddLabel("R Settings");
             ComboMenu.Add("RCantKill", new CheckBox("Kombo ile ölduremessin", false));
@@ -112,10 +112,10 @@ namespace Blessed_Riven
 
             HarassMenu = Menu.AddSubMenu("Harass Settings", "HarassSettings");
             HarassMenu.AddLabel("Harass Settings");
-            HarassMenu.Add("QHarass", new CheckBox("Q Kullan"));
-            HarassMenu.Add("WHarass", new CheckBox("W Kullan"));
-            HarassMenu.Add("EHarass", new CheckBox("E Kullan"));
-            var Style = HarassMenu.Add("harassstyle", new Slider("Durtme Sekli", 0, 0, 2));
+            HarassMenu.Add("QHarass", new CheckBox("Kullan Q"));
+            HarassMenu.Add("WHarass", new CheckBox("Kullan W"));
+            HarassMenu.Add("EHarass", new CheckBox("Kullan E"));
+            var Style = HarassMenu.Add("harassstyle", new Slider("Harass Style", 0, 0, 2));
             Style.OnValueChange += delegate
             {
                 Style.DisplayName = "Harass Style: " + new[] { "Q,Q,W,Q and E back", "E,H,Q3,W", "E,H,AA,Q,W" }[Style.CurrentValue];
@@ -124,40 +124,40 @@ namespace Blessed_Riven
 
             FarmingMenu = Menu.AddSubMenu("Clear Settings", "FarmSettings");
             FarmingMenu.AddLabel("Lane Clear");
-            FarmingMenu.Add("QLaneClear", new CheckBox("Koridor temizlemede Q Kullan"));
-            FarmingMenu.Add("WLaneClear", new CheckBox("Koridor temizlemede W Kullan"));
-            FarmingMenu.Add("ELaneClear", new CheckBox("Koridor temizlemede E Kullan"));
+            FarmingMenu.Add("QLaneClear", new CheckBox("Kullan Q Koridor"));
+            FarmingMenu.Add("WLaneClear", new CheckBox("Kullan W Koridor"));
+            FarmingMenu.Add("ELaneClear", new CheckBox("Kullan E Koridor"));
 
             FarmingMenu.AddLabel("Jungle Clear");
-            FarmingMenu.Add("QJungleClear", new CheckBox("Ormanda Q Kullan"));
-            FarmingMenu.Add("WJungleClear", new CheckBox("Ormanda W Kullan"));
-            FarmingMenu.Add("EJungleClear", new CheckBox("Ormanda E Kullan"));
+            FarmingMenu.Add("QJungleClear", new CheckBox("Kullan Q Orman"));
+            FarmingMenu.Add("WJungleClear", new CheckBox("Kullan W Orman"));
+            FarmingMenu.Add("EJungleClear", new CheckBox("Kullan E Orman"));
 
             FarmingMenu.AddLabel("Last Hit");
-            FarmingMenu.Add("Qlasthit", new CheckBox("Son vurusda Q Kullan"));
-            FarmingMenu.Add("Wlasthit", new CheckBox("Son vurusda W Kullan));
-            FarmingMenu.Add("Elasthit", new CheckBox("Son vurusda E Kullan"));
+            FarmingMenu.Add("Qlasthit", new CheckBox("Kullan Q Sonvurus"));
+            FarmingMenu.Add("Wlasthit", new CheckBox("Kullan W Sonvurus"));
+            FarmingMenu.Add("Elasthit", new CheckBox("Kullan E Sonvurus"));
 
             MiscMenu = Menu.AddSubMenu("More Settings", "Misc");
             MiscMenu.AddLabel("Auto");
             MiscMenu.Add("UseShield", new CheckBox("Kullan Kalkan(E)"));
             MiscMenu.Add("AutoIgnite", new CheckBox("Oto tutustur"));
-            MiscMenu.Add("AutoQSS", new CheckBox("Oto QSS"));
+            MiscMenu.Add("AutoQSS", new CheckBox("Auto QSS"));
             MiscMenu.Add("AutoW", new CheckBox("Oto W"));
             MiscMenu.AddLabel("Keep Alive Settings");
-            MiscMenu.Add("Alive.Q", new CheckBox("Tut Q Canli"));
+            MiscMenu.Add("Alive.Q", new CheckBox("Keep Q Alive"));
             MiscMenu.Add("Alive.R", new CheckBox("Süresi dolmadan once R2'yi kullan"));
             MiscMenu.AddLabel("Activator");
-            MiscMenu.Add("useHP", new CheckBox("Sağlık Iksiri kullan"));
+            MiscMenu.Add("useHP", new CheckBox("Sağlık iksiri kullan"));
             MiscMenu.Add("useHPV", new Slider("HP < %", 45, 0, 100));
-            MiscMenu.Add("useElixir", new CheckBox("Iksir kullan"));
+            MiscMenu.Add("useElixir", new CheckBox("Kullan iksir"));
             MiscMenu.Add("useElixirCount", new Slider("EnemyCount > ", 1, 0, 4));
-            MiscMenu.Add("useCrystal", new CheckBox("Doldurulabilir iksirleri kullan"));
+            MiscMenu.Add("useCrystal", new CheckBox("Kullan yenilenebilir iksir"));
             MiscMenu.Add("useCrystalHPV", new Slider("HP < %", 65, 0, 100));
             MiscMenu.Add("useCrystalManaV", new Slider("Mana < %", 65, 0, 100));
 
             DelayMenu = Menu.AddSubMenu("Delay Settings(Humanizer)", "Delay");
-            DelayMenu.Add("useHumanizer", new CheckBox("Insancil Kullan?", false));
+            DelayMenu.Add("useHumanizer", new CheckBox("Kullan insancil?", false));
             DelayMenu.Add("spell1a1b", new Slider("Q1,Q2 Delay(ms)", 261, 100, 400));
             DelayMenu.Add("spell1c", new Slider("Q3 Delay(ms)", 353, 100, 400));
             DelayMenu.Add("spell2", new Slider("W Delay(ms)", 120, 100, 400));
@@ -169,10 +169,10 @@ namespace Blessed_Riven
             Skin.Add("skin.Id", new Slider("Skin", 4, 0, 6));
 
             DrawMenu = Menu.AddSubMenu("Draw Settings", "Drawings");
-            DrawMenu.Add("drawStatus", new CheckBox("Durumu Goster"));
-            DrawMenu.Add("drawCombo", new CheckBox("Kombo uzakligini goster"));
-            DrawMenu.Add("drawFBurst", new CheckBox("Sicra atilma uzakligini goster"));
-            DrawMenu.Add("DrawDamage", new CheckBox("Verilebilicek hasari goster"));
+            DrawMenu.Add("drawStatus", new CheckBox("Goster Durum"));
+            DrawMenu.Add("drawCombo", new CheckBox("Goster kombo mesafesi"));
+            DrawMenu.Add("drawFBurst", new CheckBox("Draw Flash Burst Range"));
+            DrawMenu.Add("DrawDamage", new CheckBox("Goster verilecek hasar"));
 
             Game.OnTick += Game_OnTick;
             Drawing.OnDraw += Drawing_OnDraw;

@@ -1,0 +1,11 @@
+C:\Users\Tekin\Desktop\Blessed-Riven-master\bin\Release\BlessedRiven.exe.config
+C:\Users\Tekin\Desktop\Blessed-Riven-master\bin\Release\BlessedRiven.exe
+C:\Users\Tekin\Desktop\Blessed-Riven-master\bin\Release\BlessedRiven.pdb
+C:\Users\Tekin\Desktop\Blessed-Riven-master\bin\Release\EloBuddy.dll
+C:\Users\Tekin\Desktop\Blessed-Riven-master\bin\Release\EloBuddy.SDK.dll
+C:\Users\Tekin\Desktop\Blessed-Riven-master\bin\Release\SharpDX.dll
+C:\Users\Tekin\Desktop\Blessed-Riven-master\bin\Release\SharpDX.Direct3D9.dll
+C:\Users\Tekin\Desktop\Blessed-Riven-master\bin\Release\EloBuddy.Sandbox.dll
+C:\Users\Tekin\Desktop\Blessed-Riven-master\bin\Release\Newtonsoft.Json.dll
+C:\Users\Tekin\Desktop\Blessed-Riven-master\obj\Release\BlessedRiven.exe
+C:\Users\Tekin\Desktop\Blessed-Riven-master\obj\Release\BlessedRiven.pdb
