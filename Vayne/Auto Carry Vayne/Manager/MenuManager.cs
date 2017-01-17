@@ -48,15 +48,15 @@ namespace Auto_Carry_Vayne.Manager
         {
             VMenu.AddGroupLabel("PackageLoader");
             VMenu.AddLabel("'Let me modify the Options myself plz'");
-            VMenu.AddLabel("-Tikladiktan sonra F5'e basin!-");
-            VMenu.Add("Combo", new CheckBox("Daha fazla kombo ayarı", false));
-            VMenu.Add("Condemn", new CheckBox("Daha fazla E(condemn) ayarı", false));
-            VMenu.Add("Harass", new CheckBox("Daha fazla Dürtme Ayarı", false));
-            VMenu.Add("Flee", new CheckBox("Daha fazla Kaçış ayarı", false));
-            VMenu.Add("LC", new CheckBox("Daha fazla lanetemizleme ayarı", false));
-            VMenu.Add("JC", new CheckBox("Daha fazla Ormantemizleme ayarı", false));
-            VMenu.Add("Misc", new CheckBox("Daha fazla Ek Ayarı", false));
-            VMenu.Add("Drawing", new CheckBox("Daha fazla Gösterge Ayarı", false));
+            VMenu.AddLabel("-Press F5 after ticking!-");
+            VMenu.Add("Combo", new CheckBox("Daha fazla kombo ayari", false));
+            VMenu.Add("Condemn", new CheckBox("Daha fazla Condemn ayari", false));
+            VMenu.Add("Harass", new CheckBox("Daha fazla Durtme Ayari", false));
+            VMenu.Add("Flee", new CheckBox("Daha fazla Kacis ayari", false));
+            VMenu.Add("LC", new CheckBox("Daha fazla lanetemizleme ayari", false));
+            VMenu.Add("JC", new CheckBox("Daha fazla Ormantemizleme ayari", false));
+            VMenu.Add("Misc", new CheckBox("Daha fazla Ek Ayar", false));
+            VMenu.Add("Drawing", new CheckBox("Daha fazla Gosterge Ayari", false));
             #region CheckMenu
 
             //Combo
@@ -106,11 +106,11 @@ namespace Auto_Carry_Vayne.Manager
         private static void Hotkeys()
         {
             Hotkeymenu = VMenu.AddSubMenu("Hotkeys", "Hotkeys");
-            Hotkeymenu.Add("flashe", new KeyBind("Sıcra Condemn(E)!", false, KeyBind.BindTypes.HoldActive, 'Y'));
-            Hotkeymenu.Add("insece", new KeyBind("Sıcra Insec!", false, KeyBind.BindTypes.HoldActive, 'Z'));
+            Hotkeymenu.Add("flashe", new KeyBind("Flash Condemn!", false, KeyBind.BindTypes.HoldActive, 'Y'));
+            Hotkeymenu.Add("insece", new KeyBind("Flash Insec!", false, KeyBind.BindTypes.HoldActive, 'Z'));
             Hotkeymenu.Add("rote", new KeyBind("Zz'Rot Condemn!", false, KeyBind.BindTypes.HoldActive, 'N'));
             Hotkeymenu.Add("insecmodes", new ComboBox("Insec Mode", 0, "To Allys", "To Tower", "To Mouse"));
-            Hotkeymenu.Add("RnoAA", new KeyBind("Gizli ise AA yapma", false, KeyBind.BindTypes.PressToggle, 'T'));
+            Hotkeymenu.Add("RnoAA", new KeyBind("No AA while Stealth", false, KeyBind.BindTypes.PressToggle, 'T'));
             Hotkeymenu.Add("RnoAAif", new Slider("No AA stealth when >= enemy in range", 2, 0, 5));
         }
 
@@ -118,13 +118,13 @@ namespace Auto_Carry_Vayne.Manager
         {
             ComboMenu = VMenu.AddSubMenu("Combo", "Combo");
             ComboMenu.Add("UseQ", new CheckBox("Kullan Q"));
-            ComboMenu.Add("UseQStacks", new CheckBox("Q için 2W yükü", false));
+            ComboMenu.Add("UseQStacks", new CheckBox("Q için 2W yuk", false));
             ComboMenu.Add("UseQMode", new ComboBox("Q Mode", 0, "Auto", "Mouse"));
             ComboMenu.Add("UseW", new CheckBox("W odaklan", false));
             ComboMenu.Add("UseE", new CheckBox("Kullan E"));
-            ComboMenu.Add("UseEKill", new CheckBox("Ölecekse hedefe E?"));
+            ComboMenu.Add("UseEKill", new CheckBox("Olecekse hedefe E?"));
             ComboMenu.Add("UseR", new CheckBox("Kullan R", false));
-            ComboMenu.Add("UseRif", new Slider("R için gereken Düşman sayısı", 2, 1, 5));
+            ComboMenu.Add("UseRif", new Slider("Kullan R if", 2, 1, 5));
 
         }
 
@@ -133,25 +133,25 @@ namespace Auto_Carry_Vayne.Manager
             CondemnMenu = VMenu.AddSubMenu("Condemn", "Condemn");
             CondemnMenu.Add("UseEAuto", new CheckBox("Otomatik E"));
             CondemnMenu.Add("UseETarget", new CheckBox("Sadece sabitleyecekse?", false));
-            CondemnMenu.Add("UseEHitchance", new Slider("Condemn(E) İsabet oranı", 2, 1, 4));
-            CondemnMenu.Add("UseEPush", new Slider("Condemn(E) İtme mesafesi(atma)", 420, 350, 470));
-            CondemnMenu.Add("UseEAA", new Slider("Eğer hedef AA ile ölecekse E Kullanm", 0, 0, 4));
-            CondemnMenu.Add("AutoTrinket", new CheckBox("Çime totem ?"));
+            CondemnMenu.Add("UseEHitchance", new Slider("Condemn isabet oranı", 2, 1, 4));
+            CondemnMenu.Add("UseEPush", new Slider("Condemn(E) itme mesafesi(atma)", 420, 350, 470));
+            CondemnMenu.Add("UseEAA", new Slider("Eger hedef AA ile olecekse E kullanma", 0, 0, 4));
+            CondemnMenu.Add("AutoTrinket", new CheckBox("Ota totem at?"));
             CondemnMenu.Add("J4Flag", new CheckBox("Jarvanı it(ulti atarken veya ultisi varsa)?"));
         }
 
         private static void Harassmenu()
         {
             HarassMenu = VMenu.AddSubMenu("Harass", "Harass");
-            HarassMenu.Add("HarassCombo", new CheckBox("Dürtme Kombosu"));
-            HarassMenu.Add("HarassMana", new Slider("Dürtme Kombosu en az mana", 40));
+            HarassMenu.Add("HarassCombo", new CheckBox("Durtme kombosu"));
+            HarassMenu.Add("HarassMana", new Slider("Harass Combo Mana", 40));
         }
 
         private static void LaneClearmenu()
         {
             LaneClearMenu = VMenu.AddSubMenu("LaneClear", "LaneClear");
             LaneClearMenu.Add("UseQ", new CheckBox("Kullan Q"));
-            LaneClearMenu.Add("UseQMana", new Slider("En az mana ({0}%)", 40));
+            LaneClearMenu.Add("UseQMana", new Slider("Maximum mana usage in percent ({0}%)", 40));
         }
 
         private static void JungleClearmenu()
@@ -175,19 +175,19 @@ namespace Auto_Carry_Vayne.Manager
             MiscMenu.Add("GapcloseQ", new CheckBox("Gapclose Q"));
             MiscMenu.Add("GapcloseE", new CheckBox("Gapclose E"));
             MiscMenu.Add("InterruptE", new CheckBox("Interrupt E"));
-            MiscMenu.Add("LowLifeE", new CheckBox("canım düşükse rakibe E", false));
-            MiscMenu.Add("LowLifeES", new Slider("Canım şundan düşükse % =>", 20));
+            MiscMenu.Add("LowLifeE", new CheckBox("Low Life E", false));
+            MiscMenu.Add("LowLifeES", new Slider("Low Life E if =>", 20));
         }
 
         private static void Drawingmenu()
         {
             DrawingMenu = VMenu.AddSubMenu("Drawings", "Drawings");
-            DrawingMenu.Add("DrawQ", new CheckBox("Göster Q", false));
-            DrawingMenu.Add("DrawE", new CheckBox("Göster E", false));
-            DrawingMenu.Add("DrawOnlyReady", new CheckBox("Göster Sadece büyüler hazırsa"));
+            DrawingMenu.Add("DrawQ", new CheckBox("Goster Q", false));
+            DrawingMenu.Add("DrawE", new CheckBox("Goster E", false));
+            DrawingMenu.Add("DrawOnlyReady", new CheckBox("Goster sadece buyuler hazirsa"));
             DrawingMenu.AddGroupLabel("Prediction");
-            DrawingMenu.Add("DrawCondemn", new CheckBox("Göster Condemn(E)"));
-            DrawingMenu.Add("DrawTumble", new CheckBox("Göster takla"));
+            DrawingMenu.Add("DrawCondemn", new CheckBox("Goster Condemn"));
+            DrawingMenu.Add("DrawTumble", new CheckBox("Goster Tumble"));
         }
 
         #region checkvalues

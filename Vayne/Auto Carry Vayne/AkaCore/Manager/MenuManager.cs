@@ -35,80 +35,80 @@ namespace AkaCore.Manager
             ActivatorMenu = HMenu.AddSubMenu("Activator", "Activator");
             ActivatorMenu.AddGroupLabel("Aggressive Items");
             ActivatorMenu.Add("AItems", new CheckBox("Use Items"));
-            ActivatorMenu.Add("Botrk", new CheckBox("Mahvolmuş ve Bilgewater Kullan"));
+            ActivatorMenu.Add("Botrk", new CheckBox("Mahvolmus ve Bilgewater Kullan"));
             ActivatorMenu.Add("Hydra", new CheckBox("Kullan Hydra/Tiamat"));
             ActivatorMenu.Add("Titanic", new CheckBox("Kullan Titanic"));
             ActivatorMenu.Add("HGB", new CheckBox("Hextech SilahliKilic Kullan"));
             ActivatorMenu.Add("HGLP", new CheckBox("Kullan Hextech GLP"));
             ActivatorMenu.Add("HPB", new CheckBox("Kullan Hextech Roketkemer"));
-            ActivatorMenu.Add("Queens", new CheckBox("Kullan Buz Kralicesinin Hakki"));
-            ActivatorMenu.Add("QueensDis", new Slider("Dusman Uzakligi =>", 1500, 0, 3000));
+            ActivatorMenu.Add("Queens", new CheckBox("Kullan Buz Kralicesi"));
+            ActivatorMenu.Add("QueensDis", new Slider("Enemies distance =>", 1500, 0, 3000));
             ActivatorMenu.Add("Glory", new CheckBox("Görkemli Zafer Kullan"));
-            ActivatorMenu.Add("GloryDis", new Slider("Dusman Uzakligi =>", 600, 0, 1000));
+            ActivatorMenu.Add("GloryDis", new Slider("Enemies distance =>", 600, 0, 1000));
             ActivatorMenu.Add("Talis", new CheckBox("Ulularin Tilsimi Kullan"));
-            ActivatorMenu.Add("TalisDis", new Slider("Dusman Uzakligi =>", 1000, 0, 2000));
-            ActivatorMenu.Add("You", new CheckBox("Kullan Youmuu"));
+            ActivatorMenu.Add("TalisDis", new Slider("Enemies distance =>", 1000, 0, 2000));
+            ActivatorMenu.Add("You", new CheckBox("Use Ghostblade"));
             ActivatorMenu.AddGroupLabel("Defensive Items");
             ActivatorMenu.Add("DItems", new CheckBox("Use Items"));
-            ActivatorMenu.Add("FaceMe", new CheckBox("Dagin Sureti Kullan Benim")); // The identifier tho kappa
-            ActivatorMenu.Add("FaceMeHp", new Slider("Benim hp'imse <=", 20, 0, 100));
-            ActivatorMenu.Add("FaceAlly", new CheckBox("Dagin Suretini Kullan Takim"));
-            ActivatorMenu.Add("FaceAllyHp", new Slider("Takim hp<=", 20, 0, 100));
-            ActivatorMenu.Add("SolariMe", new CheckBox("Demir Solari Kullan"));
-            ActivatorMenu.Add("SolariMeHp", new Slider("Benim hp'imse <=", 20, 0, 100));
-            ActivatorMenu.Add("SolariAlly", new CheckBox("Kullan Demir Solari Takim"));
-            ActivatorMenu.Add("SolariAllyHp", new Slider("Takim hp <=", 20, 0, 100));
-            ActivatorMenu.Add("Omen", new CheckBox("Randuin Kullan"));
-            ActivatorMenu.Add("OmenHp", new Slider("Benim hp dusukse <=", 20, 0, 100));
+            ActivatorMenu.Add("FaceMe", new CheckBox("Dagin Sureti Kullan Me")); // The identifier tho kappa
+            ActivatorMenu.Add("FaceMeHp", new Slider("If my hp <=", 20, 0, 100));
+            ActivatorMenu.Add("FaceAlly", new CheckBox("Dagin Sureti Kullan Ally"));
+            ActivatorMenu.Add("FaceAllyHp", new Slider("If allies hp <=", 20, 0, 100));
+            ActivatorMenu.Add("SolariMe", new CheckBox("Demir Solari Kullan Me"));
+            ActivatorMenu.Add("SolariMeHp", new Slider("If my hp <=", 20, 0, 100));
+            ActivatorMenu.Add("SolariAlly", new CheckBox("Demir Solari Kullan Ally"));
+            ActivatorMenu.Add("SolariAllyHp", new Slider("If allies hp <=", 20, 0, 100));
+            ActivatorMenu.Add("Omen", new CheckBox("Kullan Randuins"));
+            ActivatorMenu.Add("OmenHp", new Slider("If my hp <=", 20, 0, 100));
             ActivatorMenu.Add("Seraphs", new CheckBox("Kullan Seraphs"));
-            ActivatorMenu.Add("SeraphsHp", new Slider("Benim hp dusukse <=", 20, 0, 100));
-            ActivatorMenu.Add("Talis2", new CheckBox("Use Talisman"));
-            ActivatorMenu.Add("Talis2Hp", new Slider("Benim hp dusukse <=", 20, 0, 100));
+            ActivatorMenu.Add("SeraphsHp", new Slider("If my hp <=", 20, 0, 100));
+            ActivatorMenu.Add("Talis2", new CheckBox("Ulularin Tilsimi Kullan"));
+            ActivatorMenu.Add("Talis2Hp", new Slider("If my hp <=", 20, 0, 100));
             ActivatorMenu.Add("Glory2", new CheckBox("Use Rightenous Glory"));
-            ActivatorMenu.Add("Glory2Hp", new Slider("Benim hp dusukse <=", 20, 0, 100));
-            ActivatorMenu.Add("Zhonyas", new CheckBox("Zonya Kullan"));
-            ActivatorMenu.Add("ZhonyasHp", new Slider("Benim hp dusukse<=", 20, 0, 100));
+            ActivatorMenu.Add("Glory2Hp", new Slider("If my hp <=", 20, 0, 100));
+            ActivatorMenu.Add("Zhonyas", new CheckBox("Kullan Zhonyas"));
+            ActivatorMenu.Add("ZhonyasHp", new Slider("If my hp <=", 20, 0, 100));
             ActivatorMenu.AddGroupLabel("Pots");
             ActivatorMenu.Add("PItems", new CheckBox("Use Pots"));
-            ActivatorMenu.Add("HPPot", new CheckBox("Saglik Iksiri Kullan"));
-            ActivatorMenu.Add("HPPotHp", new Slider("Benim hp dusukse <=", 40, 0, 100));
-            ActivatorMenu.Add("Biscuit", new CheckBox("Kullan Biscuits"));
-            ActivatorMenu.Add("BiscuitHp", new Slider("Benim hp dusukse <=", 40, 0, 100));
-            ActivatorMenu.Add("RefillPot", new CheckBox("Doldurulabilir iksir Kullan"));
-            ActivatorMenu.Add("RefillPotHp", new Slider("Benim hp dusukse<=", 60, 0, 100));
-            ActivatorMenu.Add("HunterPot", new CheckBox("Avci Iksiri Kullan"));
-            ActivatorMenu.Add("HunterPotHp", new Slider("Benim hp dusukse <=", 60, 0, 100));
-            ActivatorMenu.Add("CorruptPot", new CheckBox("Musubet Iksiri Kullan"));
-            ActivatorMenu.Add("CourrptPotHp", new Slider("Benim hp dusukse <=", 60, 0, 100));
+            ActivatorMenu.Add("HPPot", new CheckBox("Use Health potion"));
+            ActivatorMenu.Add("HPPotHp", new Slider("If my hp <=", 40, 0, 100));
+            ActivatorMenu.Add("Biscuit", new CheckBox("Use Biscuits"));
+            ActivatorMenu.Add("BiscuitHp", new Slider("If my hp <=", 40, 0, 100));
+            ActivatorMenu.Add("RefillPot", new CheckBox("Use Refillable potion"));
+            ActivatorMenu.Add("RefillPotHp", new Slider("If my hp <=", 60, 0, 100));
+            ActivatorMenu.Add("HunterPot", new CheckBox("Use Hunter potion"));
+            ActivatorMenu.Add("HunterPotHp", new Slider("If my hp <=", 60, 0, 100));
+            ActivatorMenu.Add("CorruptPot", new CheckBox("Use Corrupting potion"));
+            ActivatorMenu.Add("CourrptPotHp", new Slider("If my hp <=", 60, 0, 100));
             ActivatorMenu.AddGroupLabel("Summoners");
             ActivatorMenu.Add("Heal", new CheckBox("Heal"));
-            ActivatorMenu.Add("HealHp", new Slider("Benim hp dusukse <=", 20, 0, 100));
-            ActivatorMenu.Add("HealAlly", new CheckBox("Takim Cani"));
-            ActivatorMenu.Add("HealAllyHp", new Slider("Takim hp dusukse <=", 20, 0, 100));
-            ActivatorMenu.Add("Barrier", new CheckBox("Bariyer"));
-            ActivatorMenu.Add("BarrierHp", new Slider("Benim hp dusukse <=", 20, 0, 100));
-            ActivatorMenu.Add("Ignite", new CheckBox("Tutustur Kullan"));
-            ActivatorMenu.Add("IgniteHp", new Slider("0 KS Aksi takdirde Hp <=", 0, 0, 100));
-            ActivatorMenu.Add("Exhaust", new CheckBox("Bitkinlik Kullan"));
-            ActivatorMenu.Add("ExhaustHp", new Slider("Bitkinlik düsman hp <=", 40, 0, 100));
+            ActivatorMenu.Add("HealHp", new Slider("Heal if my HP <=", 20, 0, 100));
+            ActivatorMenu.Add("HealAlly", new CheckBox("Heal ally"));
+            ActivatorMenu.Add("HealAllyHp", new Slider("Heal if ally HP <=", 20, 0, 100));
+            ActivatorMenu.Add("Barrier", new CheckBox("Barrier"));
+            ActivatorMenu.Add("BarrierHp", new Slider("Barrier if my HP <=", 20, 0, 100));
+            ActivatorMenu.Add("Ignite", new CheckBox("Use Ignite"));
+            ActivatorMenu.Add("IgniteHp", new Slider("0 KS otherwise if Hp <=", 0, 0, 100));
+            ActivatorMenu.Add("Exhaust", new CheckBox("Use Exhaust"));
+            ActivatorMenu.Add("ExhaustHp", new Slider("Exhaust if enemies Hp <=", 40, 0, 100));
             ActivatorMenu.AddGroupLabel("Smite");
             ActivatorMenu.Add("SmiteActive", new KeyBind("Smite Active", true, KeyBind.BindTypes.PressToggle));
-            ActivatorMenu.Add("SStatus", new CheckBox("Durumu Ciz"));
-            ActivatorMenu.Add("SDamage", new CheckBox("Hasari Ciz"));
+            ActivatorMenu.Add("SStatus", new CheckBox("Draw Status"));
+            ActivatorMenu.Add("SDamage", new CheckBox("Draw Damage"));
             ActivatorMenu.Add("SBaron", new CheckBox("Baron"));
             ActivatorMenu.Add("SHerald", new CheckBox("Herald"));
-            ActivatorMenu.Add("SWDragon", new CheckBox("Su ejderi"));
-            ActivatorMenu.Add("SFDragon", new CheckBox("Ates ejderi"));
-            ActivatorMenu.Add("SEDragon", new CheckBox("Toprak ejderi"));
-            ActivatorMenu.Add("SADragon", new CheckBox("Bulut ejderi"));
-            ActivatorMenu.Add("SElder", new CheckBox("Kadim ejderi"));
-            ActivatorMenu.Add("SBlue", new CheckBox("Mavi Buff", false));
-            ActivatorMenu.Add("SRed", new CheckBox("Kirmizi Buff", false));
-            ActivatorMenu.Add("SRaptor", new CheckBox("Tavuk Kampi", false));
-            ActivatorMenu.Add("SWolf", new CheckBox("Kurt Kampi", false));
-            ActivatorMenu.Add("SGromp", new CheckBox("Gromp Kampi", false));
-            ActivatorMenu.Add("SKrug", new CheckBox("Kayacil Kampi", false));
-            ActivatorMenu.Add("SCrap", new CheckBox("Yengec", false));
+            ActivatorMenu.Add("SWDragon", new CheckBox("Water Dragon"));
+            ActivatorMenu.Add("SFDragon", new CheckBox("Fire Dragon"));
+            ActivatorMenu.Add("SEDragon", new CheckBox("Earth Dragon"));
+            ActivatorMenu.Add("SADragon", new CheckBox("Air Dragon"));
+            ActivatorMenu.Add("SElder", new CheckBox("Elder Dragon"));
+            ActivatorMenu.Add("SBlue", new CheckBox("Blue Buff", false));
+            ActivatorMenu.Add("SRed", new CheckBox("Red Buff", false));
+            ActivatorMenu.Add("SRaptor", new CheckBox("Raptor Camp", false));
+            ActivatorMenu.Add("SWolf", new CheckBox("Wolf Camp", false));
+            ActivatorMenu.Add("SGromp", new CheckBox("Gromp Camp", false));
+            ActivatorMenu.Add("SKrug", new CheckBox("Krug Camp", false));
+            ActivatorMenu.Add("SCrap", new CheckBox("Scuttler", false));
             ActivatorMenu.AddGroupLabel("Cleanse");
             ActivatorMenu.Add("Qss", new CheckBox("Use Qss"));
             ActivatorMenu.Add("Mecurial", new CheckBox("Use Mecurial"));
@@ -140,14 +140,14 @@ namespace AkaCore.Manager
             UtilityMenu.AddGroupLabel("Utility");
             UtilityMenu.Add("Skinhack", new CheckBox("Activate Skin hack", false));
             UtilityMenu.Add("SkinID", new Slider("SkinID", 0, 0, 15));
-            UtilityMenu.Add("Autolvl", new CheckBox("Otomatik Seviye Aktif"));
-            UtilityMenu.Add("AutolvlS", new ComboBox("Seviye modu", 0, "Max Q", "Max W", "Max E"));
-            UtilityMenu.Add("Autobuy", new CheckBox("Oto Baslangic Itemi Al"));
-            UtilityMenu.Add("AutobuyS", new ComboBox("Baslangic Itemi", 0, "Doran Kilici", "Doran Yuzugu", "Doran Kalkani", "Musubet Iksiri", "Avci Palasi", "Avci Tilsimi", "Eski Para", "Buzdis", "Yadigar"));
-            UtilityMenu.Add("Autobuyt", new CheckBox("Totem Yukselt"));
-            UtilityMenu.Add("AutobuytS", new ComboBox("Upgrade to", 0, "Uzak Gorus", "Oracle Alteration"));
-            UtilityMenu.Add("Autolantern", new CheckBox("Otomatik Fener"));
-            UtilityMenu.Add("AutolanternHP", new Slider("Otomatik Fener icin Hp =>", 40));
+            UtilityMenu.Add("Autolvl", new CheckBox("Activate Auto level"));
+            UtilityMenu.Add("AutolvlS", new ComboBox("Level Mode", 0, "Max Q", "Max W", "Max E"));
+            UtilityMenu.Add("Autobuy", new CheckBox("Autobuy Starters"));
+            UtilityMenu.Add("AutobuyS", new ComboBox("Starter Item", 0, "Dorans Blade", "Dorans Ring", "Dorans Shield", "Corrupting Potion", "Hunters Machete", "Hunters Talisman", "Ancient Coin", "SpellThiefs", "Relic Shield"));
+            UtilityMenu.Add("Autobuyt", new CheckBox("Upgrade Trinkets"));
+            UtilityMenu.Add("AutobuytS", new ComboBox("Upgrade to", 0, "Farsight Alteration", "Oracle Alteration"));
+            UtilityMenu.Add("Autolantern", new CheckBox("Auto Lantern"));
+            UtilityMenu.Add("AutolanternHP", new Slider("Auto Lantern if Hp =>", 40));
         }
 
         private static void Orbwalkermenu()
@@ -161,18 +161,18 @@ namespace AkaCore.Manager
                 OrbwalkerMenu.Add("Qrange", new Slider("Catch Axe Range:", 800, 120, 1500));
                 OrbwalkerMenu.Add("WforQ", new CheckBox("Use W if axe to far away"));
                 OrbwalkerMenu.AddGroupLabel("Safety Options");
-                OrbwalkerMenu.Add("Qturret", new CheckBox("Kule altında tutma"));
-                OrbwalkerMenu.Add("Qenemies", new CheckBox("Dusman grubunda tutma"));
-                OrbwalkerMenu.Add("Qkill", new CheckBox("Olucekse balta tutma"));
-                OrbwalkerMenu.Add("Qmelee", new CheckBox("Tf'de tutma"));
+                OrbwalkerMenu.Add("Qturret", new CheckBox("Don´t catch under turret"));
+                OrbwalkerMenu.Add("Qenemies", new CheckBox("Don´t catch in enemy group"));
+                OrbwalkerMenu.Add("Qkill", new CheckBox("Don´t catch if can kill"));
+                OrbwalkerMenu.Add("Qmelee", new CheckBox("Don´t catch near melees"));
                 OrbwalkerMenu.AddGroupLabel("Drawings");
-                OrbwalkerMenu.Add("DrawAxe", new CheckBox("Göster balta"));
-                OrbwalkerMenu.Add("DrawAxeRange", new CheckBox("Balta tutma uzakligini Goster"));
+                OrbwalkerMenu.Add("DrawAxe", new CheckBox("Draw Axe"));
+                OrbwalkerMenu.Add("DrawAxeRange", new CheckBox("Draw Axe catch Range"));
 
             }
             else
             {
-                OrbwalkerMenu.AddGroupLabel("Sadece Draaaven");
+                OrbwalkerMenu.AddGroupLabel("Only for Draaaven");
             }
         }
 
@@ -189,8 +189,8 @@ namespace AkaCore.Manager
             //FPS.AddGroupLabel("This is only working with my addons :/");
             
             FPS.Add("minfps", new Slider("Min Fps", 45, 1, 350));
-            FPS.Add("calcps", new Slider("Saniyedeki Hesaplamalar", 35, 1, 350));
-            FPS.Add("enablefps", new CheckBox("FPS Korumasını etkinleştir"));
+            FPS.Add("calcps", new Slider("Calculations per Sec", 35, 1, 350));
+            FPS.Add("enablefps", new CheckBox("Enable FPS Protection"));
         }
 
         #region checkvalues

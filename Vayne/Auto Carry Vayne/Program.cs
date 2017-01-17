@@ -16,7 +16,7 @@ namespace Auto_Carry_Vayne
             if (Variables._Player.ChampionName != "Vayne") return;
             AkaCore.Program.Load(args);
             Manager.Manager.Load();
-            Chat.Print("Auto Carry Vayne Yuklendi! Aka tarafindan yapildi, TekinTR tarafından cevrildi");
+            Chat.Print("Auto Carry Vayne Yuklendi! Aka Tarafindan Olusturuldu.TekinTR Tarafindan Turkce'ye Cevrildi.");
         }
     }
 }
