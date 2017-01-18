@@ -1,0 +1,11 @@
+C:\Users\Tekin\Desktop\EloBuddy-Addons-WIP-master\UnsignedRengar\bin\Release\UnsignedRengar.exe.config
+C:\Users\Tekin\Desktop\EloBuddy-Addons-WIP-master\UnsignedRengar\bin\Release\UnsignedRengar.exe
+C:\Users\Tekin\Desktop\EloBuddy-Addons-WIP-master\UnsignedRengar\bin\Release\UnsignedRengar.pdb
+C:\Users\Tekin\Desktop\EloBuddy-Addons-WIP-master\UnsignedRengar\bin\Release\EloBuddy.dll
+C:\Users\Tekin\Desktop\EloBuddy-Addons-WIP-master\UnsignedRengar\bin\Release\EloBuddy.SDK.dll
+C:\Users\Tekin\Desktop\EloBuddy-Addons-WIP-master\UnsignedRengar\bin\Release\SharpDX.dll
+C:\Users\Tekin\Desktop\EloBuddy-Addons-WIP-master\UnsignedRengar\bin\Release\SharpDX.Direct3D9.dll
+C:\Users\Tekin\Desktop\EloBuddy-Addons-WIP-master\UnsignedRengar\bin\Release\EloBuddy.Sandbox.dll
+C:\Users\Tekin\Desktop\EloBuddy-Addons-WIP-master\UnsignedRengar\bin\Release\Newtonsoft.Json.dll
+C:\Users\Tekin\Desktop\EloBuddy-Addons-WIP-master\UnsignedRengar\obj\Release\UnsignedRengar.exe
+C:\Users\Tekin\Desktop\EloBuddy-Addons-WIP-master\UnsignedRengar\obj\Release\UnsignedRengar.pdb
