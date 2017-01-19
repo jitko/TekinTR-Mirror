@@ -38,14 +38,9 @@ namespace AkaCore.Features.Utility.Modules
             frameRate++;
             delay += System.Environment.TickCount - lastTickdelay;
             lastTickdelay = System.Environment.TickCount;
-
-            if (CheckFps())
-            {
-                return;
-            }
         }
 
-        public bool CheckFps()
+        public static bool CheckFps()
         {
             if (!Manager.MenuManager.EnableFPS)
             {

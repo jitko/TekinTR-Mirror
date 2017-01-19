@@ -7,15 +7,12 @@ using EloBuddy;
 using EloBuddy.SDK;
 using EloBuddy.SDK.Menu.Values;
 using EloBuddy.SDK.Menu;
-using AkaCore.AkaLib.Evade;
 
 namespace AkaCore.Manager
 {
     class MenuManager
     {
-        private static Menu HMenu, ActivatorMenu, UtilityMenu, OrbwalkerMenu, FPS, HumanizerMenu;
-        public static Menu EvadeMenu;
-
+        private static Menu HMenu, ActivatorMenu, UtilityMenu, OrbwalkerMenu, EvadeMenu, FPS;
 
         public static void Load()
         {
@@ -25,7 +22,6 @@ namespace AkaCore.Manager
             Orbwalkermenu();
             Evademenu();
             FPSMenu();
-            Humanizer();
         }
 
         private static void Hauptmenu()
@@ -114,48 +110,44 @@ namespace AkaCore.Manager
             ActivatorMenu.Add("SKrug", new CheckBox("Kayacil Camp", false));
             ActivatorMenu.Add("SCrap", new CheckBox("Yengec", false));
             ActivatorMenu.AddGroupLabel("Cleanse");
-            ActivatorMenu.Add("Qss", new CheckBox("Kullan Qss"));
-            ActivatorMenu.Add("Mecurial", new CheckBox("Kullan Mecurial"));
-            ActivatorMenu.Add("Cleanser", new CheckBox("Kullan civali"));
+            ActivatorMenu.Add("Qss", new CheckBox("Use Qss"));
+            ActivatorMenu.Add("Mecurial", new CheckBox("Use Mecurial"));
+            ActivatorMenu.Add("Cleanser", new CheckBox("Use Cleanse"));
             ActivatorMenu.Add("QssDelay", new Slider("Delay", 100, 0, 2000));
             ActivatorMenu.Add("Blind",
-                new CheckBox("Kor Etme", false));
+                new CheckBox("Blind", false));
             ActivatorMenu.Add("Charm",
-                new CheckBox("Buyu"));
+                new CheckBox("Charm"));
             ActivatorMenu.Add("Fear",
-                new CheckBox("Korkutma"));
+                new CheckBox("Fear"));
             ActivatorMenu.Add("Polymorph",
                 new CheckBox("Polymorph"));
             ActivatorMenu.Add("Stun",
-                new CheckBox("Sersemleme"));
+                new CheckBox("Stun"));
             ActivatorMenu.Add("Snare",
-                new CheckBox("Kapan"));
+                new CheckBox("Snare"));
             ActivatorMenu.Add("Silence",
-                new CheckBox("Susturma", false));
+                new CheckBox("Silence", false));
             ActivatorMenu.Add("Taunt",
                 new CheckBox("Taunt"));
             ActivatorMenu.Add("Suppression",
-                new CheckBox("Durdurma"));
-            ActivatorMenu.Add("Knockback",
-                new CheckBox("Geriatma"));
-            ActivatorMenu.Add("Knockup",
-                new CheckBox("ileriatma"));
+                new CheckBox("Suppression"));
         }
 
         private static void Utilitymenu()
         {
             UtilityMenu = HMenu.AddSubMenu("Utility", "kappa");
             UtilityMenu.AddGroupLabel("Utility");
-            UtilityMenu.Add("Skinhack", new CheckBox("Skin secici aktif", false));
+            UtilityMenu.Add("Skinhack", new CheckBox("Activate Skin hack", false));
             UtilityMenu.Add("SkinID", new Slider("SkinID", 0, 0, 15));
-            UtilityMenu.Add("Autolvl", new CheckBox("Oto level aktif"));
+            UtilityMenu.Add("Autolvl", new CheckBox("Activate Auto level"));
             UtilityMenu.Add("AutolvlS", new ComboBox("Level Mode", 0, "Max Q", "Max W", "Max E"));
-            UtilityMenu.Add("Autobuy", new CheckBox("Oto Baslangic"));
-            UtilityMenu.Add("AutobuyS", new ComboBox("Starter Item", 0, "Dorans Kilici", "Dorans yuzugu", "Dorans kalkani", "Corrupting Potion", "Avci Palasi", "Avci tilsimi", "Ancient Coin", "SpellThiefs", "Relic Shield"));
-            UtilityMenu.Add("Autobuyt", new CheckBox("Totem yukseltme"));
-            UtilityMenu.Add("AutobuytS", new ComboBox("Upgrade to", 0, "UzakGorus Alteration", "Tarayici Alteration"));
-            UtilityMenu.Add("Autolantern", new CheckBox("Otomatik Fener"));
-            UtilityMenu.Add("AutolanternHP", new Slider("Otomatik Fener if Hp =>", 40));
+            UtilityMenu.Add("Autobuy", new CheckBox("Autobuy Starters"));
+            UtilityMenu.Add("AutobuyS", new ComboBox("Starter Item", 0, "Dorans Blade", "Dorans Ring", "Dorans Shield", "Corrupting Potion", "Hunters Machete", "Hunters Talisman", "Ancient Coin", "SpellThiefs", "Relic Shield"));
+            UtilityMenu.Add("Autobuyt", new CheckBox("Upgrade Trinkets"));
+            UtilityMenu.Add("AutobuytS", new ComboBox("Upgrade to", 0, "Farsight Alteration", "Oracle Alteration"));
+            UtilityMenu.Add("Autolantern", new CheckBox("Auto Lantern"));
+            UtilityMenu.Add("AutolanternHP", new Slider("Auto Lantern if Hp =>", 40));
         }
 
         private static void Orbwalkermenu()
@@ -176,89 +168,19 @@ namespace AkaCore.Manager
                 OrbwalkerMenu.AddGroupLabel("Drawings");
                 OrbwalkerMenu.Add("DrawAxe", new CheckBox("Draw Axe"));
                 OrbwalkerMenu.Add("DrawAxeRange", new CheckBox("Draw Axe catch Range"));
+
             }
             else
             {
-                OrbwalkerMenu.AddGroupLabel("Play Draven to have perfect Auto Catch");
-                OrbwalkerMenu.AddGroupLabel("Animation Cancel");
-                OrbwalkerMenu.AddLabel("Note: Obvious - Works good with Vayne/Riven");
-                OrbwalkerMenu.Add("Spell1", new CheckBox("Cancel Q Animation", false));
-                OrbwalkerMenu.Add("Spell2", new CheckBox("Cancel W Animation", false));
-                OrbwalkerMenu.Add("Spell3", new CheckBox("Cancel E Animation", false));
-                OrbwalkerMenu.Add("Spell4", new CheckBox("Cancel R Animation", false));
+                OrbwalkerMenu.AddGroupLabel("Only for Draaaven");
             }
         }
 
         private static void Evademenu()
         {
-            //Attention: Spaghetti Code inc kappa
-
-            EvadeManager.EvadeSkillshot.Init();
-            EvadeManager.EvadeTarget.Init();
-            
             EvadeMenu = HMenu.AddSubMenu("Evade", "asddsf");
-            {
-                EvadeMenu.AddGroupLabel("Evade");
-                if (ObjectManager.Player.ChampionName == "Yasuo" || ObjectManager.Player.ChampionName == "Vayne")
-                {
-                    EvadeMenu.AddGroupLabel("My Spells");
-                    foreach (var spell in EvadeSpellDatabase.Spells)
-                    {
-                        EvadeMenu.AddGroupLabel(spell.Name);
-                        {
-                            if (spell.Name == "YasuoDashWrapper")
-                            {
-                                EvadeMenu.Add("ETower", new CheckBox("Under Tower", false));
-                            }
-                            else if (spell.Name == "YasuoWMovingWall")
-                            {
-                                EvadeMenu.Add("WDelay", new Slider("Extra Delay", 100, 0, 150));
-                            }
-                            EvadeMenu.Add(spell.Name + "DangerLevelY", new Slider("If Danger Level >=", 2, 1, 5));
-                            EvadeMenu.Add(spell.Name + "EnabledY", new CheckBox("Enabled"));
-                        }
-                        MyDLVL = EvadeMenu[spell.Name + "DangerLevelY"];
-                        MyEnabled = EvadeMenu[spell.Name + "EnabledY"];
-                    }
-                    EvadeMenu.AddGroupLabel("Enemy Spells");
-                    foreach (var spell in
-                        SpellDatabase.Spells.Where(i => EntityManager.Heroes.Enemies.Any(a => a.ChampionName == i.ChampionName)))
-                    {
-                        EvadeMenu.AddGroupLabel(spell.SpellName);
-                        {
-                            EvadeMenu.Add(spell.SpellName + "DangerLevel", new Slider("Danger Level", spell.DangerValue, 1, 5));
-                            EvadeMenu.Add(spell.SpellName + "Enabled", new CheckBox("Enabled", !spell.DisabledByDefault));
-                        }
-                        EEnabled = EvadeMenu[spell.SpellName + "Enabled"];
-                        EDLVL = EvadeMenu[spell.SpellName + "DangerLevel"];
-                    }
-                    if (ObjectManager.Player.ChampionName == "Yasuo")
-                    {
-                        EvadeMenu.AddGroupLabel("Evade Target"); {
-                            EvadeMenu.Add("W", new CheckBox("Use W")); //                                    evadeSpells.Add("ETower", new CheckBox("Under Tower", false));
-                            EvadeMenu.Add("E", new CheckBox("Use E (To Dash Behind WindWall)"));
-                            EvadeMenu.Add("ETower", new CheckBox("-> Under Tower", false));
-                            EvadeMenu.Add("BAttack", new CheckBox("Basic Attack"));
-                            EvadeMenu.Add("BAttackHpU", new Slider("-> If Hp <", 35));
-                            EvadeMenu.Add("CAttack", new CheckBox("Crit Attack"));
-                            EvadeMenu.Add("CAttackHpU", new Slider("-> If Hp <", 40));
-                            EvadeMenu.AddGroupLabel("Evade Point to Click");
-                            foreach (
-         var spell in EvadeManager.EvadeTarget.Spells.Where(i => EntityManager.Heroes.Enemies.Any(a => a.ChampionName == i.ChampionName)))
-                            {
-                                EvadeMenu.Add(spell.MissileName, new CheckBox(
-                                    spell.MissileName + " (" + spell.Slot + ")",
-                                    false));
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    EvadeMenu.AddGroupLabel("Champ not supported yet");
-                }
-            }
-            
+            EvadeMenu.AddGroupLabel("Evade");
+            EvadeMenu.AddGroupLabel("Nothing here yet :(");
         }
 
         private static void FPSMenu()
@@ -269,18 +191,6 @@ namespace AkaCore.Manager
             FPS.Add("minfps", new Slider("Min Fps", 45, 1, 350));
             FPS.Add("calcps", new Slider("Calculations per Sec", 35, 1, 350));
             FPS.Add("enablefps", new CheckBox("Enable FPS Protection"));
-        }
-
-        private static void Humanizer()
-        {
-            HumanizerMenu = HMenu.AddSubMenu("Humanizer", "hu3");
-            HumanizerMenu.AddGroupLabel("Humanize Spells >.<");
-            HumanizerMenu.AddLabel("Ask me if you need more options.");
-            HumanizerMenu.Add("HQ", new Slider("Humanize Q", 0, 0, 400));
-            HumanizerMenu.Add("HW", new Slider("Humanize W", 0, 0, 400));
-            HumanizerMenu.Add("HE", new Slider("Humanize E", 0, 0, 400));
-            HumanizerMenu.Add("HR", new Slider("Humanize R", 0, 0, 400));
-            HumanizerMenu.Add("Humanize", new CheckBox("Enable Humanzier", false));
         }
 
         #region checkvalues
@@ -676,16 +586,6 @@ namespace AkaCore.Manager
             get { return (ActivatorMenu["Suppression"].Cast<CheckBox>().CurrentValue); }
         }
 
-        public static bool QssKnockback
-        {
-            get { return (ActivatorMenu["Knockback"].Cast<CheckBox>().CurrentValue); }
-        }
-
-        public static bool QssKnockup
-        {
-            get { return (ActivatorMenu["Knockup"].Cast<CheckBox>().CurrentValue); }
-        }
-
         public static bool AItems
         {
             get { return (ActivatorMenu["AItems"].Cast<CheckBox>().CurrentValue); }
@@ -786,24 +686,6 @@ namespace AkaCore.Manager
         }
         #endregion
         #endregion
-        #region Animationcancel
-        public static bool AnimationCancelQ
-        {
-            get { return (OrbwalkerMenu["Spell1"].Cast<CheckBox>().CurrentValue); }
-        }
-        public static bool AnimationCancelW
-        {
-            get { return (OrbwalkerMenu["Spell2"].Cast<CheckBox>().CurrentValue); }
-        }
-        public static bool AnimationCancelE
-        {
-            get { return (OrbwalkerMenu["Spell3"].Cast<CheckBox>().CurrentValue); }
-        }
-        public static bool AnimationCancelR
-        {
-            get { return (OrbwalkerMenu["Spell4"].Cast<CheckBox>().CurrentValue); }
-        }
-        #endregion
         #endregion
         #region checkvalues:fps
 
@@ -820,43 +702,6 @@ namespace AkaCore.Manager
         public static bool EnableFPS
         {
             get { return (FPS["enablefps"].Cast<CheckBox>().CurrentValue); }
-        }
-        #endregion
-        #region checkvalus:evade
-        public static bool EvadeETower
-        {
-            get { return (EvadeMenu["ETower"].Cast<CheckBox>().CurrentValue); }
-        }
-        public static int EvadeWDelay
-        {
-            get { return (EvadeMenu["WDelay"].Cast<Slider>().CurrentValue); }
-        }
-        public static ValueBase MyEnabled;
-        public static ValueBase MyDLVL;
-        public static ValueBase EEnabled;
-        public static ValueBase EDLVL;
-        public static ValueBase PointtoClick;
-        #endregion
-        #region checkvalues:humanizer
-        public static int HumanizeQ
-        {
-            get { return (HumanizerMenu["HQ"].Cast<Slider>().CurrentValue); }
-        }
-        public static int HumanizeW
-        {
-            get { return (HumanizerMenu["HW"].Cast<Slider>().CurrentValue); }
-        }
-        public static int HumanizeE
-        {
-            get { return (HumanizerMenu["HE"].Cast<Slider>().CurrentValue); }
-        }
-        public static int HumanizeR
-        {
-            get { return (HumanizerMenu["HR"].Cast<Slider>().CurrentValue); }
-        }
-        public static bool EnableH
-        {
-            get { return (HumanizerMenu["Humanize"].Cast<CheckBox>().CurrentValue); }
         }
         #endregion
         #endregion

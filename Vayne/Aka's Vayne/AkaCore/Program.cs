@@ -11,7 +11,7 @@ namespace AkaCore
 {
     class Program
     {
-        public static void Load()
+        public static void Load(EventArgs args)
         {
             Manager.Load.Execute();
             Chat.Print("AkaCore Loaded.");

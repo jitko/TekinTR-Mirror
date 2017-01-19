@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using EloBuddy;
 using EloBuddy.SDK;
-using EloBuddy.SDK.Enumerations;
 
 namespace AkaCore.AkaLib
 {
@@ -15,7 +14,6 @@ namespace AkaCore.AkaLib
 
         public static Spell.Active Heal, Cleanse, Barrier;
         public static Spell.Targeted Ignite, Exhaust, Smite;
-        public static Spell.Skillshot Flash;
 
         public static void Load()
         {
@@ -76,11 +74,6 @@ namespace AkaCore.AkaLib
             if (slot6 != null)
             {
                 Smite = new Spell.Targeted(slot6.Slot, 570);
-            }
-            var slot7 = ObjectManager.Player.GetSpellSlotFromName("summonerflash");
-            if (slot7 != SpellSlot.Unknown)
-            {
-                Flash = new Spell.Skillshot(slot7, 425, SkillShotType.Circular);
             }
         }
     }
