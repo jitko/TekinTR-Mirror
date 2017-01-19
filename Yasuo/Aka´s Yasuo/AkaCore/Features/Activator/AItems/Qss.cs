@@ -24,6 +24,16 @@ namespace AkaCore.Features.Activator.AItems
         {
             if (!sender.IsMe) return;
 
+            if (args.Buff.Type == BuffType.Knockback && AkaCore.Manager.MenuManager.QssKnockback)
+            {
+                DoQSS();
+            }
+
+            if (args.Buff.Type == BuffType.Knockup && AkaCore.Manager.MenuManager.QssKnockup)
+            {
+                DoQSS();
+            }
+
             if (args.Buff.Type == BuffType.Taunt && AkaCore.Manager.MenuManager.QssTaunt)
             {
                 DoQSS();

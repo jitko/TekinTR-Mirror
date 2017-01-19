@@ -7,12 +7,15 @@ using EloBuddy;
 using EloBuddy.SDK;
 using EloBuddy.SDK.Menu.Values;
 using EloBuddy.SDK.Menu;
+using AkaCore.AkaLib.Evade;
 
 namespace AkaCore.Manager
 {
     class MenuManager
     {
-        private static Menu HMenu, ActivatorMenu, UtilityMenu, OrbwalkerMenu, EvadeMenu, FPS;
+        private static Menu HMenu, ActivatorMenu, UtilityMenu, OrbwalkerMenu, FPS, HumanizerMenu;
+        public static Menu EvadeMenu;
+
 
         public static void Load()
         {
@@ -22,6 +25,7 @@ namespace AkaCore.Manager
             Orbwalkermenu();
             Evademenu();
             FPSMenu();
+            Humanizer();
         }
 
         private static void Hauptmenu()
@@ -34,120 +38,124 @@ namespace AkaCore.Manager
         {
             ActivatorMenu = HMenu.AddSubMenu("Activator", "Activator");
             ActivatorMenu.AddGroupLabel("Aggressive Items");
-            ActivatorMenu.Add("AItems", new CheckBox("Use Items"));
-            ActivatorMenu.Add("Botrk", new CheckBox("Mahvolmus ve Bilgewater Kullan"));
+            ActivatorMenu.Add("AItems", new CheckBox("Kullan Items"));
+            ActivatorMenu.Add("Botrk", new CheckBox("Kullan Botrk/Bilge"));
             ActivatorMenu.Add("Hydra", new CheckBox("Kullan Hydra/Tiamat"));
             ActivatorMenu.Add("Titanic", new CheckBox("Kullan Titanic"));
-            ActivatorMenu.Add("HGB", new CheckBox("Hextech SilahliKilic Kullan"));
+            ActivatorMenu.Add("HGB", new CheckBox("Kullan Hextech Silahkilic"));
             ActivatorMenu.Add("HGLP", new CheckBox("Kullan Hextech GLP"));
-            ActivatorMenu.Add("HPB", new CheckBox("Kullan Hextech Roketkemer"));
-            ActivatorMenu.Add("Queens", new CheckBox("Kullan Buz Kralicesi"));
-            ActivatorMenu.Add("QueensDis", new Slider("Enemies distance =>", 1500, 0, 3000));
-            ActivatorMenu.Add("Glory", new CheckBox("Görkemli Zafer Kullan"));
-            ActivatorMenu.Add("GloryDis", new Slider("Enemies distance =>", 600, 0, 1000));
-            ActivatorMenu.Add("Talis", new CheckBox("Ulularin Tilsimi Kullan"));
-            ActivatorMenu.Add("TalisDis", new Slider("Enemies distance =>", 1000, 0, 2000));
-            ActivatorMenu.Add("You", new CheckBox("Use Ghostblade"));
+            ActivatorMenu.Add("HPB", new CheckBox("Kullan Hextech Kemeri"));
+            ActivatorMenu.Add("Queens", new CheckBox("Kullan Buzdis"));
+            ActivatorMenu.Add("QueensDis", new Slider("Dusman uzakligi =>", 1500, 0, 3000));
+            ActivatorMenu.Add("Glory", new CheckBox("Kullan Gorkemli zafer"));
+            ActivatorMenu.Add("GloryDis", new Slider("Dusman uzakligi =>", 600, 0, 1000));
+            ActivatorMenu.Add("Talis", new CheckBox("Kullan Tilsim"));
+            ActivatorMenu.Add("TalisDis", new Slider("Dusman uzakligi =>", 1000, 0, 2000));
+            ActivatorMenu.Add("You", new CheckBox("Kullan HayaletKilic"));
             ActivatorMenu.AddGroupLabel("Defensive Items");
-            ActivatorMenu.Add("DItems", new CheckBox("Use Items"));
-            ActivatorMenu.Add("FaceMe", new CheckBox("Dagin Sureti Kullan Me")); // The identifier tho kappa
-            ActivatorMenu.Add("FaceMeHp", new Slider("If my hp <=", 20, 0, 100));
-            ActivatorMenu.Add("FaceAlly", new CheckBox("Dagin Sureti Kullan Ally"));
-            ActivatorMenu.Add("FaceAllyHp", new Slider("If allies hp <=", 20, 0, 100));
-            ActivatorMenu.Add("SolariMe", new CheckBox("Demir Solari Kullan Me"));
-            ActivatorMenu.Add("SolariMeHp", new Slider("If my hp <=", 20, 0, 100));
-            ActivatorMenu.Add("SolariAlly", new CheckBox("Demir Solari Kullan Ally"));
-            ActivatorMenu.Add("SolariAllyHp", new Slider("If allies hp <=", 20, 0, 100));
-            ActivatorMenu.Add("Omen", new CheckBox("Kullan Randuins"));
-            ActivatorMenu.Add("OmenHp", new Slider("If my hp <=", 20, 0, 100));
-            ActivatorMenu.Add("Seraphs", new CheckBox("Kullan Seraphs"));
-            ActivatorMenu.Add("SeraphsHp", new Slider("If my hp <=", 20, 0, 100));
-            ActivatorMenu.Add("Talis2", new CheckBox("Ulularin Tilsimi Kullan"));
-            ActivatorMenu.Add("Talis2Hp", new Slider("If my hp <=", 20, 0, 100));
-            ActivatorMenu.Add("Glory2", new CheckBox("Use Rightenous Glory"));
-            ActivatorMenu.Add("Glory2Hp", new Slider("If my hp <=", 20, 0, 100));
-            ActivatorMenu.Add("Zhonyas", new CheckBox("Kullan Zhonyas"));
-            ActivatorMenu.Add("ZhonyasHp", new Slider("If my hp <=", 20, 0, 100));
+            ActivatorMenu.Add("DItems", new CheckBox("Kullan Items"));
+            ActivatorMenu.Add("FaceMe", new CheckBox("Kullan Dagin sureti ben")); // The identifier tho kappa
+            ActivatorMenu.Add("FaceMeHp", new Slider("If benim hp <=", 20, 0, 100));
+            ActivatorMenu.Add("FaceAlly", new CheckBox("Kullan Dagin sureti Takim"));
+            ActivatorMenu.Add("FaceAllyHp", new Slider("If Takim hp <=", 20, 0, 100));
+            ActivatorMenu.Add("SolariMe", new CheckBox("Kullan Demir solari ben"));
+            ActivatorMenu.Add("SolariMeHp", new Slider("If benim hp <=", 20, 0, 100));
+            ActivatorMenu.Add("SolariAlly", new CheckBox("Kullan Demir solari Takim"));
+            ActivatorMenu.Add("SolariAllyHp", new Slider("If Takim hp <=", 20, 0, 100));
+            ActivatorMenu.Add("Omen", new CheckBox("Kullan Randuni"));
+            ActivatorMenu.Add("OmenHp", new Slider("If benim hp <=", 20, 0, 100));
+            ActivatorMenu.Add("Seraphs", new CheckBox("Kullan Seraph"));
+            ActivatorMenu.Add("SeraphsHp", new Slider("If benim hp <=", 20, 0, 100));
+            ActivatorMenu.Add("Talis2", new CheckBox("Kullan Talisman"));
+            ActivatorMenu.Add("Talis2Hp", new Slider("If benim hp <=", 20, 0, 100));
+            ActivatorMenu.Add("Glory2", new CheckBox("Kullan Gorkemli zafer"));
+            ActivatorMenu.Add("Glory2Hp", new Slider("If benim hp <=", 20, 0, 100));
+            ActivatorMenu.Add("Zhonyas", new CheckBox("Kullan zonya"));
+            ActivatorMenu.Add("ZhonyasHp", new Slider("If benim hp <=", 20, 0, 100));
             ActivatorMenu.AddGroupLabel("Pots");
-            ActivatorMenu.Add("PItems", new CheckBox("Use Pots"));
-            ActivatorMenu.Add("HPPot", new CheckBox("Use Health potion"));
-            ActivatorMenu.Add("HPPotHp", new Slider("If my hp <=", 40, 0, 100));
+            ActivatorMenu.Add("PItems", new CheckBox("Kullan iksir"));
+            ActivatorMenu.Add("HPPot", new CheckBox("Kullan saglik iksiri"));
+            ActivatorMenu.Add("HPPotHp", new Slider("If benim hp <=", 40, 0, 100));
             ActivatorMenu.Add("Biscuit", new CheckBox("Use Biscuits"));
-            ActivatorMenu.Add("BiscuitHp", new Slider("If my hp <=", 40, 0, 100));
-            ActivatorMenu.Add("RefillPot", new CheckBox("Use Refillable potion"));
-            ActivatorMenu.Add("RefillPotHp", new Slider("If my hp <=", 60, 0, 100));
-            ActivatorMenu.Add("HunterPot", new CheckBox("Use Hunter potion"));
-            ActivatorMenu.Add("HunterPotHp", new Slider("If my hp <=", 60, 0, 100));
-            ActivatorMenu.Add("CorruptPot", new CheckBox("Use Corrupting potion"));
-            ActivatorMenu.Add("CourrptPotHp", new Slider("If my hp <=", 60, 0, 100));
+            ActivatorMenu.Add("BiscuitHp", new Slider("If benim hp <=", 40, 0, 100));
+            ActivatorMenu.Add("RefillPot", new CheckBox("Kullan yenilenebilir iksir"));
+            ActivatorMenu.Add("RefillPotHp", new Slider("If benim hp <=", 60, 0, 100));
+            ActivatorMenu.Add("HunterPot", new CheckBox("Kullan avci iksiri"));
+            ActivatorMenu.Add("HunterPotHp", new Slider("If benim hp <=", 60, 0, 100));
+            ActivatorMenu.Add("CorruptPot", new CheckBox("Kullan musubet iksiri"));
+            ActivatorMenu.Add("CourrptPotHp", new Slider("If benim hp <=", 60, 0, 100));
             ActivatorMenu.AddGroupLabel("Summoners");
-            ActivatorMenu.Add("Heal", new CheckBox("Heal"));
-            ActivatorMenu.Add("HealHp", new Slider("Heal if my HP <=", 20, 0, 100));
-            ActivatorMenu.Add("HealAlly", new CheckBox("Heal ally"));
-            ActivatorMenu.Add("HealAllyHp", new Slider("Heal if ally HP <=", 20, 0, 100));
-            ActivatorMenu.Add("Barrier", new CheckBox("Barrier"));
-            ActivatorMenu.Add("BarrierHp", new Slider("Barrier if my HP <=", 20, 0, 100));
-            ActivatorMenu.Add("Ignite", new CheckBox("Use Ignite"));
+            ActivatorMenu.Add("Heal", new CheckBox("Sifa"));
+            ActivatorMenu.Add("HealHp", new Slider("Sifa if benim HP <=", 20, 0, 100));
+            ActivatorMenu.Add("HealAlly", new CheckBox("Sifa Takim"));
+            ActivatorMenu.Add("HealAllyHp", new Slider("Sifa if Takim HP <=", 20, 0, 100));
+            ActivatorMenu.Add("Barrier", new CheckBox("Bariyer"));
+            ActivatorMenu.Add("BarrierHp", new Slider("Bariyer if benim HP <=", 20, 0, 100));
+            ActivatorMenu.Add("Ignite", new CheckBox("Kullan Tutustur"));
             ActivatorMenu.Add("IgniteHp", new Slider("0 KS otherwise if Hp <=", 0, 0, 100));
-            ActivatorMenu.Add("Exhaust", new CheckBox("Use Exhaust"));
-            ActivatorMenu.Add("ExhaustHp", new Slider("Exhaust if enemies Hp <=", 40, 0, 100));
+            ActivatorMenu.Add("Exhaust", new CheckBox("Kullan bitkinlik"));
+            ActivatorMenu.Add("ExhaustHp", new Slider("bitkinlik if dusman Hp <=", 40, 0, 100));
             ActivatorMenu.AddGroupLabel("Smite");
-            ActivatorMenu.Add("SmiteActive", new KeyBind("Smite Active", true, KeyBind.BindTypes.PressToggle));
-            ActivatorMenu.Add("SStatus", new CheckBox("Draw Status"));
-            ActivatorMenu.Add("SDamage", new CheckBox("Draw Damage"));
+            ActivatorMenu.Add("SmiteActive", new KeyBind("Carp aktif", true, KeyBind.BindTypes.PressToggle));
+            ActivatorMenu.Add("SStatus", new CheckBox("Goster Durum"));
+            ActivatorMenu.Add("SDamage", new CheckBox("Goster Hasar"));
             ActivatorMenu.Add("SBaron", new CheckBox("Baron"));
-            ActivatorMenu.Add("SHerald", new CheckBox("Herald"));
-            ActivatorMenu.Add("SWDragon", new CheckBox("Su Ejderi"));
-            ActivatorMenu.Add("SFDragon", new CheckBox("Alev Ejderi"));
-            ActivatorMenu.Add("SEDragon", new CheckBox("Dag Ejderi"));
-            ActivatorMenu.Add("SADragon", new CheckBox("Bulut Ejderi"));
-            ActivatorMenu.Add("SElder", new CheckBox("Kadim Ejder"));
+            ActivatorMenu.Add("SHerald", new CheckBox("Alamet"));
+            ActivatorMenu.Add("SWDragon", new CheckBox("Su Dragon"));
+            ActivatorMenu.Add("SFDragon", new CheckBox("Alev Dragon"));
+            ActivatorMenu.Add("SEDragon", new CheckBox("Dag Dragon"));
+            ActivatorMenu.Add("SADragon", new CheckBox("Bulut Dragon"));
+            ActivatorMenu.Add("SElder", new CheckBox("Kadim Dragon"));
             ActivatorMenu.Add("SBlue", new CheckBox("Mavi Buff", false));
             ActivatorMenu.Add("SRed", new CheckBox("Kirmisi Buff", false));
-            ActivatorMenu.Add("SRaptor", new CheckBox("Kayacil Camp", false));
+            ActivatorMenu.Add("SRaptor", new CheckBox("Tavuklarin Camp", false));
             ActivatorMenu.Add("SWolf", new CheckBox("Kurt Camp", false));
             ActivatorMenu.Add("SGromp", new CheckBox("Gromp Camp", false));
-            ActivatorMenu.Add("SKrug", new CheckBox("Tavuk Camp", false));
-            ActivatorMenu.Add("SCrap", new CheckBox("Scuttler", false));
+            ActivatorMenu.Add("SKrug", new CheckBox("Kayacil Camp", false));
+            ActivatorMenu.Add("SCrap", new CheckBox("Yengec", false));
             ActivatorMenu.AddGroupLabel("Cleanse");
-            ActivatorMenu.Add("Qss", new CheckBox("Use Qss"));
-            ActivatorMenu.Add("Mecurial", new CheckBox("Use Mecurial"));
-            ActivatorMenu.Add("Cleanser", new CheckBox("Use Cleanse"));
+            ActivatorMenu.Add("Qss", new CheckBox("Kullan Qss"));
+            ActivatorMenu.Add("Mecurial", new CheckBox("Kullan Mecurial"));
+            ActivatorMenu.Add("Cleanser", new CheckBox("Kullan civali"));
             ActivatorMenu.Add("QssDelay", new Slider("Delay", 100, 0, 2000));
             ActivatorMenu.Add("Blind",
-                new CheckBox("Blind", false));
+                new CheckBox("Kor Etme", false));
             ActivatorMenu.Add("Charm",
-                new CheckBox("Charm"));
+                new CheckBox("Buyu"));
             ActivatorMenu.Add("Fear",
-                new CheckBox("Fear"));
+                new CheckBox("Korkutma"));
             ActivatorMenu.Add("Polymorph",
                 new CheckBox("Polymorph"));
             ActivatorMenu.Add("Stun",
-                new CheckBox("Stun"));
+                new CheckBox("Sersemleme"));
             ActivatorMenu.Add("Snare",
-                new CheckBox("Snare"));
+                new CheckBox("Kapan"));
             ActivatorMenu.Add("Silence",
-                new CheckBox("Silence", false));
+                new CheckBox("Susturma", false));
             ActivatorMenu.Add("Taunt",
                 new CheckBox("Taunt"));
             ActivatorMenu.Add("Suppression",
-                new CheckBox("Suppression"));
+                new CheckBox("Durdurma"));
+            ActivatorMenu.Add("Knockback",
+                new CheckBox("Geriatma"));
+            ActivatorMenu.Add("Knockup",
+                new CheckBox("ileriatma"));
         }
 
         private static void Utilitymenu()
         {
             UtilityMenu = HMenu.AddSubMenu("Utility", "kappa");
             UtilityMenu.AddGroupLabel("Utility");
-            UtilityMenu.Add("Skinhack", new CheckBox("Activate Skin hack", false));
+            UtilityMenu.Add("Skinhack", new CheckBox("Skin secici aktif", false));
             UtilityMenu.Add("SkinID", new Slider("SkinID", 0, 0, 15));
-            UtilityMenu.Add("Autolvl", new CheckBox("Activate Auto level"));
+            UtilityMenu.Add("Autolvl", new CheckBox("Oto level aktif"));
             UtilityMenu.Add("AutolvlS", new ComboBox("Level Mode", 0, "Max Q", "Max W", "Max E"));
-            UtilityMenu.Add("Autobuy", new CheckBox("Autobuy Starters"));
-            UtilityMenu.Add("AutobuyS", new ComboBox("Starter Item", 0, "Dorans Blade", "Dorans Ring", "Dorans Shield", "Corrupting Potion", "Hunters Machete", "Hunters Talisman", "Ancient Coin", "SpellThiefs", "Relic Shield"));
-            UtilityMenu.Add("Autobuyt", new CheckBox("Upgrade Trinkets"));
-            UtilityMenu.Add("AutobuytS", new ComboBox("Upgrade to", 0, "Farsight Alteration", "Oracle Alteration"));
-            UtilityMenu.Add("Autolantern", new CheckBox("Auto Lantern"));
-            UtilityMenu.Add("AutolanternHP", new Slider("Auto Lantern if Hp =>", 40));
+            UtilityMenu.Add("Autobuy", new CheckBox("Oto Baslangic"));
+            UtilityMenu.Add("AutobuyS", new ComboBox("Starter Item", 0, "Dorans Kilici", "Dorans yuzugu", "Dorans kalkani", "Corrupting Potion", "Avci Palasi", "Avci tilsimi", "Ancient Coin", "SpellThiefs", "Relic Shield"));
+            UtilityMenu.Add("Autobuyt", new CheckBox("Totem yukseltme"));
+            UtilityMenu.Add("AutobuytS", new ComboBox("Upgrade to", 0, "UzakGorus Alteration", "Tarayici Alteration"));
+            UtilityMenu.Add("Autolantern", new CheckBox("Otomatik Fener"));
+            UtilityMenu.Add("AutolanternHP", new Slider("Otomatik Fener if Hp =>", 40));
         }
 
         private static void Orbwalkermenu()
@@ -161,26 +169,96 @@ namespace AkaCore.Manager
                 OrbwalkerMenu.Add("Qrange", new Slider("Catch Axe Range:", 800, 120, 1500));
                 OrbwalkerMenu.Add("WforQ", new CheckBox("Use W if axe to far away"));
                 OrbwalkerMenu.AddGroupLabel("Safety Options");
-                OrbwalkerMenu.Add("Qturret", new CheckBox("Kule alti balta tutma"));
-                OrbwalkerMenu.Add("Qenemies", new CheckBox("Takim savasinda balta tutma"));
-                OrbwalkerMenu.Add("Qkill", new CheckBox("Olucek ise balta tutma"));
+                OrbwalkerMenu.Add("Qturret", new CheckBox("Don´t catch under turret"));
+                OrbwalkerMenu.Add("Qenemies", new CheckBox("Don´t catch in enemy group"));
+                OrbwalkerMenu.Add("Qkill", new CheckBox("Don´t catch if can kill"));
                 OrbwalkerMenu.Add("Qmelee", new CheckBox("Don´t catch near melees"));
                 OrbwalkerMenu.AddGroupLabel("Drawings");
-                OrbwalkerMenu.Add("DrawAxe", new CheckBox("Goster balta"));
-                OrbwalkerMenu.Add("DrawAxeRange", new CheckBox("Goster balta tutma mesafesi"));
-
+                OrbwalkerMenu.Add("DrawAxe", new CheckBox("Draw Axe"));
+                OrbwalkerMenu.Add("DrawAxeRange", new CheckBox("Draw Axe catch Range"));
             }
             else
             {
-                OrbwalkerMenu.AddGroupLabel("Sadece Draaaven");
+                OrbwalkerMenu.AddGroupLabel("Play Draven to have perfect Auto Catch");
+                OrbwalkerMenu.AddGroupLabel("Animation Cancel");
+                OrbwalkerMenu.AddLabel("Note: Obvious - Works good with Vayne/Riven");
+                OrbwalkerMenu.Add("Spell1", new CheckBox("Cancel Q Animation", false));
+                OrbwalkerMenu.Add("Spell2", new CheckBox("Cancel W Animation", false));
+                OrbwalkerMenu.Add("Spell3", new CheckBox("Cancel E Animation", false));
+                OrbwalkerMenu.Add("Spell4", new CheckBox("Cancel R Animation", false));
             }
         }
 
         private static void Evademenu()
         {
+            //Attention: Spaghetti Code inc kappa
+
+            EvadeManager.EvadeSkillshot.Init();
+            EvadeManager.EvadeTarget.Init();
+            
             EvadeMenu = HMenu.AddSubMenu("Evade", "asddsf");
-            EvadeMenu.AddGroupLabel("Evade");
-            EvadeMenu.AddGroupLabel("Nothing here yet :(");
+            {
+                EvadeMenu.AddGroupLabel("Evade");
+                if (ObjectManager.Player.ChampionName == "Yasuo" || ObjectManager.Player.ChampionName == "Vayne")
+                {
+                    EvadeMenu.AddGroupLabel("My Spells");
+                    foreach (var spell in EvadeSpellDatabase.Spells)
+                    {
+                        EvadeMenu.AddGroupLabel(spell.Name);
+                        {
+                            if (spell.Name == "YasuoDashWrapper")
+                            {
+                                EvadeMenu.Add("ETower", new CheckBox("Under Tower", false));
+                            }
+                            else if (spell.Name == "YasuoWMovingWall")
+                            {
+                                EvadeMenu.Add("WDelay", new Slider("Extra Delay", 100, 0, 150));
+                            }
+                            EvadeMenu.Add(spell.Name + "DangerLevelY", new Slider("If Danger Level >=", 2, 1, 5));
+                            EvadeMenu.Add(spell.Name + "EnabledY", new CheckBox("Enabled"));
+                        }
+                        MyDLVL = EvadeMenu[spell.Name + "DangerLevelY"];
+                        MyEnabled = EvadeMenu[spell.Name + "EnabledY"];
+                    }
+                    EvadeMenu.AddGroupLabel("Enemy Spells");
+                    foreach (var spell in
+                        SpellDatabase.Spells.Where(i => EntityManager.Heroes.Enemies.Any(a => a.ChampionName == i.ChampionName)))
+                    {
+                        EvadeMenu.AddGroupLabel(spell.SpellName);
+                        {
+                            EvadeMenu.Add(spell.SpellName + "DangerLevel", new Slider("Danger Level", spell.DangerValue, 1, 5));
+                            EvadeMenu.Add(spell.SpellName + "Enabled", new CheckBox("Enabled", !spell.DisabledByDefault));
+                        }
+                        EEnabled = EvadeMenu[spell.SpellName + "Enabled"];
+                        EDLVL = EvadeMenu[spell.SpellName + "DangerLevel"];
+                    }
+                    if (ObjectManager.Player.ChampionName == "Yasuo")
+                    {
+                        EvadeMenu.AddGroupLabel("Evade Target"); {
+                            EvadeMenu.Add("W", new CheckBox("Use W")); //                                    evadeSpells.Add("ETower", new CheckBox("Under Tower", false));
+                            EvadeMenu.Add("E", new CheckBox("Use E (To Dash Behind WindWall)"));
+                            EvadeMenu.Add("ETower", new CheckBox("-> Under Tower", false));
+                            EvadeMenu.Add("BAttack", new CheckBox("Basic Attack"));
+                            EvadeMenu.Add("BAttackHpU", new Slider("-> If Hp <", 35));
+                            EvadeMenu.Add("CAttack", new CheckBox("Crit Attack"));
+                            EvadeMenu.Add("CAttackHpU", new Slider("-> If Hp <", 40));
+                            EvadeMenu.AddGroupLabel("Evade Point to Click");
+                            foreach (
+         var spell in EvadeManager.EvadeTarget.Spells.Where(i => EntityManager.Heroes.Enemies.Any(a => a.ChampionName == i.ChampionName)))
+                            {
+                                EvadeMenu.Add(spell.MissileName, new CheckBox(
+                                    spell.MissileName + " (" + spell.Slot + ")",
+                                    false));
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    EvadeMenu.AddGroupLabel("Champ not supported yet");
+                }
+            }
+            
         }
 
         private static void FPSMenu()
@@ -190,7 +268,19 @@ namespace AkaCore.Manager
             
             FPS.Add("minfps", new Slider("Min Fps", 45, 1, 350));
             FPS.Add("calcps", new Slider("Calculations per Sec", 35, 1, 350));
-            FPS.Add("enablefps", new CheckBox("FPS yardimcisini aktif"));
+            FPS.Add("enablefps", new CheckBox("Enable FPS Protection"));
+        }
+
+        private static void Humanizer()
+        {
+            HumanizerMenu = HMenu.AddSubMenu("Humanizer", "hu3");
+            HumanizerMenu.AddGroupLabel("Humanize Spells >.<");
+            HumanizerMenu.AddLabel("Ask me if you need more options.");
+            HumanizerMenu.Add("HQ", new Slider("Humanize Q", 0, 0, 400));
+            HumanizerMenu.Add("HW", new Slider("Humanize W", 0, 0, 400));
+            HumanizerMenu.Add("HE", new Slider("Humanize E", 0, 0, 400));
+            HumanizerMenu.Add("HR", new Slider("Humanize R", 0, 0, 400));
+            HumanizerMenu.Add("Humanize", new CheckBox("Enable Humanzier", false));
         }
 
         #region checkvalues
@@ -586,6 +676,16 @@ namespace AkaCore.Manager
             get { return (ActivatorMenu["Suppression"].Cast<CheckBox>().CurrentValue); }
         }
 
+        public static bool QssKnockback
+        {
+            get { return (ActivatorMenu["Knockback"].Cast<CheckBox>().CurrentValue); }
+        }
+
+        public static bool QssKnockup
+        {
+            get { return (ActivatorMenu["Knockup"].Cast<CheckBox>().CurrentValue); }
+        }
+
         public static bool AItems
         {
             get { return (ActivatorMenu["AItems"].Cast<CheckBox>().CurrentValue); }
@@ -686,6 +786,24 @@ namespace AkaCore.Manager
         }
         #endregion
         #endregion
+        #region Animationcancel
+        public static bool AnimationCancelQ
+        {
+            get { return (OrbwalkerMenu["Spell1"].Cast<CheckBox>().CurrentValue); }
+        }
+        public static bool AnimationCancelW
+        {
+            get { return (OrbwalkerMenu["Spell2"].Cast<CheckBox>().CurrentValue); }
+        }
+        public static bool AnimationCancelE
+        {
+            get { return (OrbwalkerMenu["Spell3"].Cast<CheckBox>().CurrentValue); }
+        }
+        public static bool AnimationCancelR
+        {
+            get { return (OrbwalkerMenu["Spell4"].Cast<CheckBox>().CurrentValue); }
+        }
+        #endregion
         #endregion
         #region checkvalues:fps
 
@@ -702,6 +820,43 @@ namespace AkaCore.Manager
         public static bool EnableFPS
         {
             get { return (FPS["enablefps"].Cast<CheckBox>().CurrentValue); }
+        }
+        #endregion
+        #region checkvalus:evade
+        public static bool EvadeETower
+        {
+            get { return (EvadeMenu["ETower"].Cast<CheckBox>().CurrentValue); }
+        }
+        public static int EvadeWDelay
+        {
+            get { return (EvadeMenu["WDelay"].Cast<Slider>().CurrentValue); }
+        }
+        public static ValueBase MyEnabled;
+        public static ValueBase MyDLVL;
+        public static ValueBase EEnabled;
+        public static ValueBase EDLVL;
+        public static ValueBase PointtoClick;
+        #endregion
+        #region checkvalues:humanizer
+        public static int HumanizeQ
+        {
+            get { return (HumanizerMenu["HQ"].Cast<Slider>().CurrentValue); }
+        }
+        public static int HumanizeW
+        {
+            get { return (HumanizerMenu["HW"].Cast<Slider>().CurrentValue); }
+        }
+        public static int HumanizeE
+        {
+            get { return (HumanizerMenu["HE"].Cast<Slider>().CurrentValue); }
+        }
+        public static int HumanizeR
+        {
+            get { return (HumanizerMenu["HR"].Cast<Slider>().CurrentValue); }
+        }
+        public static bool EnableH
+        {
+            get { return (HumanizerMenu["Humanize"].Cast<CheckBox>().CurrentValue); }
         }
         #endregion
         #endregion

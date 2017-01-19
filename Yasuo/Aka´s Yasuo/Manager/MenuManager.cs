@@ -42,7 +42,7 @@ namespace Aka_s_Yasuo.Manager
         private static void Hotkeys()
         {
             Hotkeymenu = VMenu.AddSubMenu("Hotkeys", "Hotkeys");
-            Hotkeymenu.Add("autoq", new KeyBind("Auto Stack Q", true, KeyBind.BindTypes.PressToggle, 'T'));
+            Hotkeymenu.Add("autoq", new KeyBind("Otomatik Q", true, KeyBind.BindTypes.PressToggle, 'T'));
             Hotkeymenu.Add("eqflash", new KeyBind("AkaData Key", false, KeyBind.BindTypes.HoldActive, 'Y'));
         }
 
@@ -51,64 +51,64 @@ namespace Aka_s_Yasuo.Manager
             ComboMenu = VMenu.AddSubMenu("Combo", "Combo");
             ComboMenu.AddGroupLabel("Combo");
             ComboMenu.Add("UseQ", new CheckBox("Kullan Q"));
-            ComboMenu.Add("UseI", new CheckBox("Kullan tutustur"));
+            ComboMenu.Add("UseI", new CheckBox("Kullan Tutustur"));
             ComboMenu.AddGroupLabel("Smart Settings");
             ComboMenu.AddLabel("Note: This isnt Evade");
             ComboMenu.Add("SUseW", new CheckBox("Kullan W", false));
             ComboMenu.Add("SUseE", new CheckBox("Kullan E", false));
             ComboMenu.AddGroupLabel("E Settings");
             ComboMenu.Add("UseE", new CheckBox("Kullan E"));
-            ComboMenu.Add("UseETower", new CheckBox("Kule altinda", false));
-            ComboMenu.Add("UseEStack", new CheckBox("Biriktir Q", false));
+            ComboMenu.Add("UseETower", new CheckBox("Kule alti", false));
+            ComboMenu.Add("UseEStack", new CheckBox("E yuk kas", false));
             ComboMenu.AddGroupLabel("R Settings");
             ComboMenu.Add("UseR", new CheckBox("Kullan R"));
-            ComboMenu.Add("UseRDelay", new CheckBox("Gecikmeli atak"));
-            ComboMenu.Add("UseRHP", new Slider("Dusman cani sundan dusukse <", 60));
-            ComboMenu.Add("UseRif", new Slider("Su kadar dusman havada ise >=", 2, 1, 5));
+            ComboMenu.Add("UseRDelay", new CheckBox("Gecikmeli kullan"));
+            ComboMenu.Add("UseRHP", new Slider("If Dusman Hp <", 60));
+            ComboMenu.Add("UseRif", new Slider("If Dusman Havaya Kalksin >=", 2, 1, 5));
             ComboMenu.AddGroupLabel("AkaData");
             ComboMenu.Add("AkaDataC", new CheckBox("Komboda"));
-            ComboMenu.Add("AkaDataMHp", new Slider("Benim canim Hp <=", 10));
-            ComboMenu.Add("AkaDataEHp", new Slider("Dusmanin cani Hp <=", 20));
+            ComboMenu.Add("AkaDataMHp", new Slider("If Benim Hp <=", 10));
+            ComboMenu.Add("AkaDataEHp", new Slider("If Dusman Hp <=", 20));
         }
 
         private static void Harassmenu()
         {
             HarassMenu = VMenu.AddSubMenu("Harass", "Harass");
-            HarassMenu.AddGroupLabel("Durtme");
+            HarassMenu.AddGroupLabel("Harass");
             HarassMenu.Add("UseQ", new CheckBox("Kullan Q"));
             HarassMenu.Add("UseQ3", new CheckBox("Kullan Q3"));
             HarassMenu.Add("UseQLH", new CheckBox("Kullan Q Son vurus"));
             HarassMenu.AddGroupLabel("Auto Harass");
-            HarassMenu.Add("UseQAuto", new CheckBox("Otomatik Q"));
+            HarassMenu.Add("UseQAuto", new CheckBox("Ototmatik Q"));
             HarassMenu.Add("UseQ3Auto", new CheckBox("Otomatik Q3"));
         }
 
         private static void LaneClearmenu()
         {
             LaneClearMenu = VMenu.AddSubMenu("Clear", "clear");
-            LaneClearMenu.AddGroupLabel("Q Ayarlari");
-            LaneClearMenu.Add("UseQ", new CheckBox("Use Q"));
-            LaneClearMenu.Add("UseQ3", new CheckBox("Use Q3"));
+            LaneClearMenu.AddGroupLabel("Q Settings");
+            LaneClearMenu.Add("UseQ", new CheckBox("Kullan Q"));
+            LaneClearMenu.Add("UseQ3", new CheckBox("Kullan Q3"));
             LaneClearMenu.AddGroupLabel("E Settings");
-            LaneClearMenu.Add("UseE", new CheckBox("Use E"));
-            LaneClearMenu.Add("UseELH", new CheckBox("only LastHit", false));
-            LaneClearMenu.Add("UseETower", new CheckBox("under Tower", false));
+            LaneClearMenu.Add("UseE", new CheckBox("Kullan E"));
+            LaneClearMenu.Add("UseELH", new CheckBox("Sadece Son vurus", false));
+            LaneClearMenu.Add("UseETower", new CheckBox("Kule alti", false));
         }
 
         private static void Fleemenu()
         {
             FleeMenu = VMenu.AddSubMenu("Flee", "Flee");
             FleeMenu.Add("UseE", new CheckBox("Kullan E"));
-            FleeMenu.Add("UseEStack", new CheckBox("Biriktir Q"));
+            FleeMenu.Add("UseEStack", new CheckBox("E yuk kas"));
         }
 
         private static void Miscmenu()
         {
             MiscMenu = VMenu.AddSubMenu("Misc", "Misc");
             MiscMenu.AddGroupLabel("Misc");
-            MiscMenu.Add("KSQ", new CheckBox("Q ile Oldurme"));
-            MiscMenu.Add("KSE", new CheckBox("E ile Oldurme"));
-            MiscMenu.Add("KSR", new CheckBox("R ile Oldurme"));
+            MiscMenu.Add("KSQ", new CheckBox("Q ile oldur"));
+            MiscMenu.Add("KSE", new CheckBox("E ile oldur"));
+            MiscMenu.Add("KSR", new CheckBox("R ile oldur"));
         }
 
         private static void Drawingmenu()
@@ -117,8 +117,8 @@ namespace Aka_s_Yasuo.Manager
             DrawingMenu.Add("DrawQ", new CheckBox("Goster Q"));
             DrawingMenu.Add("DrawE", new CheckBox("Goster E", false));
             DrawingMenu.Add("DrawR", new CheckBox("Goster R", false));
-            DrawingMenu.Add("DrawOnlyReady", new CheckBox("Sadece hazir olan buyulerin menzilini goster"));
-            DrawingMenu.Add("DrawStatus", new CheckBox("Goster oto biriktirme durumu"));
+            DrawingMenu.Add("DrawOnlyReady", new CheckBox("Sadece Hazir olan sklleri goster"));
+            DrawingMenu.Add("DrawStatus", new CheckBox("Goster oto yuk kasma durumu"));
         }
 
         #region checkvalues

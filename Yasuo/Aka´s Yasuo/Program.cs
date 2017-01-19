@@ -14,7 +14,7 @@ namespace Aka_s_Yasuo
         private static void Loading_OnLoadingComplete(EventArgs args)
         {
             if (Variables._Player.ChampionName != "Yasuo") return;
-            Chat.Print("Aka´s Yasuo Yuklendi! Yapimci by Aka.Ceviri TekinTR");
+            Chat.Print("Aka´s Yasuo yuklendi! Yapimci Aka.Ceviri TekinTR");
             Manager.Manager.Load();
             AkaCore.Program.Load();
         }
