@@ -29,7 +29,7 @@ namespace AkaCore.Features.Activator.AItems
         {
             var unit = TargetSelector.GetTarget(600, DamageType.Physical);
 
-            if (unit != null)
+            if (unit.IsValidTarget())
             {
                 AkaLib.Item.You.Cast();
             }

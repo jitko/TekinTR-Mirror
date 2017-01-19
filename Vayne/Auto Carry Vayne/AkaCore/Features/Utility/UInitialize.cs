@@ -16,7 +16,8 @@ namespace AkaCore.Features.Utility
             new AutoLantern(),
             new Autolvl(),
             new Skinhack(),
-            new FPSProtection(),
+            new Humanizer(),
+            //new FPSProtection(),
         };
 
         public static void OnUpdate()

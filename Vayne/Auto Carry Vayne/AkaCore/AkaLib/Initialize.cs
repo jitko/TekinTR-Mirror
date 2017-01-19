@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AkaCore.AkaLib.Evade;
 
 namespace AkaCore.AkaLib
 {
@@ -11,6 +12,8 @@ namespace AkaCore.AkaLib
         public static void Execute()
         {
             Item.Load();
+            Orbwalk.Load();
+            //SkillshotDetector.Load();
         }
     }
 }

@@ -10,12 +10,14 @@ namespace AkaCore.Manager
     {
         public static void Execute()
         {
-            //AkaLib *_*
-            AkaLib.Initialize.Execute();
             //MenuManager
             MenuManager.Load();
+            //AkaLib *_*
+            AkaLib.Initialize.Execute();
             //EventManager
             EventManager.Load();
+            //EvadeManager
+            //EvadeManager.Load();
         }
     }
 }

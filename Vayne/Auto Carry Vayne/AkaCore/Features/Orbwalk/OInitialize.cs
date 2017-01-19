@@ -17,13 +17,11 @@ namespace AkaCore.Features.Orbwalk
 
         public static void OnGameLoad()
         {
-            if (ObjectManager.Player.ChampionName == "Draven")
+            foreach (var module in moduleList)
             {
-                foreach (var module in moduleList)
-                {
-                    module.OnLoad();
-                }
+                module.OnLoad();
             }
         }
     }
 }
+

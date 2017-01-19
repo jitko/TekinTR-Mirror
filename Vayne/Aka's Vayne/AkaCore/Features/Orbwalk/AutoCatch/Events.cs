@@ -14,6 +14,8 @@ namespace AkaCore.Features.Orbwalk.AutoCatch
     {
         public void OnLoad()
         {
+            if (ObjectManager.Player.ChampionName != "Draven") return;
+
             Axe.QReticles = new List<Axe.QRecticle>();
             Game.OnUpdate += Game_OnUpdate;
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
