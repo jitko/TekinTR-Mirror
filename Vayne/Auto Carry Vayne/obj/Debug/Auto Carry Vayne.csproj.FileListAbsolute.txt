@@ -1,1 +1,2 @@
 C:\Users\Tekin\Desktop\Yeni klasör\bin\Debug\Auto Carry Vayne.exe.config
+C:\Users\Tekin\Documents\GitHub\YeniTurkce\Vayne\Auto Carry Vayne\bin\Debug\Auto Carry Vayne.exe.config
