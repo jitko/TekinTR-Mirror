@@ -1,0 +1,2 @@
+C:\Users\MFI\Desktop\çeviri\AimBot\AimBot\bin\Debug\AimBot.exe.config
+C:\Users\Tekin\Desktop\AimBot\bin\Debug\AimBot.exe.config

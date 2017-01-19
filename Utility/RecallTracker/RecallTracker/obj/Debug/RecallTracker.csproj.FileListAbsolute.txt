@@ -1,0 +1,2 @@
+C:\Users\MF-TR\Desktop\çeviriler\RecallTracker\RecallTracker\bin\Debug\RecallTracker.exe.config
+C:\Users\Tekin\Desktop\RecallTracker\RecallTracker\bin\Debug\RecallTracker.exe.config

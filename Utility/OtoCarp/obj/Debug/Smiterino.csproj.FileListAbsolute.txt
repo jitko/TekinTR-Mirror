@@ -1,0 +1,2 @@
+C:\Users\Tekin\Desktop\Smiterino\bin\Debug\Smiterino.exe.config
+C:\Users\Tekin\Desktop\Smiterino\obj\Debug\Smiterino.csprojResolveAssemblyReference.cache
