@@ -1,0 +1,12 @@
+C:\Users\Tekin\AppData\Roaming\EloBuddy\Repositories\312AC617\AkaCore\bin\Release\AkaCore.exe.config
+C:\Users\Tekin\AppData\Roaming\EloBuddy\Repositories\312AC617\AkaCore\bin\Release\AkaCore.exe
+C:\Users\Tekin\AppData\Roaming\EloBuddy\Repositories\312AC617\AkaCore\bin\Release\AkaCore.pdb
+C:\Users\Tekin\AppData\Roaming\EloBuddy\Repositories\312AC617\AkaCore\bin\Release\EloBuddy.dll
+C:\Users\Tekin\AppData\Roaming\EloBuddy\Repositories\312AC617\AkaCore\bin\Release\EloBuddy.Sandbox.dll
+C:\Users\Tekin\AppData\Roaming\EloBuddy\Repositories\312AC617\AkaCore\bin\Release\EloBuddy.SDK.dll
+C:\Users\Tekin\AppData\Roaming\EloBuddy\Repositories\312AC617\AkaCore\bin\Release\SharpDX.dll
+C:\Users\Tekin\AppData\Roaming\EloBuddy\Repositories\312AC617\AkaCore\bin\Release\SharpDX.Direct3D9.dll
+C:\Users\Tekin\AppData\Roaming\EloBuddy\Repositories\312AC617\AkaCore\bin\Release\Newtonsoft.Json.dll
+C:\Users\Tekin\AppData\Roaming\EloBuddy\Repositories\312AC617\AkaCore\obj\Release\AkaCore.exe
+C:\Users\Tekin\AppData\Roaming\EloBuddy\Repositories\312AC617\AkaCore\obj\Release\AkaCore.pdb
+C:\Users\Tekin\AppData\Roaming\EloBuddy\Repositories\312AC617\AkaCore\obj\Release\AkaCore.csprojResolveAssemblyReference.cache
