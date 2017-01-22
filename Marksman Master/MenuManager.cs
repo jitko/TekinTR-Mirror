@@ -67,7 +67,7 @@ namespace Marksman_Master
         {
             ExtensionsMenu = MainMenu.AddMenu("Marksman AIO : Extensions", "MarksmanAIO.Extensions");
             
-            _cache = ExtensionsMenu.Add("MenuManager.ExtensionsMenu.EnableCache", new CheckBox("Enable Cache"));
+            _cache = ExtensionsMenu.Add("MenuManager.ExtensionsMenu.EnableCache", new CheckBox("Onbellek aktif"));
             _cache.OnValueChange += (sender, args) =>
             {
                 if (args.NewValue)
@@ -78,7 +78,7 @@ namespace Marksman_Master
             {
                 System.Threading.Tasks.Task.Factory.StartNew(LoadEvadeIc);
 
-                _debug = ExtensionsMenu.Add("MenuManager.ExtensionsMenu.EnableDebug", new CheckBox("Enable Debug", false));
+                _debug = ExtensionsMenu.Add("MenuManager.ExtensionsMenu.EnableDebug", new CheckBox("Hata ayiklama aktif", false));
             }
 
             foreach (var source in Assembly.GetAssembly(typeof(ExtensionBase)).GetTypes().Where(x=>x.IsSubclassOf(typeof(ExtensionBase)) && x.IsSealed))
@@ -93,7 +93,7 @@ namespace Marksman_Master
                 }
                 else enabledByDefault = (bool) property.GetValue(source);
 
-                var menuItem = ExtensionsMenu.Add("MenuManager.ExtensionsMenu." + source.Name, new CheckBox("Load " + source.Name, enabledByDefault));
+                var menuItem = ExtensionsMenu.Add("MenuManager.ExtensionsMenu." + source.Name, new CheckBox("Yukle " + source.Name, enabledByDefault));
 
                 if (menuItem.CurrentValue)
                 {
@@ -137,16 +137,16 @@ namespace Marksman_Master
             }
 
             CacheMenu = ExtensionsMenu.AddSubMenu("Cache settings", "MenuManager.ExtensionsMenu.CacheMenu");
-            CacheMenu.Add("MenuManager.ExtensionsMenu.MinionCacheRefreshRate", new Slider("Minion cache refresh rate : {0} milisecounds", 200, 0, 1000));
-            CacheMenu.AddLabel("\nRecomended value : 100 - 200\nThis setting sets the delay between each minion based calculations.");
+            CacheMenu.Add("MenuManager.ExtensionsMenu.MinionCacheRefreshRate", new Slider("Minion önbellek yenileme hızı : {0} milisaniyeler", 200, 0, 1000));
+            CacheMenu.AddLabel("\nÖnerilen değer : 100 - 200\nBu ayar, her bir minion tabanlı hesaplamalar arasındaki gecikmeyi ayarlar.");
 
             Menu = MainMenu.AddMenu("Marksman AIO", "MarksmanAIO");
-            Menu.AddGroupLabel("Welcome back, Buddy !");
+            Menu.AddGroupLabel("Tekrar hosgeldin, Kardesim !");
             Menu.AddSeparator(5);
-            Menu.AddLabel("This addon comes in handy for anyone who wants to have\nall marksmans plugins in just one addon. This AIO comes also with beautiful drawings\nand an activator. I just " +
-                          "hope you will have fun. Good luck !");
+            Menu.AddLabel("Bu addon, sahip olmak isteyen herkes için kullanışlıdır.\nall Marksmans eklentileri tek bir addonda. Bu AIO da güzel çizimlerle birlikte gelir\nand Bir aktivatör.Sadece ben " +
+                          "Umarım eğlenirsin. İyi şanslar !");
             Menu.AddSeparator(40);
-            Menu.AddLabel("Marksman AIO is currently in early beta phase.\nIf you experienced any bugs please report them in the forum thread.");
+            Menu.AddLabel("Marksman AIO şu anda beta safhasında.\nHerhangi bir hata yaşadıysanız, onları forum konusuna bildirin.");
             
             InitializeAddon.PluginInstance.CreateMenu();
         }
@@ -177,7 +177,7 @@ namespace Marksman_Master
                     return;
 
                 var evadeIc = ExtensionsMenu.Add("MenuManager.ExtensionsMenu.EvadeIC",
-                    new CheckBox("Set all enemy spells to fast evade in EvadeIC", false));
+                    new CheckBox("Tüm düşman büyülerinizi hızlı kaçmak ve kaçmak için EvadeIC ayarlayın", false));
 
                 evadeIc.OnValueChange += (a, b) =>
                 {
@@ -212,8 +212,8 @@ namespace Marksman_Master
 
             InterrupterMenu = Menu.AddSubMenu("Interrupter");
             InterrupterMenu.AddGroupLabel("Global settings");
-            InterrupterMenu.Add("MenuManager.InterrupterMenu.Enabled", new CheckBox("Interrupter Enabled"));
-            InterrupterMenu.Add("MenuManager.InterrupterMenu.OnlyInCombo", new CheckBox("Active only in Combo mode", false));
+            InterrupterMenu.Add("MenuManager.InterrupterMenu.Enabled", new CheckBox("Kesici Etkin"));
+            InterrupterMenu.Add("MenuManager.InterrupterMenu.OnlyInCombo", new CheckBox("Sadece komboda aktif", false));
             InterrupterMenu.AddSeparator(15);
 
             foreach (var enemy in EntityManager.Heroes.Enemies.Where(x => Utils.Interrupter.InterruptibleList.Exists(e => e.ChampionName == x.ChampionName)))
@@ -246,10 +246,10 @@ namespace Marksman_Master
                     }
 
                     InterrupterMenu.AddLabel("[" + interruptibleSpell.SpellSlot + "] " + interruptibleSpell.SpellName + " | Danger Level : " + interruptibleSpell.DangerLevel);
-                    InterrupterMenu.Add("MenuManager.InterrupterMenu." + enemy.ChampionName + "." + interruptibleSpell.SpellSlot + ".Delay", new Slider("Delay", 0, 0, 500));
-                    InterrupterMenu.Add("MenuManager.InterrupterMenu." + enemy.ChampionName + "." + interruptibleSpell.SpellSlot + ".Hp", new Slider("Only if I'm below under {0} % of my HP", healthPercent));
-                    InterrupterMenu.Add("MenuManager.InterrupterMenu." + enemy.ChampionName + "." + interruptibleSpell.SpellSlot + ".Enemies", new Slider("Only if {0} or less enemies are near", 5, 1, 5));
-                    InterrupterMenu.Add("MenuManager.InterrupterMenu." + enemy.ChampionName + "." + interruptibleSpell.SpellSlot + ".Enabled", new CheckBox("Enabled"));
+                    InterrupterMenu.Add("MenuManager.InterrupterMenu." + enemy.ChampionName + "." + interruptibleSpell.SpellSlot + ".Delay", new Slider("Gecikme", 0, 0, 500));
+                    InterrupterMenu.Add("MenuManager.InterrupterMenu." + enemy.ChampionName + "." + interruptibleSpell.SpellSlot + ".Hp", new Slider("Sadece altindaysa {0} % benim HP", healthPercent));
+                    InterrupterMenu.Add("MenuManager.InterrupterMenu." + enemy.ChampionName + "." + interruptibleSpell.SpellSlot + ".Enemies", new Slider("Sadece if {0} yada daha az dusman yakinsa", 5, 1, 5));
+                    InterrupterMenu.Add("MenuManager.InterrupterMenu." + enemy.ChampionName + "." + interruptibleSpell.SpellSlot + ".Enabled", new CheckBox("Aktif"));
 
                     InterruptibleSpellsFound++;
                 }
@@ -265,8 +265,8 @@ namespace Marksman_Master
 
             GapcloserMenu = Menu.AddSubMenu("Anti-Gapcloser");
             GapcloserMenu.AddGroupLabel("Global settings");
-            GapcloserMenu.Add("MenuManager.GapcloserMenu.Enabled", new CheckBox("Anti-Gapcloser Enabled"));
-            GapcloserMenu.Add("MenuManager.GapcloserMenu.OnlyInCombo", new CheckBox("Active only in Combo mode", false));
+            GapcloserMenu.Add("MenuManager.GapcloserMenu.Enabled", new CheckBox("Atilma onleyicisi aktif"));
+            GapcloserMenu.Add("MenuManager.GapcloserMenu.OnlyInCombo", new CheckBox("Sadece komboda aktif", false));
             GapcloserMenu.AddSeparator(15);
             
             foreach (var enemy in
@@ -282,10 +282,10 @@ namespace Marksman_Master
                 foreach (var gapcloser in gapclosers)
                 {
                     GapcloserMenu.AddLabel("[" + gapcloser.SpellSlot + "] " + gapcloser.SpellName);
-                    GapcloserMenu.Add("MenuManager.GapcloserMenu." + enemy.ChampionName + "." + gapcloser.SpellSlot + ".Delay", new Slider("Delay", 0, 0, 500));
-                    GapcloserMenu.Add("MenuManager.GapcloserMenu." + enemy.ChampionName + "." + gapcloser.SpellSlot + ".Hp", new Slider("Only if I'm below under {0} % of my HP", 100));
-                    GapcloserMenu.Add("MenuManager.GapcloserMenu." + enemy.ChampionName + "." + gapcloser.SpellSlot + ".Enemies", new Slider("Only if {0} or less enemies are near", 5, 1, 5));
-                    GapcloserMenu.Add("MenuManager.GapcloserMenu." + enemy.ChampionName + "." + gapcloser.SpellSlot + ".Enabled", new CheckBox("Enabled"));
+                    GapcloserMenu.Add("MenuManager.GapcloserMenu." + enemy.ChampionName + "." + gapcloser.SpellSlot + ".Delay", new Slider("Gecikme", 0, 0, 500));
+                    GapcloserMenu.Add("MenuManager.GapcloserMenu." + enemy.ChampionName + "." + gapcloser.SpellSlot + ".Hp", new Slider("Sadece altindaysa {0} % benim HP", 100));
+                    GapcloserMenu.Add("MenuManager.GapcloserMenu." + enemy.ChampionName + "." + gapcloser.SpellSlot + ".Enemies", new Slider("Sadece if {0} yada daha az dusman yakinsa", 5, 1, 5));
+                    GapcloserMenu.Add("MenuManager.GapcloserMenu." + enemy.ChampionName + "." + gapcloser.SpellSlot + ".Enabled", new CheckBox("Aktif"));
 
                     GapclosersFound++;
                 }
@@ -297,10 +297,10 @@ namespace Marksman_Master
             GapcloserMenu.AddGroupLabel("Rengar");
 
             GapcloserMenu.AddLabel("[Passive] Leap");
-            GapcloserMenu.Add("MenuManager.GapcloserMenu.Rengar.Passive.Delay", new Slider("Delay", 0, 0, 500));
-            GapcloserMenu.Add("MenuManager.GapcloserMenu.Rengar.Passive.Hp", new Slider("Only if I'm below under {0} % of my HP", 100));
-            GapcloserMenu.Add("MenuManager.GapcloserMenu.Rengar.Passive.Enemies", new Slider("Only if {0} or less enemies are near", 5, 1, 5));
-            GapcloserMenu.Add("MenuManager.GapcloserMenu.Rengar.Passive.Enabled", new CheckBox("Enabled"));
+            GapcloserMenu.Add("MenuManager.GapcloserMenu.Rengar.Passive.Delay", new Slider("Gecikme", 0, 0, 500));
+            GapcloserMenu.Add("MenuManager.GapcloserMenu.Rengar.Passive.Hp", new Slider("Sadece altindaysa {0} % benim HP", 100));
+            GapcloserMenu.Add("MenuManager.GapcloserMenu.Rengar.Passive.Enemies", new Slider("Sadece if {0} yada daha az dusman yakinsa", 5, 1, 5));
+            GapcloserMenu.Add("MenuManager.GapcloserMenu.Rengar.Passive.Enabled", new CheckBox("Aktif"));
 
             GapclosersFound++;
         }

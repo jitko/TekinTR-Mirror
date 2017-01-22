@@ -54,7 +54,7 @@ namespace Marksman_Master
             if (PluginInstance == null)
             {
                 Misc.PrintInfoMessage("<b><font color=\"#5ED43D\">" + Player.Instance.ChampionName +
-                                      "</font></b> is not yet supported.");
+                                      "</font></b> Henüz desteklenmiyor.");
                 return false;
             }
             

@@ -214,7 +214,7 @@ namespace Marksman_Master.Plugins.Ashe
 
             LaneClearMenu.AddLabel("Basic settings :");
             LaneClearMenu.Add("Plugins.Ashe.LaneClearMenu.EnableLCIfNoEn", new CheckBox("Yakinda dusman yoksa koridoru acik birak"));
-            var scanRange = LaneClearMenu.Add("Plugins.Ashe.LaneClearMenu.ScanRange", new Slider("Range to scan for enemies", 1500, 300, 2500));
+            var scanRange = LaneClearMenu.Add("Plugins.Ashe.LaneClearMenu.ScanRange", new Slider("Düşmanları taramak için menzil", 1500, 300, 2500));
             scanRange.OnValueChange += (a, b) =>
             {
                 _changingRangeScan = true;
