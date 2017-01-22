@@ -118,7 +118,7 @@ namespace UnsignedRyze
             }
 
             if (DrawingsMenu["DR"].Cast<CheckBox>().CurrentValue && R.IsLearned)
-           
+            }
 
         private static void Game_OnTick(EventArgs args)
         {
