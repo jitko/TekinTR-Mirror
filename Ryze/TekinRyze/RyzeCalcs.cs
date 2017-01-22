@@ -7,7 +7,7 @@ using EloBuddy;
 using EloBuddy.SDK;
 using SharpDX;
 
-namespace UnsignedRyze
+namespace TekinRyze
 {
 
     class RyzeCalcs

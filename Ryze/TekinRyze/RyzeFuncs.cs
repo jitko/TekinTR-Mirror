@@ -11,7 +11,7 @@ using EloBuddy.SDK.Menu;
 using EloBuddy.SDK.Menu.Values;
 using SharpDX;
 
-namespace UnsignedRyze
+namespace TekinRyze
 {
     class RyzeFunctions
     {

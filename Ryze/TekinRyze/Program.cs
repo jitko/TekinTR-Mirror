@@ -8,7 +8,7 @@ using EloBuddy.SDK.Menu.Values;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace UnsignedRyze
+namespace TekinRyze
 {
     internal class Program
     {
@@ -48,48 +48,48 @@ namespace UnsignedRyze
             E = new Spell.Targeted(SpellSlot.E, 615, DamageType.Magical);
             R = new Spell.Skillshot(SpellSlot.R, 1750, SkillShotType.Circular);
 
-            menu = MainMenu.AddMenu("Unsigned Ryze", "UnsignedRyze");
+            menu = MainMenu.AddMenu("TekinRyze", "TekinRyze");
 
             ComboMenu = menu.AddSubMenu("Combo", "combomenu");
-            ComboMenu.AddGroupLabel("Combo Settings");
+            ComboMenu.AddGroupLabel("Kombo ayarları");
             ComboMenu.Add("QU", new CheckBox("Kullan Q"));
             ComboMenu.Add("WU", new CheckBox("Kullan W"));
             ComboMenu.Add("EU", new CheckBox("Kullan E"));
             //ComboMenu.Add("RU", new CheckBox("Use R"));
             ComboMenu.Add("IU", new CheckBox("Kullan Item"));
-            //ComboMenu.Add("IgU", new CheckBox("Use Ignite"));
+            ComboMenu.Add("IgU", new CheckBox("Kullan Tutustur"));
 
             LaneClear = menu.AddSubMenu("Lane Clear", "laneclear");
-            LaneClear.AddGroupLabel("Lane Clear Settings");
+            LaneClear.AddGroupLabel("Koridor temizleme");
             LaneClear.Add("LCQ", new CheckBox("Kullan Q"));
             LaneClear.Add("LCE", new CheckBox("Kullan E"));
 
             Harass = menu.AddSubMenu("Harass", "harass");
-            Harass.AddGroupLabel("Harass Settings");
+            Harass.AddGroupLabel("Dürtme Ayarları");
             Harass.Add("HQ", new CheckBox("Kullan Q"));
             Harass.Add("HE", new CheckBox("Kullan E"));
 
             LastHit = menu.AddSubMenu("Last Hit", "lasthitmenu");
-            LastHit.AddGroupLabel("Last Hit Settings");
+            LastHit.AddGroupLabel("SonVurus Ayarları");
             LastHit.Add("LHQ", new CheckBox("Kullan Q"));
             LastHit.Add("LHE", new CheckBox("Kullan E"));
 
             Killsteal = menu.AddSubMenu("Killsteal", "killstealmenu");
-            Killsteal.AddGroupLabel("Killsteal Settings");
-            Killsteal.Add("KSER", new CheckBox("Aktif Killsteal"));
+            Killsteal.AddGroupLabel("Öldürme Ayarları");
+            Killsteal.Add("KSER", new CheckBox("Aktif Öldürme"));
             Killsteal.Add("KSQ", new CheckBox("Kullan Q"));
             Killsteal.Add("KSW", new CheckBox("Kullan W"));
             Killsteal.Add("KSE", new CheckBox("Kullan E"));
             Killsteal.Add("KSI", new CheckBox("Kullan Tutustur"));
 
             DrawingsMenu = menu.AddSubMenu("Drawings", "drawingsmenu");
-            DrawingsMenu.AddGroupLabel("Drawings Settings");
+            DrawingsMenu.AddGroupLabel("Gösterge Ayarları");
             DrawingsMenu.Add("DQ", new CheckBox("Göster Q"));
             DrawingsMenu.Add("DWE", new CheckBox("Göster W/E"));
             DrawingsMenu.Add("DR", new CheckBox("Göster R"));
             
             SettingsMenu = menu.AddSubMenu("Settings", "settingsmenu");
-            SettingsMenu.AddGroupLabel("Settings");
+            SettingsMenu.AddGroupLabel("Ayarlar");
             SettingsMenu.Add("SHM", new CheckBox("Ototmatik iksir kullan"));
             SettingsMenu.Add("ST", new CheckBox("Basede gözyasi kas"));
 
@@ -105,20 +105,6 @@ namespace UnsignedRyze
             Chat.Print(Sum1.Name);
             Chat.Print(Sum2.Name);
         }
-        private static void Drawing_OnDraw(EventArgs args)
-        {
-            if (DrawingsMenu["DQ"].Cast<CheckBox>().CurrentValue && Q.IsLearned)
-            {
-                Drawing.DrawCircle(_Player.Position, Q.Range, System.Drawing.Color.BlueViolet);
-            }
-
-            if (DrawingsMenu["DWE"].Cast<CheckBox>().CurrentValue && (E.IsLearned || W.IsLearned))
-            {
-                Drawing.DrawCircle(_Player.Position, E.Range, System.Drawing.Color.BlueViolet);
-            }
-
-            if (DrawingsMenu["DR"].Cast<CheckBox>().CurrentValue && R.IsLearned)
-            }
 
         private static void Game_OnTick(EventArgs args)
         {
