@@ -63,7 +63,7 @@ namespace UnsignedRengar
                     return 20 + 8 * Rengar.Level;
                 else
                 {
-                    Console.WriteLine("Smite type: " + type + " does not exist!");
+                    Console.WriteLine("Carp tipi: " + type + " bulunamiyor!");
                     return 0;
                 }
             }

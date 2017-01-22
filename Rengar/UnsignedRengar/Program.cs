@@ -63,7 +63,7 @@ namespace UnsignedRengar
             if (Rengar.IsDead)
                 return;
 
-            if (MenuHandler.GetCheckboxValue(MenuHandler.Drawing, "Draw Enemy Health after Combo"))
+            if (MenuHandler.GetCheckboxValue(MenuHandler.Drawing, "Kombodan Sonra Dusman Sagligi Goster"))
                 foreach (AIHeroClient enemy in EntityManager.Heroes.Enemies.Where(a=>a.MeetsCriteria()))
                 {
                     int hpBarWidth = 96;
@@ -92,16 +92,16 @@ namespace UnsignedRengar
                 DrawLinearSkillshot(Rengar.Position, Rengar.Position.Extend(Rengar.Position + Rengar.Direction, Q2.Range).To3D((int)Rengar.Position.Z), Q.Width, Q.Speed, Q.Range, Q.AllowedCollisionCount);
             }
 
-            if (MenuHandler.GetCheckboxValue(MenuHandler.Drawing, "Draw Q Radius"))
+            if (MenuHandler.GetCheckboxValue(MenuHandler.Drawing, "Q yaricapini ciz"))
                 Q.DrawRange(drawColor, 3);
 
-            if (MenuHandler.GetCheckboxValue(MenuHandler.Drawing, "Draw W"))
+            if (MenuHandler.GetCheckboxValue(MenuHandler.Drawing, "Goster W"))
                 W.DrawRange(drawColor, 3);
 
-            if (MenuHandler.GetCheckboxValue(MenuHandler.Drawing, "Draw E"))
+            if (MenuHandler.GetCheckboxValue(MenuHandler.Drawing, "Goster E"))
                 E.DrawRange(drawColor, 3);
 
-            if (MenuHandler.GetCheckboxValue(MenuHandler.Drawing, "Draw R Detection Range"))
+            if (MenuHandler.GetCheckboxValue(MenuHandler.Drawing, "Goster R Algilama Araligi"))
                 R.DrawRange(drawColor, 3);
 
             AIHeroClient closestEnemy = EntityManager.Heroes.Enemies.Where(a => a.MeetsCriteria() && a.IsInRange(Rengar, 3000)).OrderBy(a=>a.Distance(Rengar)).FirstOrDefault();
@@ -109,7 +109,7 @@ namespace UnsignedRengar
             if (MenuHandler.GetCheckboxValue(MenuHandler.Drawing, "Draw Arrow to R Target") && Rengar.HasBuff("RengarR") && closestEnemy != null)
                 Rengar.Position.DrawArrow(closestEnemy.Position, drawColor);
             
-            if (MenuHandler.GetCheckboxValue(MenuHandler.Drawing, "Draw Killable Text"))
+            if (MenuHandler.GetCheckboxValue(MenuHandler.Drawing, "Goster Oldurulebilir Yazisi"))
             {
                 foreach (AIHeroClient enemy in EntityManager.Heroes.Enemies.Where(a => a.MeetsCriteria() && a.Health < a.ComboDamage()))
                     Drawing.DrawText(enemy.Position.WorldToScreen(), System.Drawing.Color.GreenYellow, "Killable", 15);

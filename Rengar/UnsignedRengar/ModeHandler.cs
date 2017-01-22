@@ -31,50 +31,50 @@ namespace UnsignedRengar
 
             if (QPos != Vector3.Zero && QHitNumber >= 1 && Rengar.IsAutoCanceling(enemies))
             {
-                if (menu.GetCheckboxValue("Use Q") && Rengar.Ferocity() < 4)
+                if (menu.GetCheckboxValue("Kullan Q") && Rengar.Ferocity() < 4)
                     CastQ(QPos);
-                if (menu.GetCheckboxValue("Use Empowered Q") && Rengar.Ferocity() == 4)
+                if (menu.GetCheckboxValue("Kullan Dort yuk Q") && Rengar.Ferocity() == 4)
                     CastQ(QPos);
             }
 
-            if (menu.GetCheckboxValue("Use W") && Rengar.Ferocity() < 4)
+            if (menu.GetCheckboxValue("Kullan W") && Rengar.Ferocity() < 4)
             {
-                if (menu.GetCheckboxValue("Use W for damage") && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
+                if (menu.GetCheckboxValue("Kullan W for damage") && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
                     CastW();
                 
-                if (menu.GetCheckboxValue("Use W for fourth ferocity stack") && Rengar.Ferocity() == 3 && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
+                if (menu.GetCheckboxValue("Dort yuk icin W kullan") && Rengar.Ferocity() == 3 && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
                     CastW();
 
-                if (Rengar.GreyShieldPercent() >= 1 && menu.GetSliderValue("Use W at % black health") <= Rengar.GreyShieldPercent())
+                if (Rengar.GreyShieldPercent() >= 1 && menu.GetSliderValue("Kullan W at % eksik can") <= Rengar.GreyShieldPercent())
                     CastW();
             }
 
-            if (menu.GetCheckboxValue("Use Empowered W") && Rengar.Ferocity() == 4)
+            if (menu.GetCheckboxValue("Kullan Dort yuk W") && Rengar.Ferocity() == 4)
             {
-                if (menu.GetCheckboxValue("Use Empowered W for damage") && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
+                if (menu.GetCheckboxValue("Kullan Dort yuk W for damage") && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
                     CastW();
 
-                if (menu.GetCheckboxValue("Use Empowered W to Stop CC")
+                if (menu.GetCheckboxValue("Kullan Dort yuk W stan CC")
                     && Rengar.CanCancleCC())
                     CastW();
 
-                if (Rengar.GreyShieldPercent() >= 1 && menu.GetSliderValue("Use Empowered W at % black health") <= Rengar.GreyShieldPercent())
+                if (Rengar.GreyShieldPercent() >= 1 && menu.GetSliderValue("Kullan Dort yuk W at % eksik can") <= Rengar.GreyShieldPercent())
                     CastW();
             }
 
-            if (menu.GetCheckboxValue("Use E") && Rengar.Ferocity() < 4 && Rengar.IsAutoCanceling(enemies) && EHitNumber >= 1)
+            if (menu.GetCheckboxValue("Kullan E") && Rengar.Ferocity() < 4 && Rengar.IsAutoCanceling(enemies) && EHitNumber >= 1)
                 CastE(EPos);
 
-            if (menu.GetCheckboxValue("Use Empowered E") && Rengar.IsAutoCanceling(enemies) && Rengar.Ferocity() == 4 && EHitNumber >= 1)
+            if (menu.GetCheckboxValue("Kullan Dort yuk E") && Rengar.IsAutoCanceling(enemies) && Rengar.Ferocity() == 4 && EHitNumber >= 1)
                 CastE(EPos);
 
-            if (menu.GetCheckboxValue("Use Items"))
+            if (menu.GetCheckboxValue("Kullan Item"))
                 UseItems(enemies, false);
 
-            if (menu.GetCheckboxValue("Use Smite"))
+            if (menu.GetCheckboxValue("Kullan Carp"))
                 UseSmite(enemies, false);
             
-            if (menu.GetCheckboxValue("Use Ignite"))
+            if (menu.GetCheckboxValue("Kullan Tutustur"))
                 UseIgnite(enemies, true);
         }
         
@@ -90,44 +90,44 @@ namespace UnsignedRengar
 
             if (QPos != Vector3.Zero && QHitNumber >= 1 && Rengar.IsAutoCanceling(enemies))
             {
-                if (menu.GetCheckboxValue("Use Q") && Rengar.Ferocity() < 4)
+                if (menu.GetCheckboxValue("Kullan Q") && Rengar.Ferocity() < 4)
                     CastQ(QPos);
-                if (menu.GetCheckboxValue("Use Empowered Q") && Rengar.Ferocity() == 4)
+                if (menu.GetCheckboxValue("Kullan Dort yuk Q") && Rengar.Ferocity() == 4)
                     CastQ(QPos);
             }
 
-            if (menu.GetCheckboxValue("Use W") && Rengar.Ferocity() < 4)
+            if (menu.GetCheckboxValue("Kullan W") && Rengar.Ferocity() < 4)
             {
                 if (menu.GetCheckboxValue("Use W for damage") && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
                     CastW();
 
-                if (menu.GetCheckboxValue("Use W for fourth ferocity stack") && Rengar.Ferocity() == 3 && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
+                if (menu.GetCheckboxValue("Dort yuk icin W kullan") && Rengar.Ferocity() == 3 && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
                     CastW();
 
-                if (Rengar.GreyShieldPercent() >= 1 && menu.GetSliderValue("Use W at % black health") <= Rengar.GreyShieldPercent())
+                if (Rengar.GreyShieldPercent() >= 1 && menu.GetSliderValue("Kullan W at % eksik can") <= Rengar.GreyShieldPercent())
                     CastW();
             }
 
-            if (menu.GetCheckboxValue("Use Empowered W") && Rengar.Ferocity() == 4)
+            if (menu.GetCheckboxValue("Kullan Dort yuk W") && Rengar.Ferocity() == 4)
             {
-                if (menu.GetCheckboxValue("Use Empowered W for damage") && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
+                if (menu.GetCheckboxValue("Kullan Dort yuk W for damage") && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
                     CastW();
 
-                if (Rengar.GreyShieldPercent() >= 1 && menu.GetSliderValue("Use Empowered W at % black health") <= Rengar.GreyShieldPercent())
+                if (Rengar.GreyShieldPercent() >= 1 && menu.GetSliderValue("Kullan Dort yuk W at % eksik can") <= Rengar.GreyShieldPercent())
                     CastW();
             }
 
-            if (menu.GetCheckboxValue("Use E") && Rengar.Ferocity() < 4 && Rengar.IsAutoCanceling(enemies) && EHitNumber >= 1)
+            if (menu.GetCheckboxValue("Kullan E") && Rengar.Ferocity() < 4 && Rengar.IsAutoCanceling(enemies) && EHitNumber >= 1)
                 CastE(EPos);
 
-            if (menu.GetCheckboxValue("Use Empowered E") && Rengar.Ferocity() == 4 && Rengar.IsAutoCanceling(enemies) && EHitNumber >= 1)
+            if (menu.GetCheckboxValue("Kullan Dort yuk E") && Rengar.Ferocity() == 4 && Rengar.IsAutoCanceling(enemies) && EHitNumber >= 1)
                 CastE(EPos);
 
-            if (menu.GetCheckboxValue("Use Items"))
+            if (menu.GetCheckboxValue("Kullan Items"))
                 UseItems(enemies, false);
 
-            if (menu.GetCheckboxValue("Use Smite"))
-                UseSmite(enemies, true, menu.GetCheckboxValue("Use Smite for HP"));
+            if (menu.GetCheckboxValue("Kullan Carp"))
+                UseSmite(enemies, true, menu.GetCheckboxValue("Kullan Carp for HP"));
         }
         
         public static void Killsteal()
@@ -144,32 +144,32 @@ namespace UnsignedRengar
             int EmpEHitNumber = 0;
             Vector3 EmpEPos = Program.E.GetBestLinearPredictionPos(enemies.Where(a => a.Health <= Calculations.EmpE(a)).ToList(), Rengar.Position, out EmpEHitNumber);
 
-            if (menu.GetCheckboxValue("Use Q") && Rengar.Ferocity() < 4 && QHitNumber >= 1)
+            if (menu.GetCheckboxValue("Kullan Q") && Rengar.Ferocity() < 4 && QHitNumber >= 1)
                 CastQ(QPos);
-            if (menu.GetCheckboxValue("Use Empowered Q") && Rengar.Ferocity() == 4 && EmpQHitNumber >= 1)
+            if (menu.GetCheckboxValue("Kullan Dort yuk Q") && Rengar.Ferocity() == 4 && EmpQHitNumber >= 1)
                 CastQ(EmpQPos);
 
-            if (menu.GetCheckboxValue("Use W") && Rengar.Ferocity() < 4)
+            if (menu.GetCheckboxValue("Kullan W") && Rengar.Ferocity() < 4)
                 if (enemies.Where(a => a.IsInRange(Rengar, Program.W.Range) && a.Health <= Calculations.EmpW(a)).Count() >= 1)
                     CastW();
 
-            if (menu.GetCheckboxValue("Use Empowered W") && Rengar.Ferocity() == 4)
+            if (menu.GetCheckboxValue("Kullan Dort yuk W") && Rengar.Ferocity() == 4)
                 if (enemies.Where(a => a.IsInRange(Rengar, Program.W.Range) && a.Health <= Calculations.EmpW(a)).Count() >= 1)
                     CastW();
 
-            if (menu.GetCheckboxValue("Use E") && Rengar.Ferocity() < 4 && EHitNumber >= 1)
+            if (menu.GetCheckboxValue("Kullan E") && Rengar.Ferocity() < 4 && EHitNumber >= 1)
                 CastE(EPos);
 
-            if (menu.GetCheckboxValue("Use Empowered E") && Rengar.Ferocity() == 4 && EmpEHitNumber >= 1)
+            if (menu.GetCheckboxValue("Kullan Dort yuk E") && Rengar.Ferocity() == 4 && EmpEHitNumber >= 1)
                 CastE(EmpEPos);
 
-            if (menu.GetCheckboxValue("Use Items"))
+            if (menu.GetCheckboxValue("Kullan Item"))
                 UseItems(enemies, true);
             
-            if (menu.GetCheckboxValue("Use Smite"))
+            if (menu.GetCheckboxValue("Kullan Carp"))
                 UseSmite(enemies, true);
             
-            if (menu.GetCheckboxValue("Use Ignite"))
+            if (menu.GetCheckboxValue("Kullan Tutustur"))
                 UseIgnite(enemies, true);
         }
         
@@ -186,13 +186,13 @@ namespace UnsignedRengar
             if (menu.GetCheckboxValue("Use E") && Rengar.Ferocity() < 4 && EHitNumber >= 1)
                 CastE(EPos);
 
-            if (menu.GetCheckboxValue("Use Empowered E") && Rengar.Ferocity() == 4 && EHitNumber >= 1)
+            if (menu.GetCheckboxValue("Kullan Dort yuk E") && Rengar.Ferocity() == 4 && EHitNumber >= 1)
                 CastE(EPos);
 
-            if (menu.GetCheckboxValue("Use Empowered W") && Rengar.Ferocity() == 4)
+            if (menu.GetCheckboxValue("Kullan Dort yuk W") && Rengar.Ferocity() == 4)
                 CastW();
 
-            if (menu.GetCheckboxValue("Use Empowered W to Stop CC") && Rengar.Ferocity() == 4 && Rengar.CanCancleCC())
+            if (menu.GetCheckboxValue("Kullan Dort yuk W to Stop CC") && Rengar.Ferocity() == 4 && Rengar.CanCancleCC())
                 CastW();
 
             if (menu.GetCheckboxValue("Jump from Brush") && Rengar.IsAbleToJump() && Orbwalker.CanAutoAttack)
@@ -218,47 +218,47 @@ namespace UnsignedRengar
 
             if (QPos != Vector3.Zero && QHitNumber >= 1 && Rengar.IsAutoCanceling(enemies))
             {
-                if (menu.GetCheckboxValue("Use Q") && Rengar.Ferocity() < 4)
+                if (menu.GetCheckboxValue("Kullan Q") && Rengar.Ferocity() < 4)
                     CastQ(QPos);
-                if (menu.GetCheckboxValue("Use Empowered Q") && Rengar.Ferocity() == 4)
+                if (menu.GetCheckboxValue("Kullan Dort yuk Q") && Rengar.Ferocity() == 4)
                     CastQ(QPos);
             }
 
-            if (menu.GetCheckboxValue("Use W") && Rengar.Ferocity() < 4)
+            if (menu.GetCheckboxValue("Kullan W") && Rengar.Ferocity() < 4)
             {
-                if (menu.GetCheckboxValue("Use W for damage") && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
+                if (menu.GetCheckboxValue("Kullan W for damage") && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
                     CastW();
 
-                if (menu.GetCheckboxValue("Use W for fourth ferocity stack") && Rengar.Ferocity() == 3 && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
+                if (menu.GetCheckboxValue("Dort yuk icin W kullan") && Rengar.Ferocity() == 3 && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
                     CastW();
 
-                if (Rengar.GreyShieldPercent() >= 1 && menu.GetSliderValue("Use W at % black health") <= Rengar.GreyShieldPercent())
+                if (Rengar.GreyShieldPercent() >= 1 && menu.GetSliderValue("Kullan W at % eksik can") <= Rengar.GreyShieldPercent())
                     CastW();
             }
 
-            if (menu.GetCheckboxValue("Use Empowered W") && Rengar.Ferocity() == 4)
+            if (menu.GetCheckboxValue("Kullan Dort yuk W") && Rengar.Ferocity() == 4)
             {
-                if (menu.GetCheckboxValue("Use Empowered W for damage") && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
+                if (menu.GetCheckboxValue("Kullan Dort yuk W for damage") && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
                     CastW();
 
-                if (menu.GetCheckboxValue("Use Empowered W to Stop CC")
+                if (menu.GetCheckboxValue("Kullan Dort yuk W to Stop CC")
                     && Rengar.CanCancleCC())
                     CastW();
 
-                if (Rengar.GreyShieldPercent() >= 1 && menu.GetSliderValue("Use Empowered W at % black health") <= Rengar.GreyShieldPercent())
+                if (Rengar.GreyShieldPercent() >= 1 && menu.GetSliderValue("Kullan Dort yuk W at % eksik can") <= Rengar.GreyShieldPercent())
                     CastW();
             }
 
-            if (menu.GetCheckboxValue("Use E") && Rengar.Ferocity() < 4 && Rengar.IsAutoCanceling(enemies) && EHitNumber >= 1)
+            if (menu.GetCheckboxValue("Kullan E") && Rengar.Ferocity() < 4 && Rengar.IsAutoCanceling(enemies) && EHitNumber >= 1)
                 CastE(EPos);
 
-            if (menu.GetCheckboxValue("Use Empowered E") && Rengar.Ferocity() == 4 && Rengar.IsAutoCanceling(enemies) && EHitNumber >= 1)
+            if (menu.GetCheckboxValue("Kullan Dort yuk E") && Rengar.Ferocity() == 4 && Rengar.IsAutoCanceling(enemies) && EHitNumber >= 1)
                 CastE(EPos);
 
-            if (menu.GetCheckboxValue("Use Items"))
+            if (menu.GetCheckboxValue("Kullan Item"))
                 UseItems(enemies, false);
 
-            if (menu.GetCheckboxValue("Use Smite"))
+            if (menu.GetCheckboxValue("Kullan Carp"))
                 UseSmite(enemies, false);
         }
         
@@ -274,15 +274,15 @@ namespace UnsignedRengar
 
             if (QPos != Vector3.Zero && QHitNumber >= 1)
             {
-                if (menu.GetCheckboxValue("Use Q") && Rengar.Ferocity() < 4)
+                if (menu.GetCheckboxValue("Kullan Q") && Rengar.Ferocity() < 4)
                     CastQ(QPos);
-                if (menu.GetCheckboxValue("Use Empowered Q") && Rengar.Ferocity() == 4 && !menu.GetCheckboxValue("Save Ferocity"))
+                if (menu.GetCheckboxValue("Kullan Dort yuk Q") && Rengar.Ferocity() == 4 && !menu.GetCheckboxValue("Kaydet vahset"))
                     CastQ(QPos);
             }
 
-            if (menu.GetCheckboxValue("Use W") && Rengar.Ferocity() < 4)
+            if (menu.GetCheckboxValue("Kullan W") && Rengar.Ferocity() < 4)
             {
-                if (menu.GetCheckboxValue("Use W for damage") && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
+                if (menu.GetCheckboxValue("Kullan W for damage") && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
                     CastW();
 
                 if (menu.GetCheckboxValue("Use W for fourth ferocity stack") && Rengar.Ferocity() == 3 && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
@@ -292,22 +292,22 @@ namespace UnsignedRengar
                     CastW();
             }
 
-            if (menu.GetCheckboxValue("Use Empowered W") && Rengar.Ferocity() == 4 && !menu.GetCheckboxValue("Save Ferocity"))
+            if (menu.GetCheckboxValue("Kullan Dort yuk W") && Rengar.Ferocity() == 4 && !menu.GetCheckboxValue("Kaydet vahset"))
             {
-                if (menu.GetCheckboxValue("Use Empowered W for damage") && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
+                if (menu.GetCheckboxValue("Kullan Dort yuk W for damage") && enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)).Count() >= 1)
                     CastW();
 
-                if (Rengar.GreyShieldPercent() >= 1 && menu.GetSliderValue("Use Empowered W at % black health") <= Rengar.GreyShieldPercent())
+                if (Rengar.GreyShieldPercent() >= 1 && menu.GetSliderValue("Kullan Dort yuk W at % eksik can") <= Rengar.GreyShieldPercent())
                     CastW();
             }
 
-            if (menu.GetCheckboxValue("Use E") && Rengar.Ferocity() < 4 && EHitNumber >= 1)
+            if (menu.GetCheckboxValue("Kullan E") && Rengar.Ferocity() < 4 && EHitNumber >= 1)
                 CastE(EPos);
 
-            if (menu.GetCheckboxValue("Use Empowered E") && Rengar.Ferocity() == 4 && EHitNumber >= 1 && Rengar.IsAutoCanceling(enemies) && !menu.GetCheckboxValue("Save Ferocity"))
+            if (menu.GetCheckboxValue("Kullan Dort yuk E") && Rengar.Ferocity() == 4 && EHitNumber >= 1 && Rengar.IsAutoCanceling(enemies) && !menu.GetCheckboxValue("Kaydet vahset"))
                 CastE(EPos);
 
-            if (menu.GetCheckboxValue("Use Items"))
+            if (menu.GetCheckboxValue("Kullan Items"))
                 UseItems(enemies, false);
         }
         
@@ -325,45 +325,45 @@ namespace UnsignedRengar
             int EmpEHitNumber = 0;
             Vector3 EmpEPos = Program.E.GetBestLinearPredictionPos(enemies.Where(a => a.Health <= Calculations.EmpE(a)).ToList(), Rengar.Position, out EmpEHitNumber);
             
-            if (menu.GetCheckboxValue("Use Q") && Rengar.Ferocity() < 4 && QHitNumber >= 1 && Rengar.IsAutoCanceling(enemies))
+            if (menu.GetCheckboxValue("Kullan Q") && Rengar.Ferocity() < 4 && QHitNumber >= 1 && Rengar.IsAutoCanceling(enemies))
                 CastQ(QPos);
-            if (menu.GetCheckboxValue("Use Empowered Q") && Rengar.Ferocity() == 4 && Rengar.IsAutoCanceling(enemies) && EmpQHitNumber >= 1 && !menu.GetCheckboxValue("Save Ferocity"))
+            if (menu.GetCheckboxValue("Kullan Dort yuk Q") && Rengar.Ferocity() == 4 && Rengar.IsAutoCanceling(enemies) && EmpQHitNumber >= 1 && !menu.GetCheckboxValue("Save Ferocity"))
                 CastQ(EmpQPos);
 
-            if (menu.GetCheckboxValue("Use W") && Rengar.Ferocity() < 4)
+            if (menu.GetCheckboxValue("Kullan W") && Rengar.Ferocity() < 4)
                 if (enemies.Where(a => a.IsInRange(Rengar, Program.W.Range) 
                 && menu.GetSliderValue("Minions to use W") != 0
                 && a.Health <= Calculations.EmpW(a)).Count() >= menu.GetSliderValue("Minions to use W"))
                     CastW();
 
-            if (menu.GetCheckboxValue("Use Empowered W") && Rengar.Ferocity() == 4 && !menu.GetCheckboxValue("Save Ferocity"))
+            if (menu.GetCheckboxValue("Kullan Dort yuk W") && Rengar.Ferocity() == 4 && !menu.GetCheckboxValue("Kaydet Vahset"))
                 if (enemies.Where(a => a.IsInRange(Rengar, Program.W.Range)
-                && menu.GetSliderValue("Minions to use Empowered W") != 0
-                && a.Health <= Calculations.EmpW(a)).Count() >= menu.GetSliderValue("Minions to use Empowered W"))
+                && menu.GetSliderValue("W kullanmak icin minyon") != 0
+                && a.Health <= Calculations.EmpW(a)).Count() >= menu.GetSliderValue("Dort yuk W kullanmak icin minyon"))
                     CastW();
 
-            if (menu.GetCheckboxValue("Use E") && Rengar.Ferocity() < 4 && EHitNumber >= 1)
+            if (menu.GetCheckboxValue("Kullan E") && Rengar.Ferocity() < 4 && EHitNumber >= 1)
                 CastE(EPos);
 
-            if (menu.GetCheckboxValue("Use Empowered E") && Rengar.Ferocity() == 4 && EmpEHitNumber >= 1 && !menu.GetCheckboxValue("Save Ferocity"))
+            if (menu.GetCheckboxValue("Kullan Dort yuk E") && Rengar.Ferocity() == 4 && EmpEHitNumber >= 1 && !menu.GetCheckboxValue("Save Ferocity"))
                 CastE(EmpEPos);
 
-            if (menu.GetCheckboxValue("Use Items"))
+            if (menu.GetCheckboxValue("Kullan Items"))
                 UseItems(enemies, true);
         }
 
         public static void UseItems(List<Obj_AI_Base> enemies, bool ks)
         {
             #region Item Initialization
-            InventorySlot QSS = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Quick Silver Sash")) ? Rengar.GetItem(ItemId.Quicksilver_Sash) : null,
+            InventorySlot QSS = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Kullan Civali Sash")) ? Rengar.GetItem(ItemId.Quicksilver_Sash) : null,
                 MercurialsScimitar = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Mercurials Scimitar")) ? Rengar.GetItem(ItemId.Mercurial_Scimitar) : null,
-                RavenousHydra = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Ravenous Hydra")) ? Rengar.GetItem(ItemId.Ravenous_Hydra) : null,
-                TitanicHydra = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Titanic Hydra")) ? Rengar.GetItem(ItemId.Titanic_Hydra) : null,
-                Tiamat = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Tiamat")) ? Rengar.GetItem(ItemId.Tiamat) : null,
-                Youmuus = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Youmuus")) ? Rengar.GetItem(ItemId.Youmuus_Ghostblade) : null,
-                BOTRK = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Blade of the Ruined King")) ? Rengar.GetItem(ItemId.Blade_of_the_Ruined_King) : null,
-                BilgewaterCutlass = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Bilgewater Cutlass")) ? Rengar.GetItem(ItemId.Bilgewater_Cutlass) : null,
-                HextechGunblade = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Hextech Gunblade")) ? Rengar.GetItem(ItemId.Hextech_Gunblade) : null;
+                RavenousHydra = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Kullan Vahsi Hydra")) ? Rengar.GetItem(ItemId.Ravenous_Hydra) : null,
+                TitanicHydra = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Kullan Hasmetli Hydra")) ? Rengar.GetItem(ItemId.Titanic_Hydra) : null,
+                Tiamat = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Kullan Tiamat")) ? Rengar.GetItem(ItemId.Tiamat) : null,
+                Youmuus = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Kullan Youmuus")) ? Rengar.GetItem(ItemId.Youmuus_Ghostblade) : null,
+                BOTRK = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Kullan Mahvolmus Kralin Kilici")) ? Rengar.GetItem(ItemId.Blade_of_the_Ruined_King) : null,
+                BilgewaterCutlass = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Kullan Bilgewater Palasi")) ? Rengar.GetItem(ItemId.Bilgewater_Cutlass) : null,
+                HextechGunblade = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Kullan Hextech Silahkilic")) ? Rengar.GetItem(ItemId.Hextech_Gunblade) : null;
             #endregion
 
             #region QSS
@@ -408,8 +408,8 @@ namespace UnsignedRengar
                 && Rengar.IsAutoCanceling(enemies)
                 && (!ks || enemies.Where(a => a.MeetsCriteria() && a.Health <= DamageLibrary.GetItemDamage(Rengar, a, ItemId.Ravenous_Hydra)).FirstOrDefault() != null)
                 && (
-                enemies.Where(a => a.Type == GameObjectType.AIHeroClient && a.IsInRange(Rengar, 400)).Count() >= MenuHandler.Items.GetSliderValue("Champions to use Tiamat/Ravenous Hydra on")
-                || enemies.Where(a => a.Type != GameObjectType.AIHeroClient && a.IsInRange(Rengar, 400)).Count() >= MenuHandler.Items.GetSliderValue("Minions to use Tiamat/Ravenous Hydra on")))
+                enemies.Where(a => a.Type == GameObjectType.AIHeroClient && a.IsInRange(Rengar, 400)).Count() >= MenuHandler.Items.GetSliderValue("Su kadar sampiyon tiamat/hydra kullan")
+                || enemies.Where(a => a.Type != GameObjectType.AIHeroClient && a.IsInRange(Rengar, 400)).Count() >= MenuHandler.Items.GetSliderValue("Su kadar minyona tiamat/hydra kullan")))
                 hasDoneActionThisTick = RavenousHydra.Cast();
             #endregion
 
@@ -429,8 +429,8 @@ namespace UnsignedRengar
                 && enemies.Where(a => a.IsInRange(Rengar, 400)).FirstOrDefault() != null
                 && (!ks || enemies.Where(a => a.MeetsCriteria() && a.Health <= DamageLibrary.GetItemDamage(Rengar, a, ItemId.Tiamat)).FirstOrDefault() != null)
                 && (
-                enemies.Where(a => a.Type == GameObjectType.AIHeroClient && a.IsInRange(Rengar, 400)).Count() >= MenuHandler.Items.GetSliderValue("Champions to use Tiamat/Ravenous Hydra on")
-                || enemies.Where(a => a.Type != GameObjectType.AIHeroClient && a.IsInRange(Rengar, 400)).Count() >= MenuHandler.Items.GetSliderValue("Minions to use Tiamat/Ravenous Hydra on")))
+                enemies.Where(a => a.Type == GameObjectType.AIHeroClient && a.IsInRange(Rengar, 400)).Count() >= MenuHandler.Items.GetSliderValue("Su kadar sampiyon tiamat/hydra kullan")
+                || enemies.Where(a => a.Type != GameObjectType.AIHeroClient && a.IsInRange(Rengar, 400)).Count() >= MenuHandler.Items.GetSliderValue("Su kadar minyona tiamat/hydra kullan")))
                 hasDoneActionThisTick = Tiamat.Cast();
             #endregion
 

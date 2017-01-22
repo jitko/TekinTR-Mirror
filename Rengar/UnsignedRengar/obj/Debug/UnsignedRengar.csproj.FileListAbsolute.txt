@@ -1,1 +1,2 @@
 C:\Users\Tekin\Desktop\EloBuddy-Addons-WIP-master\UnsignedRengar\bin\Debug\UnsignedRengar.exe.config
+C:\Users\Tekin\Documents\GitHub\YeniTurkce\Rengar\UnsignedRengar\bin\Debug\UnsignedRengar.exe.config

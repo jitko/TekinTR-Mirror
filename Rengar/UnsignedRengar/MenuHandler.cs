@@ -43,37 +43,37 @@ namespace UnsignedRengar
             AddSlider(Combo, "Kullan Dort yuk W at % eksik can", 15, 1, 100);
 
             AddCheckboxes(ref Harass, "Kullan Q", "Kullan Dort yuk Q", "Kullan W", "Kullan Dort yuk W", "Kullan E", "Kullan Dort yuk E",
-                "Dort yuk icin W kullan", "Use W for damage_false", "Use Empowered W for damage_false", "Kullan Dort yuk W to stop CC",
-                "Kullan Items", "Kullan Carp");
+                "Dort yuk icin W kullan", "Kullan W for damage_false", "Use Empowered W for damage_false", "Kullan Dort yuk W to stop CC",
+                "Kullan Item", "Kullan Carp");
             AddSlider(Harass, "Kullan W at % eksik can", 8, 1, 100);
             AddSlider(Harass, "Kullan Dort yuk W at % eksik can", 8, 1, 100);
 
             AddCheckboxes(ref JungleClear, "Kullan Q", "Kullan Dort yuk Q", "Kullan W", "Kullan Dort yuk W_false", "Kullan E", "Kullan Dort yuk E_false",
-                "Use W for damage_false", "Use Empowered W for damage_false", "Dort yuk icin W kullan",
-                "Kullan Items", "Kullan Carp", "Use Smite for HP");
+                "Kullan W for damage_false", "Kullan Dort yuk W for damage_false", "Dort yuk icin W kullan",
+                "Kullan Items", "Kullan Carp", "Kullan Carp for HP");
             AddSlider(JungleClear, "Kullan W at % eksik can", 8, 1, 100);
             AddSlider(JungleClear, "Kullan Dort yuk W at % eksik can", 8, 1, 100);
 
             AddCheckboxes(ref LaneClear, "Kullan Q", "Kullan Dort yuk Q", "Kullan W", "Kullan Dort yuk W", "Kullan E", "Kullan Dort yuk E_false",
-                "Use W for damage_false", "Use Empowered W for damage_false", "Dort yuk icin W kullan",  "Kaydet vahset", 
-                "Use Items_false");
-            AddSlider(LaneClear, "Use W at % black health", 8, 1, 100);
-            AddSlider(LaneClear, "Use Empowered W at % black health", 8, 1, 100);
+                "Kullan W for damage_false", "Kullan Dort yuk W for damage_false", "Dort yuk icin W kullan",  "Kaydet vahset",
+                "Kullan Items_false");
+            AddSlider(LaneClear, "Kullan W at % eksik can", 8, 1, 100);
+            AddSlider(LaneClear, "Kullan Dort yuk W at % eksik can", 8, 1, 100);
 
-            AddCheckboxes(ref LastHit, "Kullan Q", "Kullan Dort yuk Q", "Use W_false", "Use Empowered W_false", "Kullan E", "Use Empowered E_false", 
+            AddCheckboxes(ref LastHit, "Kullan Q", "Kullan Dort yuk Q", "Kullan W_false", "Kullan Dort yuk W_false", "Kullan E", "Kullan Dort yuk E_false", 
                 "Kaydet Vahset",
                 "Kullan Items");
             AddSlider(LastHit, "W kullanmak icin minyon", 2, 0, 5);
             AddSlider(LastHit, "Dort yuk W kullanmak icin minyon", 2, 0, 5);
 
-            AddCheckboxes(ref Killsteal, "Killsteal", "Use Q", "Use Empowered Q", "Use W", "Use Empowered W",
-                "Use E", "Use Empowered E", "Use Items", "Use Ignite", "Use Smite");
+            AddCheckboxes(ref Killsteal, "Killsteal", "Kullan Q", "Kullan Dort yuk Q", "Kullan W", "Kullan Dort yuk W",
+                "Kullan E", "Kullan Dort yuk E", "Kullan Item", "Kullan Tutusur", "Kullan Carp");
 
             AddCheckboxes(ref Flee, "Kullan Dort yuk W", "Kullan E", "Kullan Dort yuk E", "Kullan Dort yuk W to stop CC", "Jump from Brush");
 
-            AddCheckboxes(ref Items, "Kullan Quick Silver Sash", "Kullan Civali", "Kullan Tiamat", "Kullan Vahsi Hydra", "Kullan Titanic Hydra", "Kullan Youmuus", "Kullan Bilgewater Palasi", "Kullan Hextech Silahkilic", "Kullan Mahvolmus Kralin Kilici");
-            AddSlider(Items, "Minions to use Tiamat/Ravenous Hydra On", 2, 1, 10);
-            AddSlider(Items, "Champions to use Tiamat/Ravenous Hydra on", 2, 1, 10);
+            AddCheckboxes(ref Items, "Kullan Civali Sash", "Kullan Civali", "Kullan Tiamat", "Kullan Vahsi Hydra", "Kullan Hasmetli Hydra", "Kullan Youmuus", "Kullan Bilgewater Palasi", "Kullan Hextech Silahkilic", "Kullan Mahvolmus Kralin Kilici");
+            AddSlider(Items, "Su kadar minyona tiamat/hydra kullan", 2, 1, 10);
+            AddSlider(Items, "Su kadar sampiyon tiamat/hydra kullan", 2, 1, 10);
 
             AddCheckboxes(ref Drawing, "Draw Q_false", "Q yaricapini ciz", "Goster W", "Goster E", "Goster R Algilama Araligi", "Draw Arrow to R Target_false", "Goster Oldurulebilir Yazisi", "Kombodan Sonra Dusman Sagligi Goster");
             AddSlider(Drawing, "Autos in Combo", 2, 0, 5);
