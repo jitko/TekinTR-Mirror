@@ -3,3 +3,4 @@ D:\Tommi\Documents\Visual Studio 2015\Projects\Ronin\Ronin Skarner\Ronin Skarner
 D:\Tommi\Documents\Visual Studio 2015\Projects\Ronin Skarner\bin\Debug\RoninSkarner.exe.config
 D:\Tommi\Documents\GitHub\EB-T\Ronin Skarner\bin\Debug\RoninSkarner.exe.config
 C:\Users\Tekin\Desktop\Ronin Skarner\bin\Debug\RoninSkarner.exe.config
+C:\Users\Tekin\Documents\GitHub\YeniTurkce\Skarner\Ronin Skarner\bin\Debug\RoninSkarner.exe.config
