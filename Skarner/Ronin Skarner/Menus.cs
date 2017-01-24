@@ -49,11 +49,11 @@ namespace RoninSkarner
         {
             FirstMenu = MainMenu.AddMenu("Ronin`s " + Player.Instance.ChampionName, Player.Instance.ChampionName.ToLower() + "hue");
             FirstMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            FirstMenu.Add(SpellsManager.E.Slot + "hit", new ComboBox("E HitChance", 0, "High", "Medium", "Low"));
+            FirstMenu.Add(SpellsManager.E.Slot + "hit", new ComboBox("E Sansi", 0, "Yuksek", "Orta", "Dusuk"));
             FirstMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            FirstMenu.AddGroupLabel("Yapımcı Taazuma / Kullandığınız için teşekkürler");
-            FirstMenu.AddLabel("Herhangi bir hata bulduysanız, bunu benim Konuma bildirin.");
-            FirstMenu.AddLabel("Oynarken Eğlenin!");
+            FirstMenu.AddGroupLabel("Addon by Taazuma / Thanks for using it");
+            FirstMenu.AddLabel("If you found any bugs report it on my Thread");
+            FirstMenu.AddLabel("Have fun with Playing");
             FirstMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu = FirstMenu.AddSubMenu("• Combo", ComboMenuID);
             HarassMenu = FirstMenu.AddSubMenu("• Harass", HarassMenuID);
@@ -69,11 +69,11 @@ namespace RoninSkarner
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.CreateCheckBox(" - Kullan Q", "qUse");
             ComboMenu.AddLabel("W Spells");
-            ComboMenu.Add("WC", new ComboBox(" W Kullanımı ", 0, "Kullan W Sürekli", "Kullan W Sadece düşman menzilinde", "Kullan W Yüzleşme"));
+            ComboMenu.Add("WC", new ComboBox(" W Turu ", 0, "Kullan W Surekli", "Kullan W Sadece hedem menzilinde", "Kullan W Yuzlesme"));
             ComboMenu.AddSeparator(7);
             ComboMenu.CreateCheckBox(" - Kullan E", "eUse");
             ComboMenu.CreateCheckBox(" - Kullan R", "rUse");
-            ComboMenu.AddLabel("Kullan ultimate on");
+            ComboMenu.AddLabel("Use ultimate on");
             foreach (var enemies in EntityManager.Heroes.Enemies.Where(i => !i.IsMe))
             {
                 ComboMenu.Add("r.ult" + enemies.ChampionName, new CheckBox("" + enemies.ChampionName, false));
@@ -86,14 +86,14 @@ namespace RoninSkarner
             HarassMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             HarassMenu.CreateCheckBox(" - Kullan E", "eUse");
             HarassMenu.AddGroupLabel("Settings");
-            HarassMenu.CreateSlider("Mana daha yüksek olmalı [{0}%] dürtmek icin", "manaSlider", 30);
+            HarassMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 30);
             HarassMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             AutoHarassMenu.AddGroupLabel("GankMenu");
             AutoHarassMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             AutoHarassMenu.Add("gankc", new KeyBind("Gank Combo", false, KeyBind.BindTypes.HoldActive, 'T'));
             AutoHarassMenu.AddGroupLabel("Settings");
-            AutoHarassMenu.CreateSlider("Mana daha yüksek olmalı [{0}%] dürtmek icin", "manaSlider", 40);
+            AutoHarassMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 40);
             AutoHarassMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             LaneClearMenu.AddGroupLabel("LaneClear");
@@ -101,7 +101,7 @@ namespace RoninSkarner
             LaneClearMenu.CreateCheckBox(" - Kullan Q", "qUse");
             LaneClearMenu.CreateCheckBox(" - Kullan E", "eUse", false);
             LaneClearMenu.AddGroupLabel("Settings");
-            LaneClearMenu.CreateSlider("Mana daha yüksek olmalı [{0}%] koridor temizlemek icin", "manaSlider", 30);
+            LaneClearMenu.CreateSlider("Mana must be higher than [{0}%] to use LaneClear spells", "manaSlider", 30);
             LaneClearMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             JungleClearMenu.AddGroupLabel("JungleClear");
@@ -110,34 +110,34 @@ namespace RoninSkarner
             JungleClearMenu.CreateCheckBox(" - Kullan W", "wUse");
             JungleClearMenu.CreateCheckBox(" - Kullan E", "eUse");
             JungleClearMenu.AddGroupLabel("Settings");
-            JungleClearMenu.CreateSlider("Mana daha yüksek olmalı [{0}%] orman temizlemek için", "manaSlider", 20);
+            JungleClearMenu.CreateSlider("Mana must be higher than [{0}%] to use JungleClear spells", "manaSlider", 20);
             JungleClearMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
-            KillStealMenu.AddGroupLabel("KillSteal");
-            KillStealMenu.CreateCheckBox(" - Kullan Q", "qUse");
-            KillStealMenu.CreateCheckBox(" - Kullan E", "eUse");
-            KillStealMenu.AddGroupLabel("Settings");
-            KillStealMenu.CreateSlider("Mana daha yüksek olmalı [{0}%] öldürmek için", "manaSlider", 50);
+            //KillStealMenu.AddGroupLabel("KillSteal");
+            //KillStealMenu.CreateCheckBox(" - Use Q", "qUse");
+            //KillStealMenu.CreateCheckBox(" - Use E", "eUse");
+            //KillStealMenu.AddGroupLabel("Settings");
+            //KillStealMenu.CreateSlider("Mana must be lower than [{0}%] to use Killsteal spells", "manaSlider", 50);
 
-            MiscMenu.Add("skinhax", new CheckBox("Skin Secici aktif"));
-            MiscMenu.Add("skinID", new ComboBox("Skin seç", 1, "Default", "Kumbelası Skarner", "Rünlütaş Skarner", "Savaş makinesi alfa Skarner", "Kumların muhafızı Skarner"));
+            MiscMenu.Add("skinhax", new CheckBox("Activate Skin hack"));
+            MiscMenu.Add("skinID", new ComboBox("Skin Hack", 1, "Default", "Sandscourge Skarner", "Earthrune Skarner", "Battlecast Alpha Skarner", "Guardian of the Sands Skarner"));
             MiscMenu.AddSeparator(10);
             MiscMenu.AddGroupLabel("Interrupter settings");
-            MiscMenu.Add("interruptq", new CheckBox("Kesmek için Q Kullan"));
+            MiscMenu.Add("interruptq", new CheckBox("Keserken Q kullan"));
             MiscMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            MiscMenu.CreateCheckBox("- Kullan OP W Mantık Kalkan büyüsü", "wLogic", false);
+            MiscMenu.CreateCheckBox("- Use OP W Logic ShieldSpell", "wLogic", false);
             MiscMenu.AddSeparator(10);
 
             DrawingsMenu.AddGroupLabel("Settings");
-            DrawingsMenu.CreateCheckBox(" - Sadece hazır olanları göster.", "readyDraw");
-            DrawingsMenu.CreateCheckBox(" - Hasar göstergesi çiz.", "damageDraw", false);
-            DrawingsMenu.CreateCheckBox(" - Hasar göstergesi yüzdesini çiz.", "perDraw", false);
-            DrawingsMenu.CreateCheckBox(" - Hasar göstergesi istatistikleri çiz.", "statDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Draw Spell`s range only if they are ready.", "readyDraw");
+            DrawingsMenu.CreateCheckBox(" - Draw damage indicator.", "damageDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Draw damage indicator percent.", "perDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Draw damage indicator statistics.", "statDraw", false);
             DrawingsMenu.AddGroupLabel("Spells");
-            DrawingsMenu.CreateCheckBox(" - Göster Q.", "qDraw", false);
-            DrawingsMenu.CreateCheckBox(" - Göster W.", "wDraw", false);
-            DrawingsMenu.CreateCheckBox(" - Göster E.", "eDraw", false);
-            DrawingsMenu.CreateCheckBox(" - Göster R.", "rDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Goster Q.", "qDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Goster W.", "wDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Goster E.", "eDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Goster R.", "rDraw", false);
             DrawingsMenu.AddGroupLabel("Drawings Color");
             QColorSlide = new ColorSlide(DrawingsMenu, "qColor", Color.Red, "Q Color:");
             WColorSlide = new ColorSlide(DrawingsMenu, "wColor", Color.Purple, "W Color:");

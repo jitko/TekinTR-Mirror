@@ -72,9 +72,9 @@ namespace RoninSkarner
             smiterMenu.AddLabel("Created by Haker");
             smiterMenu.AddLabel("Feel free to send me any suggestions you might have.");
             smiterMenu.AddGroupLabel("Smite Status");
-            _smiteEnabled = smiterMenu.Add("vSmiteEnabled", new CheckBox("Enabled always"));
+            _smiteEnabled = smiterMenu.Add("vSmiteEnabled", new CheckBox("Surekli etkin"));
             _smiteEnabledToggle = smiterMenu.Add("vSmiteEnabledToggle", new KeyBind("Enabled (Toggle Key)", false, KeyBind.BindTypes.PressToggle, 'K'));
-            _smiteEnemies = smiterMenu.Add("vSmiteEnemies", new CheckBox("KS with Smite"));
+            _smiteEnemies = smiterMenu.Add("vSmiteEnemies", new CheckBox("KS icin Carp"));
             _smiteEnemiesChallenging = smiterMenu.Add("vSmiteEnemiesChallenging", new CheckBox("Smite enemies with Challenging Smite on AA"));
             _keepSmiteNumber = smiterMenu.Add("vSmiteKeepSmiteNumber",
                 new Slider("Smite enemies only if you have more than {0} charges", 1, 0, 2));
@@ -95,9 +95,9 @@ namespace RoninSkarner
             smiterMenu.Add("vSmiteSru_Crab", new CheckBox("Crab"));
             smiterMenu.Add("vSmiteSRU_RiftHerald", new CheckBox("Rift Herald"));
             smiterMenu.AddGroupLabel("Drawing");
-            _drawSmiteStatus = smiterMenu.Add("vSmiteDrawSmiteStatus", new CheckBox("Draw Smite Status"));
-            _drawSmiteable = smiterMenu.Add("vSmiteDrawSmiteable", new CheckBox("Draw Smiteable Monsters"));
-            _drawRange = smiterMenu.Add("vSmiteDrawRange", new CheckBox("Draw Smite Range"));
+            _drawSmiteStatus = smiterMenu.Add("vSmiteDrawSmiteStatus", new CheckBox("Goster Carp durumu"));
+            _drawSmiteable = smiterMenu.Add("vSmiteDrawSmiteable", new CheckBox("Goster Carp atilcak Yaratik"));
+            _drawRange = smiterMenu.Add("vSmiteDrawRange", new CheckBox("Goster Carp menzili"));
             DebugMenu.Initialize();
         }
 

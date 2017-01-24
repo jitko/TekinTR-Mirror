@@ -70,7 +70,7 @@ namespace RoninSkarner
             Core.DelayAction(() =>
             {
                 introImg = new Sprite(TextureLoader.BitmapToTexture(Resources.anime));
-                Chat.Print("<b><font size='20' color='#4B0082'>Ronin Skarner</font><font size='20' color='#FFA07A'> Yüklendi Ceviri TekinTR.</font></b>");
+                Chat.Print("<b><font size='20' color='#4B0082'>Ronin Skarner</font><font size='20' color='#FFA07A'> Yuklendi</font></b>");
                 Drawing.OnDraw += DrawingOnOnDraw;
                 Core.DelayAction(() =>
                 {
@@ -88,7 +88,7 @@ namespace RoninSkarner
             FpsBooster.Initialize();
             if (!SpellManager.HasSmite())
             {
-                Chat.Print("Carp algılanamadı - unloading Carp.", System.Drawing.Color.Red);
+                Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.Red);
                 return;
             }
             Config.Initialize();
