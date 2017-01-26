@@ -12,6 +12,7 @@ namespace ReKatarina.ConfigList
         private static readonly CheckBox _drawR;
         private static readonly CheckBox _drawDI;
         private static readonly CheckBox _drawCJ;
+        private static readonly CheckBox _drawDagger;
 
         public static bool DrawQ
         {
@@ -41,19 +42,24 @@ namespace ReKatarina.ConfigList
         {
             get { return _drawCJ.CurrentValue; }
         }
+        public static bool DrawDagger
+        {
+            get { return _drawDagger.CurrentValue; }
+        }
 
         static Drawing()
         {
             Menu = Config.Menu.AddSubMenu("Drawing");
             Menu.AddGroupLabel("Drawing settings");
-            _drawQ = Menu.Add("Drawing.DrawQ", new CheckBox("Q mesafesi goster", false));
-            _drawW = Menu.Add("Drawing.DrawW", new CheckBox("W mesafesi goster", false));
-            _drawE = Menu.Add("Drawing.DrawE", new CheckBox("E mesafesi goster"));
-            _drawR = Menu.Add("Drawing.DrawR", new CheckBox("R mesafesi goster", false));
+            _drawQ = Menu.Add("Drawing.DrawQ", new CheckBox("Goster Q menzili", false));
+            _drawW = Menu.Add("Drawing.DrawW", new CheckBox("Goster W menzili", false));
+            _drawE = Menu.Add("Drawing.DrawE", new CheckBox("Goster E menzili"));
+            _drawR = Menu.Add("Drawing.DrawR", new CheckBox("Goster R menzili", false));
+            _drawDagger = Menu.Add("Drawing.DrawDagger", new CheckBox("Goster Yerdeki bicak"));
             Menu.AddGroupLabel("Damage indicator");
-            _drawDI = Menu.Add("Drawing.DamageIndicator", new CheckBox("Verilebilecek hasari goster"));
+            _drawDI = Menu.Add("Drawing.DamageIndicator", new CheckBox("Goster verilicek hasar"));
             Menu.AddGroupLabel("Cursor jump range");
-            _drawCJ = Menu.Add("Drawing.Cursor", new CheckBox("Totem / E mesafesi goster."));
+            _drawCJ = Menu.Add("Drawing.Cursor", new CheckBox("Fare etrafinda cember ciz kacis / toteme atlama."));
         }
 
         public static void Initialize()

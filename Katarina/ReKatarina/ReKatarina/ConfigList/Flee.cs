@@ -27,13 +27,13 @@ namespace ReKatarina.ConfigList
         {
             Menu = Config.Menu.AddSubMenu("Flee");
             Menu.AddGroupLabel("Flee settings");
-            _JumpToAlly = Menu.Add("Flee.Ally", new CheckBox("Muttefiklere atla."));
-            _JumpToDagger = Menu.Add("Flee.Dagger", new CheckBox("Bicaga atla."));
-            _JumpToAllyMinion = Menu.Add("Flee.AllyMinion", new CheckBox("Dost minyona atla."));
-            _JumpToEnemyMinion = Menu.Add("Flee.EnemyMinion", new CheckBox("Dusman minyona atla."));
-            _JumpToMonster = Menu.Add("Flee.Monster", new CheckBox("Canavarlara atla."));
-            _JumpToMonsterHP = Menu.Add("Flee.MonsterHP", new Slider("Canim sundan dusukse canavara atla HP > {0}%", 15, 1, 100));
-            _JumpCursorRange = Menu.Add("Flee.CursorRange", new Slider("Imlecin hedef algilama araliginda atla. ", 200, 100, 250));
+            _JumpToAlly = Menu.Add("Flee.Ally", new CheckBox("Takim arkadasina atlama."));
+            _JumpToDagger = Menu.Add("Flee.Dagger", new CheckBox("Hancere atlama etkinlestir."));
+            _JumpToAllyMinion = Menu.Add("Flee.AllyMinion", new CheckBox("Dost minyona atlama etkinlestir."));
+            _JumpToEnemyMinion = Menu.Add("Flee.EnemyMinion", new CheckBox("Dusman minyona atlama etkinlestir."));
+            _JumpToMonster = Menu.Add("Flee.Monster", new CheckBox("Yaratiklara atlamayi etkinlestir."));
+            _JumpToMonsterHP = Menu.Add("Flee.MonsterHP", new Slider("Canavarlara atilmak icin HP > {0}%", 15, 1, 100));
+            _JumpCursorRange = Menu.Add("Flee.CursorRange", new Slider("Menzilde hedef varsa atla. ", 200, 100, 250));
         }
 
         public static void Initialize()

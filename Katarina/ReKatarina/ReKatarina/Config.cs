@@ -10,7 +10,7 @@ namespace ReKatarina
         static Config()
         {
             Menu = MainMenu.AddMenu("ReKatarina", "ReKatarina");
-            Menu.AddGroupLabel("Katarina Addonuna Hosgeldiniz.Ceviri TekinTR!");
+            Menu.AddGroupLabel("Hosgeldiniz ReKatarina REBORN!");
             Modes.Initialize();
         }
 

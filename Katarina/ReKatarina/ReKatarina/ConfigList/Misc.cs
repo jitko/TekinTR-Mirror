@@ -53,16 +53,16 @@ namespace ReKatarina.ConfigList
         {
             Menu = Config.Menu.AddSubMenu("Misc");
             Menu.AddGroupLabel("Misc settings");
-            _KSWithQ = Menu.Add("Misc.KillSteal.UseQ", new CheckBox("Q ile dusman oldurme."));
-            _KSWithE = Menu.Add("Misc.KillSteal.UseE", new CheckBox("E ile dusman oldurme."));
-            _KSMinE = Menu.Add("Misc.KillSteal.MinHP", new Slider("Your HP must be >= {0}% to use E / Q+E.", 35, 1, 100));
+            _KSWithQ = Menu.Add("Misc.KillSteal.UseQ", new CheckBox("Oldurmek icin aktif Q."));
+            _KSWithE = Menu.Add("Misc.KillSteal.UseE", new CheckBox("Oldurmek icin aktif E."));
+            _KSMinE = Menu.Add("Misc.KillSteal.MinHP", new Slider("Canin olmalidir >= {0}% kullanmak icin E / Q+E.", 35, 1, 100));
             Menu.AddGroupLabel("Skin manager");
-            _SkinManagerStatus = Menu.Add("Misc.Skin.Status", new CheckBox("Skin secme aktif."));
-            _SkinManager = Menu.Add("Misc.Skin.Id", new Slider("Skin secin.", 1, 0, 10));
+            _SkinManagerStatus = Menu.Add("Misc.Skin.Status", new CheckBox("Skin secici aktif."));
+            _SkinManager = Menu.Add("Misc.Skin.Id", new Slider("Istedigini sec.", 1, 0, 10));
             Menu.AddGroupLabel("Humanizer");
-            _EnableHumanizer = Menu.Add("Misc.Humanizer.Status", new CheckBox("Insancil etkin.", false));
-            _Delay = Menu.Add("Misc.Humanizer.Delay", new Slider("Select your delay between spells in (ms).", 200, 50, 500));
-            _MaxRandomDelay = Menu.Add("Misc.Humanizer.RandomDelay", new Slider("Additional random delay in (ms).", 75, 50, 100));
+            _EnableHumanizer = Menu.Add("Misc.Humanizer.Status", new CheckBox("Insancil aktif", false));
+            _Delay = Menu.Add("Misc.Humanizer.Delay", new Slider("Skill gecikme suresini secin (ms).", 200, 50, 500));
+            _MaxRandomDelay = Menu.Add("Misc.Humanizer.RandomDelay", new Slider("Rastgele gecikme (ms).", 75, 50, 100));
 
             #region Disable / enable skin changer
             switch(_SkinManagerStatus.CurrentValue)

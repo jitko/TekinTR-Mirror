@@ -42,14 +42,14 @@ namespace ReKatarina.ConfigList
         {
             Menu = Config.Menu.AddSubMenu("Farm");
             Menu.AddGroupLabel("Farm settings");
-            _FarmQ = Menu.Add("Farm.UseQ", new CheckBox("Koridor ve ormanda Q kullan."));
-            _FarmW = Menu.Add("Farm.UseW", new CheckBox("Koridor ve ormanda W kullan."));
-            _FarmE = Menu.Add("Farm.UseE", new CheckBox("Koridor ve ormanda E kullan."));
+            _FarmQ = Menu.Add("Farm.UseQ", new CheckBox("Kullan Q koridor / orman temizleme."));
+            _FarmW = Menu.Add("Farm.UseW", new CheckBox("Kullan W koridor / orman temizleme."));
+            _FarmE = Menu.Add("Farm.UseE", new CheckBox("Kullan E koridor / orman temizleme."));
             Menu.AddSeparator();
-            _IgnoreQCountJng = Menu.Add("Farm.IgnoreCount", new CheckBox("Orman temizlemede Q sayma."));
-            _FarmQCount = Menu.Add("Farm.Q.Count", new Slider("Use Q if creeps count", 3, 1, 5));
+            _IgnoreQCountJng = Menu.Add("Farm.IgnoreCount", new CheckBox("Orman temizlerken Q sayisini yoksay."));
+            _FarmQCount = Menu.Add("Farm.Q.Count", new Slider("Su kadar yaratiga Q kullan", 3, 1, 5));
             Menu.AddGroupLabel("Last hit settings");
-            _LastHitQ = Menu.Add("Farm.LastHit.UseQ", new CheckBox("Son vurus modunda Q kullanın."));
+            _LastHitQ = Menu.Add("Farm.LastHit.UseQ", new CheckBox("Son vurus modunda Q kullan."));
         }
 
         public static void Initialize()

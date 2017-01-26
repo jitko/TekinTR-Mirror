@@ -14,6 +14,7 @@ namespace ReKatarina.ConfigList
         private static readonly Slider _MaxRCastRange;
         private static readonly Slider _MinHPToGoUnderTower;
         private static readonly CheckBox _GoUnderTower;
+        private static readonly Slider _ComboSaver;
         private static readonly ComboBox _ComboStyle;
 
         public static bool ComboQ
@@ -44,6 +45,10 @@ namespace ReKatarina.ConfigList
         {
             get { return _GoUnderTower.CurrentValue; }
         }
+        public static int ComboSaver
+        {
+            get { return _ComboSaver.CurrentValue; }
+        }
         public static int MinHPToGoUnderTower
         {
             get { return _MinHPToGoUnderTower.CurrentValue; }
@@ -57,16 +62,20 @@ namespace ReKatarina.ConfigList
         {
             Menu = Config.Menu.AddSubMenu("Combo");
             Menu.AddGroupLabel("Combo settings");
-            _ComboStyle = Menu.Add("Combo.Style", new ComboBox("Select combo style", 4, "Auto", "QEWR Catch", "QE Catch E AA", "EWQ Catch E", "EWQR [BEST]"));
-            _ComboQ = Menu.Add("Combo.UseQ", new CheckBox("Kombo da Q Kullan"));
-            _ComboW = Menu.Add("Combo.UseW", new CheckBox("Kombo da W Kullan"));
-            _ComboE = Menu.Add("Combo.UseE", new CheckBox("Kombo da E Kullan"));
-            _ComboR = Menu.Add("Combo.UseR", new CheckBox("Kombo da R Kullan"));
+            _ComboStyle = Menu.Add("Combo.Style", new ComboBox("Select combo style", 3, "Auto", "EWQR", "EQWR", "QEWR"));
+            _ComboQ = Menu.Add("Combo.UseQ", new CheckBox("Komboda Q kullan"));
+            _ComboW = Menu.Add("Combo.UseW", new CheckBox("Komboda W kullan"));
+            _ComboE = Menu.Add("Combo.UseE", new CheckBox("Komboda E kullan"));
+            _ComboR = Menu.Add("Combo.UseR", new CheckBox("Komboda R kullan"));
+
             Menu.AddGroupLabel("R settings");
-            _MinToUseR = Menu.Add("Combo.R.Minimum", new Slider("R icin en az kac dusman olucak?", 1, 1, 5));
-            _MaxRCastRange = Menu.Add("Combo.R.MaxRange", new Slider("R icin maximum uzaklik.", (int)SpellManager.W.Range, (int)SpellManager.W.Range, (int)SpellManager.R.Range));
-            _GoUnderTower = Menu.Add("Combo.E.Turret", new CheckBox("Kule altında E izin verilsin?", false));
-            _MinHPToGoUnderTower = Menu.Add("Combo.R.Turret.MinHP", new Slider("My health must be >= {0}% to allow enter under enemy tower.", 35, 1, 100));
+            _MinToUseR = Menu.Add("Combo.R.Minimum", new Slider("En az dusman kullanmak icin R.", 1, 1, 5));
+            _MaxRCastRange = Menu.Add("Combo.R.MaxRange", new Slider("R icin max mesefe.", (int)SpellManager.W.Range, (int)SpellManager.W.Range, (int)SpellManager.R.Range));
+
+            Menu.AddGroupLabel("Another settings");
+            _ComboSaver = Menu.Add("Combo.E.Saver", new Slider("Eger canim azsa gitme <= {0}% ve QW hazir degilse.", 15, 1, 100));
+            _GoUnderTower = Menu.Add("Combo.E.Turret", new CheckBox("Kule altinda E atilsinmi.", false));
+            _MinHPToGoUnderTower = Menu.Add("Combo.R.Turret.MinHP", new Slider("Canim olmali >= {0}% kule altina girmek icin.", 35, 1, 100));
         }
 
         public static void Initialize()

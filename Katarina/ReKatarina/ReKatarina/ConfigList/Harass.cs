@@ -27,9 +27,9 @@ namespace ReKatarina.ConfigList
         {
             Menu = Config.Menu.AddSubMenu("Harass");
             Menu.AddGroupLabel("Harass settings");
-            _HarassWithQ = Menu.Add("Harass.UseQ", new CheckBox("Durtmede Q kullan."));
+            _HarassWithQ = Menu.Add("Harass.UseQ", new CheckBox("Durtme modunda Q aktif."));
             Menu.AddGroupLabel("Auto-harass settings");
-            _AutoHarassWithQ = Menu.Add("Harass.Auto.UseQ", new CheckBox("Q ile otomatik durt."));
+            _AutoHarassWithQ = Menu.Add("Harass.Auto.UseQ", new CheckBox("Oto durtmede kullanilsin Q."));
             _AutoHarassChance = Menu.Add("Harass.Auto.Chance", new Slider("Oto durtme sansi.", 50, 1, 100));
         }
 
