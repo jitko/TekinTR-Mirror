@@ -33,30 +33,30 @@ namespace UnsignedCamille
             #endregion
 
             #region Set Menu Values
-            mainMenu.Add("Creator", new Label("Bu Addon, Chaos tarafindan yapilan Unsigned Serisinin bir parcasidir."));
+            mainMenu.Add("Creator", new Label("Bu Script, Chaos tarafindan yapilan Unsigned Serisinin bir parcasi."));
             AddComboBox(mainMenu, "Prediction Type:", 0, "EloBuddy", "Current Position");
 
             AddCheckboxes(ref Combo, "Kullan Q1", "Kullan Q2", "Kullan W", /*"Force Follow in W Range",*/ "Kullan E1", "Kullan E2", "Kullan R", "Kullan Items", "Kullan Carp", "Kullan Tutustur");
-            AddSlider(Combo, "W on x enemy units", 1, 1, 6);
-            AddCheckboxes(ref Harass, "Kullan Q1", "Kullan Q2", "Kullan W", /*"Force Follow in W Range",*/ "Use E1", "Use E2", "Use R_false", "Use Smite_false", "Use Items");
-            AddSlider(Harass, "W on x enemy units", 1, 1, 6);
+            AddSlider(Combo, "Düsmanlar uzerinde W", 1, 1, 6);
+            AddCheckboxes(ref Harass, "Kullan Q1", "Kullan Q2", "Kullan W", /*"Force Follow in W Range",*/ "Kullan E1", "Kullan E2", "Kullan R_false", "Kullan Carp_false", "Kullan Items");
+            AddSlider(Harass, "Düsmanlar uzerinde W", 1, 1, 6);
 
-            AddCheckboxes(ref JungleClear, "Kullan Q1", "Kullan Q2", "Kullan W", /*"Force Follow in W Range",*/ "Use E1_false", "Use E2_false", "Use Smite", "Use Smite for HP", "Use Items");
-            AddSlider(JungleClear, "W on x enemy units", 1, 1, 6);
-            AddCheckboxes(ref LaneClear, "Kullan Q1", "Kullan Q2", "Kullan W", /*"Force Follow in W Range",*/ "Use E1_false", "Use E2_false", "Use Items_false");
-            AddSlider(LaneClear, "W on x enemy units", 3, 1, 6);
-            AddCheckboxes(ref LastHit, "Kullan Q1", "Kullan Q2", "Kullan W", /*"Force Follow in W Range",*/ "Use E1_false", "Use E2_false", "Use Items");
-            AddSlider(LastHit, "W on x enemy units", 2, 1, 6);
+            AddCheckboxes(ref JungleClear, "Kullan Q1", "Kullan Q2", "Kullan W", /*"Force Follow in W Range",*/ "Kullan E1_false", "Kullan E2_false", "Kullan Carp", "Kullan Carp icin HP", "Kullan Items");
+            AddSlider(JungleClear, "Düsmanlar uzerinde W", 1, 1, 6);
+            AddCheckboxes(ref LaneClear, "Kullan Q1", "Kullan Q2", "Kullan W", /*"Force Follow in W Range",*/ "Kullan E1_false", "Kullan E2_false", "Kullan Items_false");
+            AddSlider(LaneClear, "Düsmanlar uzerinde W", 3, 1, 6);
+            AddCheckboxes(ref LastHit, "Kullan Q1", "Kullan Q2", "Kullan W", /*"Force Follow in W Range",*/ "Kullan E1_false", "Kullan E2_false", "Kullan Items");
+            AddSlider(LastHit, "Düsmanlar uzerinde W", 2, 1, 6);
 
-            AddCheckboxes(ref Killsteal, "Killsteal", "Kullan Q1", "Kullan Q2", "Kullan W", /*"Force Follow in W Range",*/ "Use E1", "Use E2", "Use Smite", "Use Items", "Use Ignite");
-            AddSlider(Killsteal, "W on x enemy units", 1, 1, 6);
+            AddCheckboxes(ref Killsteal, "Killsteal", "Kullan Q1", "Kullan Q2", "Kullan W", /*"Force Follow in W Range",*/ "Kullan E1", "Kullan E2", "Kullan Carp", "Kullan Items", "Kullan Tutustur");
+            AddSlider(Killsteal, "Düsmanlar uzerinde W", 1, 1, 6);
             AddCheckboxes(ref Flee, "Kullan E1", "Kullan E2");
 
-            AddCheckboxes(ref Items, "Use Quick Silver Sash", "Use Mercurials Scimitar", "Use Tiamat", "Use Ravenous Hydra", "Use Titanic Hydra", "Use Youmuus", "Use Bilgewater Cutlass", "Use Hextech Gunblade", "Use Blade of the Ruined King");
+            AddCheckboxes(ref Items, "Civali kullan", "Kullan Mercurials Scimitar", "Kullan Tiamat", "Kullan vahsi Hydra", "Kullan hasmetli Hydra", "Kullan Youmuus", "Kullan Bilgewater Palasi", "Kullan Hextech Silahkilic", "Kullan Mahvolmus");
             AddSlider(Items, "Minions to use Tiamat/Ravenous Hydra On", 2, 1, 10);
             AddSlider(Items, "Champions to use Tiamat/Ravenous Hydra on", 1, 1, 10);
 
-            AddCheckboxes(ref Drawing, "Draw W Inner Range", "Draw W Outer Range", "Draw E Range", "Draw R Range", "Draw Combo Damage", "Draw Walls for E_false");
+            AddCheckboxes(ref Drawing, "Goster W ic menzili", "Goster W dis menzili", "Goster E menzili", "Goster R menzili", "Goster Combo hasari", "E icin duvarlari ciz E_false");
             AddSlider(Drawing, "Autos in Combo", 2, 0, 5);
             #endregion
         }

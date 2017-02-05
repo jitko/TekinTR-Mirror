@@ -63,7 +63,7 @@ namespace UnsignedCamille
 
             Menu menu = MenuHandler.Drawing;
 
-            if (menu.GetCheckboxValue("Verilebilecek hasari goster"))
+            if (menu.GetCheckboxValue("Draw Combo Damage"))
                 foreach (AIHeroClient enemy in EntityManager.Heroes.Enemies.Where(a => a.MeetsCriteria()))
                 {
                     int hpBarWidth = 96;
@@ -87,16 +87,16 @@ namespace UnsignedCamille
             Menu menu = MenuHandler.Drawing;
             System.Drawing.Color drawColor = System.Drawing.Color.Blue;
 
-            if (menu.GetCheckboxValue("Goster W icin uzaklik"))
+            if (menu.GetCheckboxValue("Draw W Inner Range"))
                 W2.DrawRange(drawColor);
-            if (menu.GetCheckboxValue("Goster W icin uzaklik"))
+            if (menu.GetCheckboxValue("Draw W Inner Range"))
                 W.DrawRange(drawColor);
-            if (menu.GetCheckboxValue("Goster E uzakligi"))
+            if (menu.GetCheckboxValue("Draw E Range"))
                 E.DrawRange(drawColor);
-            if (menu.GetCheckboxValue("Goster R uzakligi"))
+            if (menu.GetCheckboxValue("Draw R Range"))
                 R.DrawRange(drawColor);
 
-            if (menu.GetCheckboxValue("E icin duvar goster") && E.IsReady())
+            if (menu.GetCheckboxValue("Draw Walls for E") && E.IsReady())
             {
                 if (E.Name == "CamilleE")
                 {

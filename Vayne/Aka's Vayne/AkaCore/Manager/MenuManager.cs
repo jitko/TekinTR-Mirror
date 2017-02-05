@@ -138,16 +138,16 @@ namespace AkaCore.Manager
         {
             UtilityMenu = HMenu.AddSubMenu("Utility", "kappa");
             UtilityMenu.AddGroupLabel("Utility");
-            UtilityMenu.Add("Skinhack", new CheckBox("Activate Skin hack", false));
+            UtilityMenu.Add("Skinhack", new CheckBox("Skin secici aktif", false));
             UtilityMenu.Add("SkinID", new Slider("SkinID", 0, 0, 15));
-            UtilityMenu.Add("Autolvl", new CheckBox("Activate Auto level"));
+            UtilityMenu.Add("Autolvl", new CheckBox("Oto level aktif"));
             UtilityMenu.Add("AutolvlS", new ComboBox("Level Mode", 0, "Max Q", "Max W", "Max E"));
-            UtilityMenu.Add("Autobuy", new CheckBox("Autobuy Starters"));
+            UtilityMenu.Add("Autobuy", new CheckBox("Baslangic itemi"));
             UtilityMenu.Add("AutobuyS", new ComboBox("Starter Item", 0, "Dorans Blade", "Dorans Ring", "Dorans Shield", "Corrupting Potion", "Hunters Machete", "Hunters Talisman", "Ancient Coin", "SpellThiefs", "Relic Shield"));
-            UtilityMenu.Add("Autobuyt", new CheckBox("Upgrade Trinkets"));
+            UtilityMenu.Add("Autobuyt", new CheckBox("Totem yukselt"));
             UtilityMenu.Add("AutobuytS", new ComboBox("Upgrade to", 0, "Farsight Alteration", "Oracle Alteration"));
-            UtilityMenu.Add("Autolantern", new CheckBox("Auto Lantern"));
-            UtilityMenu.Add("AutolanternHP", new Slider("Auto Lantern if Hp =>", 40));
+            UtilityMenu.Add("Autolantern", new CheckBox("Oto fener"));
+            UtilityMenu.Add("AutolanternHP", new Slider("Oto fener icin Hp =>", 40));
         }
 
         private static void Orbwalkermenu()

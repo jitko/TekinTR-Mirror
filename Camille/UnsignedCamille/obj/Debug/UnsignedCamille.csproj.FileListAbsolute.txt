@@ -1,1 +1,1 @@
-C:\Users\Tekin\Desktop\EloBuddy-Addons-WIP-master\UnsignedCamille\bin\Debug\UnsignedCamille.exe.config
+C:\Users\Tekin\Desktop\UnsignedCamille\bin\Debug\UnsignedCamille.exe.config

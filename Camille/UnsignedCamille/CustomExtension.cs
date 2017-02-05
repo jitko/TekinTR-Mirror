@@ -106,7 +106,7 @@ namespace UnsignedCamille
                 return unit.Position;
             else
             {
-                Console.WriteLine("Bu tahminde bulunmak bir destek degildir. Bunu duzeltmek icin Chaos ile iletisime gecin.");
+                Console.WriteLine("This prediction is not support. Contact Chaos to fix this.");
                 return unit.Position;
             }
         }

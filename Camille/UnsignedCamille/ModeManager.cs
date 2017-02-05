@@ -23,13 +23,13 @@ namespace UnsignedCamille
             Menu menu = MenuHandler.Combo;
             List<Obj_AI_Base> enemies = EntityManager.Heroes.Enemies.ToList().ToObj_AI_BaseList();
             
-            if (menu.GetCheckboxValue("Use Q1") && Program.Q.Name == "CamilleQ")
+            if (menu.GetCheckboxValue("Kullan Q1") && Program.Q.Name == "CamilleQ")
                 CastQ(enemies, false);
 
-            if (menu.GetCheckboxValue("Use Q2") && Program.Q.Name == "CamilleQ2")
+            if (menu.GetCheckboxValue("Kullan Q2") && Program.Q.Name == "CamilleQ2")
                 CastQ(enemies, false);
 
-            if (menu.GetCheckboxValue("Use W"))
+            if (menu.GetCheckboxValue("Kullan W"))
                 CastW(enemies, false, menu);
 
             //if (menu.GetCheckboxValue("Force Follow in W Range"))
@@ -47,10 +47,10 @@ namespace UnsignedCamille
             if (menu.GetCheckboxValue("Kullan Items"))
                 UseItems(enemies, false);
 
-            if (menu.GetCheckboxValue("Kullan tutustur"))
+            if (menu.GetCheckboxValue("Kullan Tutustur"))
                 UseIgnite(enemies, true);
 
-            if (menu.GetCheckboxValue("Kullan carp"))
+            if (menu.GetCheckboxValue("Kullan Carp"))
                 UseSmite(enemies, false);
         }
 
@@ -80,10 +80,10 @@ namespace UnsignedCamille
             if (menu.GetCheckboxValue("Kullan R"))
                 CastR(enemies);
 
-            if (menu.GetCheckboxValue("Kullan Item"))
+            if (menu.GetCheckboxValue("Kullan Items"))
                 UseItems(enemies, false);
 
-            if (menu.GetCheckboxValue("Kullan carp"))
+            if (menu.GetCheckboxValue("Kullan Carp"))
                 UseSmite(enemies, false);
         }
 
@@ -110,10 +110,10 @@ namespace UnsignedCamille
             if (menu.GetCheckboxValue("Kullan E1") && Program.E.Name == "CamilleEDash2")
                 CastE(enemies, false);
 
-            if (menu.GetCheckboxValue("Kullan Item"))
+            if (menu.GetCheckboxValue("Kullan Items"))
                 UseItems(enemies, false);
 
-            if (menu.GetCheckboxValue("Kullan carp"))
+            if (menu.GetCheckboxValue("Kullan Carp"))
                 UseSmite(enemies, true, menu.GetCheckboxValue("Use Smite for HP"));
         }
 
@@ -137,16 +137,16 @@ namespace UnsignedCamille
             if (menu.GetCheckboxValue("Kullan E1") && Program.E.Name == "CamilleE")
                 CastE(enemies, true);
 
-            if (menu.GetCheckboxValue("Kullan E2") && Program.E.Name == "CamilleEDash2")
+            if (menu.GetCheckboxValue("Kullan E1") && Program.E.Name == "CamilleEDash2")
                 CastE(enemies, true);
 
-            if (menu.GetCheckboxValue("Kullan Item"))
+            if (menu.GetCheckboxValue("Kullan Items"))
                 UseItems(enemies, true);
 
-            if (menu.GetCheckboxValue("Kullan tutustur"))
+            if (menu.GetCheckboxValue("Kullan Tutustur"))
                 UseIgnite(enemies, true);
 
-            if (menu.GetCheckboxValue("Kullan carp"))
+            if (menu.GetCheckboxValue("Kullan Carp"))
                 UseSmite(enemies, true);
         }
 
@@ -222,7 +222,7 @@ namespace UnsignedCamille
             if (menu.GetCheckboxValue("Kullan E1") && Program.E.Name == "CamilleEDash2")
                 CastE(enemies, false);
 
-            if (menu.GetCheckboxValue("Kullan Item"))
+            if (menu.GetCheckboxValue("Kullan Items"))
                 UseItems(enemies, false);
         }
 
@@ -249,22 +249,22 @@ namespace UnsignedCamille
             if (menu.GetCheckboxValue("Kullan E1") && Program.E.Name == "CamilleEDash2")
                 CastE(enemies, true);
 
-            if (menu.GetCheckboxValue("Kullan Item"))
+            if (menu.GetCheckboxValue("Kullan Items"))
                 UseItems(enemies, true);
         }
 
         public static void UseItems(List<Obj_AI_Base> enemies, bool ks)
         {
             #region Item Initialization
-            InventorySlot QSS = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Quick Silver Sash")) ? Camille.GetItem(ItemId.Quicksilver_Sash) : null,
-                MercurialsScimitar = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Mercurials Scimitar")) ? Camille.GetItem(ItemId.Mercurial_Scimitar) : null,
-                RavenousHydra = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Ravenous Hydra")) ? Camille.GetItem(ItemId.Ravenous_Hydra) : null,
-                TitanicHydra = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Titanic Hydra")) ? Camille.GetItem(ItemId.Titanic_Hydra) : null,
-                Tiamat = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Tiamat")) ? Camille.GetItem(ItemId.Tiamat) : null,
-                Youmuus = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Youmuus")) ? Camille.GetItem(ItemId.Youmuus_Ghostblade) : null,
-                BOTRK = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Blade of the Ruined King")) ? Camille.GetItem(ItemId.Blade_of_the_Ruined_King) : null,
-                BilgewaterCutlass = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Bilgewater Cutlass")) ? Camille.GetItem(ItemId.Bilgewater_Cutlass) : null,
-                HextechGunblade = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Use Hextech Gunblade")) ? Camille.GetItem(ItemId.Hextech_Gunblade) : null;
+            InventorySlot QSS = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Civali kullan")) ? Camille.GetItem(ItemId.Quicksilver_Sash) : null,
+                MercurialsScimitar = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Kullan Mercurials Scimitar")) ? Camille.GetItem(ItemId.Mercurial_Scimitar) : null,
+                RavenousHydra = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Kullan vahsi Hydra")) ? Camille.GetItem(ItemId.Ravenous_Hydra) : null,
+                TitanicHydra = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Kullan hasmetli Hydra")) ? Camille.GetItem(ItemId.Titanic_Hydra) : null,
+                Tiamat = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Kullan Tiamat")) ? Camille.GetItem(ItemId.Tiamat) : null,
+                Youmuus = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Kullan Youmuus")) ? Camille.GetItem(ItemId.Youmuus_Ghostblade) : null,
+                BOTRK = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Kullan Mahvolmus")) ? Camille.GetItem(ItemId.Blade_of_the_Ruined_King) : null,
+                BilgewaterCutlass = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Kullan Bilgewater Palasi")) ? Camille.GetItem(ItemId.Bilgewater_Cutlass) : null,
+                HextechGunblade = (MenuHandler.GetCheckboxValue(MenuHandler.Items, "Kullan Hextech Silahkilic")) ? Camille.GetItem(ItemId.Hextech_Gunblade) : null;
             #endregion
 
             #region QSS
