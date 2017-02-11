@@ -33,7 +33,7 @@ namespace ReGaren.ReCore
             Drawing.OnEndScene += Core.DrawingsUpdater.OnEndScene;
 
             Menu.AddGroupLabel("Welcome to ReCore v." + AssVersion + " [BETA].");
-            Status = Menu.Add("enableReCore", new CheckBox("Enable [NOT RECOMMEND]", false));
+            Status = Menu.Add("enableReCore", new CheckBox("Aktif et [Tavsiye Etmem]", false));
             Chat.Print("<font color='#FFFFFF'>ReCore v." + AssVersion + "</font> <font color='#CF2942'>[BETA]</font> <font color='#FFFFFF'>has been loaded.</font>");
         }
 

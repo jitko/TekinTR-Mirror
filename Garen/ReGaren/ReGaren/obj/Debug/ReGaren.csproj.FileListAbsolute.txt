@@ -37,3 +37,6 @@ D:\Users\Reekspear\Desktop\EloBuddy-Addons-WIP\ReGaren\ReGaren\bin\Debug\Newtons
 C:\Users\Tekin\Desktop\EloBuddy-Addons-WIP-master\ReGaren\ReGaren\bin\Debug\ReGaren.exe.config
 C:\Users\Tekin\Desktop\EloBuddy-Addons-WIP-master\ReGaren\ReGaren\obj\Debug\ReGaren.exe
 C:\Users\Tekin\Desktop\EloBuddy-Addons-WIP-master\ReGaren\ReGaren\obj\Debug\ReGaren.pdb
+C:\Users\Tekin\Documents\GitHub\YeniTurkce\Garen\ReGaren\ReGaren\bin\Debug\ReGaren.exe.config
+C:\Users\Tekin\Documents\GitHub\YeniTurkce\Garen\ReGaren\ReGaren\obj\Debug\ReGaren.exe
+C:\Users\Tekin\Documents\GitHub\YeniTurkce\Garen\ReGaren\ReGaren\obj\Debug\ReGaren.pdb

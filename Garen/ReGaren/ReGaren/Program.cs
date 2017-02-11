@@ -36,7 +36,7 @@ namespace ReGaren
             Game.OnUpdate += OnTick;
             Drawing.OnEndScene += OnEndScene;
 
-            Chat.Print("ReGaren Yuklendi iyi oyunlar. GL HF;");
+            Chat.Print("ReGaren Yuklendi iyi oyunlar. Ceviri TekinTR;");
         }
 
         private static void OnEndScene(EventArgs args)
