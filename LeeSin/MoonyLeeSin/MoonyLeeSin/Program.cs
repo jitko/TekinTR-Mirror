@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using EloBuddy;
 using EloBuddy.SDK;
-using EloBuddy.SDK.Enumerations;
 using EloBuddy.SDK.Events;
 using EloBuddy.SDK.Menu.Values;
-using MoonyLeeKicks.Extras;
-using MoonyLeeKicks.Insec;
+using MoonyLeeSin.Extras;
+using MoonyLeeSin.Insec;
 using SharpDX;
 
 namespace MoonyLeeSin
