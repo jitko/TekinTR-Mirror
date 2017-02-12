@@ -3,7 +3,7 @@ using EloBuddy;
 using EloBuddy.SDK;
 using EloBuddy.SDK.Enumerations;
 
-namespace MoonyLeeKicks
+namespace MoonyLeeSin
 {
     class SpellManager
     {

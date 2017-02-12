@@ -1,0 +1,3 @@
+C:\Users\Tekin\Documents\GitHub\YeniTurkce\LeeSin\MoonyLeeSin\MoonyLeeSin\bin\Debug\MoonyLeeKicks.exe.config
+C:\Users\Tekin\Documents\GitHub\YeniTurkce\LeeSin\MoonyLeeSin\MoonyLeeSin\obj\Debug\MoonyLeeKicks.exe
+C:\Users\Tekin\Documents\GitHub\YeniTurkce\LeeSin\MoonyLeeSin\MoonyLeeSin\obj\Debug\MoonyLeeKicks.pdb

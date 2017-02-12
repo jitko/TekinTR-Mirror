@@ -10,7 +10,7 @@ using MoonyLeeKicks.Extras;
 using MoonyLeeKicks.Insec;
 using SharpDX;
 
-namespace MoonyLeeKicks
+namespace MoonyLeeSin
 {
     class Program
     {

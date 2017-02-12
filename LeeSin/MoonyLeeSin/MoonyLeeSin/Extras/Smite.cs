@@ -5,9 +5,9 @@ using EloBuddy;
 using EloBuddy.SDK;
 using EloBuddy.SDK.Enumerations;
 using EloBuddy.SDK.Menu.Values;
-using MoonyLeeKicks.Insec;
+using MoonyLeeSin.Insec;
 
-namespace MoonyLeeKicks.Extras
+namespace MoonyLeeSin.Extras
 {
     class Smite
     {

@@ -24,3 +24,6 @@ C:\Users\Mertss\Documents\GitHub\Blessed-Riven\obj\Debug\BlessedRiven.pdb
 C:\Users\Tekin\Desktop\Blessed-Riven-master\bin\Debug\BlessedRiven.exe.config
 C:\Users\Tekin\Desktop\Blessed-Riven-master\obj\Debug\BlessedRiven.exe
 C:\Users\Tekin\Desktop\Blessed-Riven-master\obj\Debug\BlessedRiven.pdb
+C:\Users\Tekin\Documents\GitHub\YeniTurkce\Riven\Blessed-Riven\bin\Debug\BlessedRiven.exe.config
+C:\Users\Tekin\Documents\GitHub\YeniTurkce\Riven\Blessed-Riven\obj\Debug\BlessedRiven.exe
+C:\Users\Tekin\Documents\GitHub\YeniTurkce\Riven\Blessed-Riven\obj\Debug\BlessedRiven.pdb

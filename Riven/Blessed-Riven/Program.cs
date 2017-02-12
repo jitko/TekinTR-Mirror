@@ -12,7 +12,7 @@ using Color = System.Drawing.Color;
 using EloBuddy.SDK.Constants;
 using SharpDX;
 
-namespace Blessed_Riven
+namespace BlassedRiven
 {
     class Program
     {
@@ -89,8 +89,8 @@ namespace Blessed_Riven
             Healthpot = new Item(2003, 0);
             _ignite = new Spell.Targeted(ObjectManager.Player.GetSpellSlotFromName("summonerdot"), 600);
 
-            Chat.Print("Blessed Riven Yuklendi Ceviri TekinTR.", Color.Brown);
-            Menu = MainMenu.AddMenu("Blessed Riven", "BlessedRiven");
+            Chat.Print("BlassedRiven Yuklendi TekinTR.", Color.Brown);
+            Menu = MainMenu.AddMenu("Blassed Riven", "BlassedRiven");
 
             ComboMenu = Menu.AddSubMenu("Combo Settings", "ComboSettings");
             ComboMenu.AddLabel("Combo Settings");

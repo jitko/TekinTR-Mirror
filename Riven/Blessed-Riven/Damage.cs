@@ -2,7 +2,7 @@
 using EloBuddy;
 using EloBuddy.SDK;
 
-namespace Blessed_Riven
+namespace BlassedRiven
 {
     class Damage
     {

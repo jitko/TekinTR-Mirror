@@ -4,7 +4,7 @@ using EloBuddy;
 using EloBuddy.SDK;
 using EloBuddy.SDK.Menu.Values;
 
-namespace MoonyLeeKicks
+namespace MoonyLeeSin
 {
     internal class MultiKick
     {

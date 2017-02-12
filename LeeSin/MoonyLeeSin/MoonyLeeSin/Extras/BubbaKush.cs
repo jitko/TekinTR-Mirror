@@ -6,10 +6,10 @@ using EloBuddy;
 using EloBuddy.SDK;
 using EloBuddy.SDK.Menu.Values;
 using EloBuddy.SDK.Rendering;
-using MoonyLeeKicks.Insec;
+using MoonyLeeSin.Insec;
 using SharpDX;
 
-namespace MoonyLeeKicks.Extras
+namespace MoonyLeeSin.Extras
 {
     public static class PolygonExtensions
     {

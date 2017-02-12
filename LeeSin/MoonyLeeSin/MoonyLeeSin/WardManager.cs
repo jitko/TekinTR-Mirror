@@ -5,7 +5,7 @@ using EloBuddy;
 using EloBuddy.SDK;
 using SharpDX;
 
-namespace MoonyLeeKicks
+namespace MoonyLeeSin
 {
     public static class WardManager
     {
