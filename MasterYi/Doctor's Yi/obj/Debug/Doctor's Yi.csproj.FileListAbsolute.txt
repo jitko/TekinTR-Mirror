@@ -1,1 +1,2 @@
 C:\Users\Tekin\Desktop\Doctor's Yi\bin\Debug\Doctor's YI.exe.config
+C:\Users\Tekin\Documents\GitHub\YeniTurkce\MasterYi\Doctor's Yi\bin\Debug\Doctor's YI.exe.config
