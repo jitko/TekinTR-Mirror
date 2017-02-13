@@ -1,2 +1,0 @@
-c:\users\ridiculous\documents\visual studio 2015\Projects\Support Mode\Support Mode\bin\Debug\Support Mode.exe.config
-C:\Users\Tekin\Desktop\EB-master\Support Mode\bin\Debug\Support Mode.exe.config

@@ -1,2 +1,0 @@
-C:\Users\Tekin\Desktop\LeeSin\LeeSin\bin\Release\LeeSin.exe.config
-C:\Users\Tekin\Documents\GitHub\YeniTurkce\LeeSin\Master to Enemy\LeeSin\bin\Release\LeeSin.exe.config

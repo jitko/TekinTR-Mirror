@@ -1,2 +1,0 @@
-C:\Users\Tekin\Desktop\UBActivator\bin\Debug\UBActivator.exe.config
-C:\Users\Tekin\Documents\GitHub\YeniTurkce\Utility\UBActivator\bin\Debug\UBActivator.exe.config

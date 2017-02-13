@@ -1,2 +1,0 @@
-C:\Users\Tekin\Desktop\Yeni klasör\Marksman Master\bin\Debug\Marksman Master.exe.config
-C:\Users\Tekin\Documents\GitHub\YeniTurkce\Marksman Master\bin\Debug\Marksman Master.exe.config
