@@ -124,7 +124,7 @@ namespace Jinx
         /// </summary>
         public static bool RapidFireCannon
         {
-            get { return Player.HasBuff("ItemStatikShankCharge") && Player.GetBuff("ItemStatikShankCharge").Count == 100; }
+            get { return Player.Instance.HasItem(ItemId.Rapid_Firecannon) && Player.HasBuff("ItemStatikShankCharge") && Player.GetBuff("ItemStatikShankCharge").Count == 100; }
         }
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace Jinx
         /// </summary>
         public static float MinigunRange
         {
-            get { return RapidFireCannon ? 525f + 150f : 525f; }
+            get { return RapidFireCannon ? 625f + 150f : 625f; }
         }
 
         /// <summary>
@@ -146,7 +146,7 @@ namespace Jinx
         /// <returns>Returns the range of FishBones</returns>
         public static float FishBonesRange()
         {
-            return MinigunRange + 50f + (25 * Program.Q.Level) + Config.MiscMenu["qRange"].Cast<Slider>().CurrentValue;
+            return MinigunRange + (50f + (25f * Program.Q.Level)) + Config.MiscMenu["qRange"].Cast<Slider>().CurrentValue;
         }
 
         /// <summary>
@@ -233,7 +233,7 @@ namespace Jinx
             /// <returns>Returns the Damage done with useQ</returns>
             private static float QDamage(Obj_AI_Base target)
             {
-                return Player.Instance.GetAutoAttackDamage(target);
+                return FishBones() ? Player.Instance.GetAutoAttackDamage(target) * 1.1f : Player.Instance.GetAutoAttackDamage(target);
             }
 
             /// <summary>
@@ -260,7 +260,7 @@ namespace Jinx
                 return Player.Instance.CalculateDamageOnUnit(
                     target,
                     DamageType.Magical,
-                    new[] {0, 80, 135, 190, 245, 300}[Program.E.Level] + (Player.Instance.TotalMagicalDamage));
+                    new[] {0, 70, 120, 170, 220, 270}[Program.E.Level] + (Player.Instance.TotalMagicalDamage));
             }
 
             /// <summary>
@@ -278,15 +278,11 @@ namespace Jinx
                     increment = 15;
                 }
 
-                var extraPercent = Math.Floor((10f + (increment*6f)))/10f;
+                var extraPercent = Math.Floor((15f + (increment*9f)))/100f;
+                var extraDamageScale = Math.Floor((10f + (increment*6f)))/10f;
 
-                if (extraPercent > 10)
-                {
-                    extraPercent = 10;
-                }
-
-                var damage = (new[] {0f, 25f, 35f, 45f}[Program.R.Level]*(extraPercent)) +
-                             ((extraPercent/100f)*Player.Instance.FlatPhysicalDamageMod) +
+                var damage = (new[] {0f, 25f, 35f, 45f}[Program.R.Level] * extraDamageScale) +
+                             (extraPercent*Player.Instance.FlatPhysicalDamageMod) +
                              ((new[] {0f, 0.25f, 0.3f, 0.35f}[Program.R.Level]*(target.MaxHealth - target.Health)));
 
                 return Player.Instance.CalculateDamageOnUnit(target, DamageType.Physical, (float) damage);

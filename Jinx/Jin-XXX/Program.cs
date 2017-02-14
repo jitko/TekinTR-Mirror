@@ -45,7 +45,7 @@
         /// <summary>
         /// Allah Akbar
         /// </summary>
-        //public static SoundPlayer AllahAkbar;
+        public static SoundPlayer AllahAkbar;
 
         /// <summary>
         /// Called when the Program is run
@@ -83,7 +83,7 @@
             Config.Initialize();
             Indicator = new DamageIndicator.DamageIndicator();
 
-            Chat.Print("Jin-XXX: Yuklendi.Ceviri TekinTR", System.Drawing.Color.Blue);
+            Chat.Print("Jin-XXX: Yüklendi TekinTR.", System.Drawing.Color.Blue);
 
             Game.OnUpdate += Game_OnUpdate;
             Game.OnUpdate += ActiveStates.Game_OnUpdate;
@@ -94,7 +94,7 @@
             Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast;
             Drawing.OnDraw += Drawing_OnDraw;
 
-            /*try
+            try
             {
                 var sandBox = SandboxConfig.DataDirectory + @"\JinXXX\";
 
@@ -124,11 +124,11 @@
             }
             catch (Exception e)
             {
-                Chat.Print("Failed to load Allah Akbar: " + e);
-            }*/
+                Chat.Print("Yukleme basarisiz Allah Akbar: " + e);
+            }
         }
 
-        /*private static void Client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        private static void Client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
             Chat.Print("Failed Downloading: " + e.Error);
             AllahAkbar = new SoundPlayer
@@ -137,7 +137,7 @@
                     SandboxConfig.DataDirectory + @"\JinXXX\" + "Allahu_Akbar_Sound_Effect_Download_Link.wav"
             };
             AllahAkbar.Load();
-        }*/
+        }
 
         /// <summary>
         /// Called Before Attack
@@ -159,8 +159,8 @@
 
                     if (target != null && target.IsValidTarget())
                     {
-                        if (Player.Instance.Distance(target) <= Essentials.MinigunRange &&
-                            target.CountEnemiesInRange(100) <
+                        if ((target.Distance(Player.Instance) - target.BoundingRadius - Player.Instance.BoundingRadius) <= Essentials.MinigunRange &&
+                            target.CountEnemyChampionsInRange(100) <
                             Config.ComboMenu["qCountC"].Cast<Slider>().CurrentValue)
                         {
                             Program.Q.Cast();

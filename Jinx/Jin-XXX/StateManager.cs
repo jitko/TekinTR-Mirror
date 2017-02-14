@@ -28,15 +28,16 @@
 
                 if (target != null && target.IsValidTarget())
                 {
-                    if (!Player.Instance.IsInAutoAttackRange(target) &&
-                        Player.Instance.Distance(target) <= Essentials.FishBonesRange())
+                    if (!Player.Instance.IsInAutoAttackRange(target) /* &&
+                        Player.Instance.Distance(target) <= Essentials.FishBonesRange()*/)
                     {
                         Program.Q.Cast();
                         Orbwalker.ForcedTarget = target;
                     }
 
                     if (Player.Instance.IsInAutoAttackRange(target) &&
-                        target.CountEnemiesInRange(100) >= Config.ComboMenu["qCountC"].Cast<Slider>().CurrentValue)
+                        target.CountEnemyChampionsInRange(100) >=
+                        Config.ComboMenu["qCountC"].Cast<Slider>().CurrentValue)
                     {
                         Program.Q.Cast();
                         Orbwalker.ForcedTarget = target;
@@ -158,7 +159,7 @@
                             t =>
                                 t.Distance(minionInRange
                                     ) <=
-                                100 && t.Health <= (Player.Instance.GetAutoAttackDamage(t) * 1.1f)).ToArray();
+                                100 && t.Health <= (Player.Instance.GetAutoAttackDamage(t)*1.1f)).ToArray();
 
                     if (minion.Count() >= qCountM)
                     {
@@ -184,14 +185,20 @@
                             t.Distance(Player.Instance) > Essentials.MinigunRange)
                     .OrderByDescending(t => t.Health);
 
-                foreach (var m in from minionOutOfRange in minion where minionOutOfRange != null select EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy,
-                    Player.Instance.ServerPosition,
-                    Essentials.FishBonesRange())
-                    .Where(
-                        t =>
-                            t.Distance(minionOutOfRange
-                                ) <=
-                            100 && t.Health <= (Player.Instance.GetAutoAttackDamage(t) * 1.1f)).ToArray() into minion2 where minion2.Count() >= qCountM from m in minion2 select m)
+                foreach (var m in from minionOutOfRange in minion
+                    where minionOutOfRange != null
+                    select EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy,
+                        Player.Instance.ServerPosition,
+                        Essentials.FishBonesRange())
+                        .Where(
+                            t =>
+                                t.Distance(minionOutOfRange
+                                    ) <=
+                                100 && t.Health <= (Player.Instance.GetAutoAttackDamage(t)*1.1f)).ToArray()
+                    into minion2
+                    where minion2.Count() >= qCountM
+                    from m in minion2
+                    select m)
                 {
                     Program.Q.Cast();
                     Orbwalker.ForcedTarget = m;
@@ -223,12 +230,13 @@
             var kM = Orbwalker.LastHitMinionsList.Where(
                 t => t.IsEnemy &&
                      t.Health <= (Player.Instance.GetAutoAttackDamage(t)*0.9090909F) && t.IsValidTarget() &&
-                     t.Distance(Player.Instance) <= Essentials.MinigunRange);
+                     (t.Distance(Player.Instance) - t.BoundingRadius - Player.Instance.BoundingRadius) <=
+                     Essentials.MinigunRange);
             if (useQ && Essentials.FishBones() && kM.Count() < qCountM)
             {
                 Program.Q.Cast();
             }
-            
+
             // Out of Range
             if (useQ && Player.Instance.ManaPercent >= manaQ && !Essentials.FishBones())
             {
@@ -239,7 +247,8 @@
                     .Where(
                         t =>
                             t.Health <= Player.Instance.GetAutoAttackDamage(t)*1.1f &&
-                            t.Distance(Player.Instance) > Essentials.MinigunRange)
+                            (t.Distance(Player.Instance) - t.BoundingRadius - Player.Instance.BoundingRadius) >
+                            Essentials.MinigunRange)
                     .OrderByDescending(t => t.Health);
 
                 foreach (var m in from minionOutOfRange in minion
@@ -301,15 +310,16 @@
 
                 if (target != null && target.IsValidTarget())
                 {
-                    if (!Player.Instance.IsInAutoAttackRange(target) &&
-                        Player.Instance.Distance(target) <= Essentials.FishBonesRange())
+                    if (!Player.Instance.IsInAutoAttackRange(target) /* &&
+                        Player.Instance.Distance(target) <= Essentials.FishBonesRange()*/)
                     {
                         Program.Q.Cast();
                         Orbwalker.ForcedTarget = target;
                     }
 
                     if (Player.Instance.IsInAutoAttackRange(target) &&
-                        target.CountEnemiesInRange(100) >= Config.HarassMenu["qCountC"].Cast<Slider>().CurrentValue)
+                        target.CountEnemyChampionsInRange(100) >=
+                        Config.HarassMenu["qCountC"].Cast<Slider>().CurrentValue)
                     {
                         Program.Q.Cast();
                         Orbwalker.ForcedTarget = target;
@@ -324,8 +334,10 @@
 
                 if (target != null && target.IsValidTarget())
                 {
-                    if (Player.Instance.Distance(target) <= Essentials.MinigunRange &&
-                        target.CountEnemiesInRange(100) < Config.HarassMenu["qCountC"].Cast<Slider>().CurrentValue)
+                    if ((Player.Instance.Distance(target) - target.BoundingRadius - Player.Instance.BoundingRadius) <=
+                        Essentials.MinigunRange &&
+                        target.CountEnemyChampionsInRange(100) <
+                        Config.HarassMenu["qCountC"].Cast<Slider>().CurrentValue)
                     {
                         Program.Q.Cast();
                         Orbwalker.ForcedTarget = target;
@@ -383,7 +395,9 @@
 
                 if (killQ)
                 {
-                    minion = minion.Where(t => t.Health <= Player.Instance.GetAutoAttackDamage(t)*1.1f).OrderByDescending(t => t.Health);
+                    minion =
+                        minion.Where(t => t.Health <= Player.Instance.GetAutoAttackDamage(t)*1.1f)
+                            .OrderByDescending(t => t.Health);
                 }
 
                 if (!killQ)
@@ -419,17 +433,19 @@
                     if (killQ)
                     {
                         minionsAoe = EntityManager.MinionsAndMonsters.EnemyMinions.Count(t =>
-                                t.IsValidTarget() && t.Distance(m) <= 100 &&
-                                t.Health <= (Player.Instance.GetAutoAttackDamage(t)*1.1f));
+                            t.IsValidTarget() && t.Distance(m) <= 100 &&
+                            t.Health <= (Player.Instance.GetAutoAttackDamage(t)*1.1f));
                     }
 
-                    if (m.Distance(Player.Instance) <= Essentials.FishBonesRange() && m.IsValidTarget() &&
+                    if ((m.Distance(Player.Instance) - m.BoundingRadius - Player.Instance.BoundingRadius) <=
+                        Essentials.FishBonesRange() && m.IsValidTarget() &&
                         minionsAoe >= Config.LaneClearMenu["qCountM"].Cast<Slider>().CurrentValue)
                     {
                         Program.Q.Cast();
                         Orbwalker.ForcedTarget = m;
                     }
-                    else if (m.Distance(Player.Instance) > Player.Instance.GetAutoAttackRange() &&
+                    else if ((m.Distance(Player.Instance) - m.BoundingRadius - Player.Instance.BoundingRadius) >
+                             Player.Instance.GetAutoAttackRange() &&
                              Orbwalker.LastHitMinionsList.Contains(m) && lastHit)
                     {
                         Program.Q.Cast();
@@ -461,7 +477,7 @@
 
                     foreach (
                         var mob in
-                            mobs.Where(mob => mob != null && Player.Instance.Distance(mob) <= Essentials.MinigunRange))
+                            mobs.Where(mob => mob != null && Player.Instance.Distance(mob) - mob.BoundingRadius - Player.Instance.BoundingRadius <= Essentials.MinigunRange))
                     {
                         Program.Q.Cast();
                         Orbwalker.ForcedTarget = mob;
@@ -478,8 +494,8 @@
                             mobs.Where(mob => mob != null)
                                 .Where(
                                     mob =>
-                                        !Player.Instance.IsInAutoAttackRange(mob) &&
-                                        Player.Instance.Distance(mob) <= Essentials.FishBonesRange()))
+                                        !Player.Instance.IsInAutoAttackRange(mob)/* &&
+                                        Player.Instance.Distance(mob) <= Essentials.FishBonesRange()*/))
                     {
                         Program.Q.Cast();
                         Orbwalker.ForcedTarget = mob;
