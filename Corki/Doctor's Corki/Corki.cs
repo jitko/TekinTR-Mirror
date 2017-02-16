@@ -41,7 +41,7 @@ namespace Borki7
         private static void OnLoadingComplete(EventArgs args)
         {
             if (!_Player.ChampionName.Contains("Corki")) return;
-            Chat.Print("Doctor's Corki Yuklendi Ceviri TekinTR!", Color.Orange);
+            Chat.Print("Doctor's Corki Yuklendi.Ceviri TekinTR!", Color.Orange);
             Q = new Spell.Skillshot(SpellSlot.Q, 825, SkillShotType.Circular, 300 , 1000 ,250);
             Q.AllowedCollisionCount = int.MaxValue;
             W = new Spell.Skillshot(SpellSlot.W, 800, SkillShotType.Linear);
@@ -52,29 +52,29 @@ namespace Borki7
             Bil = new Item(3144, 475f);
             Ignite = new Spell.Targeted(ObjectManager.Player.GetSpellSlotFromName("summonerdot"), 600);
             Menu = MainMenu.AddMenu("Doctor's Corki", "Corki");
-            Menu.AddGroupLabel("Mercedes7");
+            Menu.AddGroupLabel("Yapimci Mercedes7");
             SpellMenu = Menu.AddSubMenu("Combo Settings", "Combo");
             SpellMenu.AddGroupLabel("Combo Settings");
-            SpellMenu.Add("ComboQ", new CheckBox("Kullan [Q] Kombo"));
-            SpellMenu.Add("QMode", new ComboBox("Q Modu:", 0, "Hizli [Q]", "[Q] Atakdan sonra"));
-            SpellMenu.Add("ComboR", new CheckBox("Kullan [R] Kombo"));
-            SpellMenu.Add("RMode", new ComboBox("Q Modu:", 0, "Hizli [R]", "[R] Atakdan sonra"));
-            SpellMenu.Add("ComboE", new CheckBox("Kullan [E] Kombo"));
+            SpellMenu.Add("ComboQ", new CheckBox("Kullan [Q]"));
+            SpellMenu.Add("QMode", new ComboBox("Q Mode:", 0, "Hizli [Q]", "[Q] Atakdan Sonra"));
+            SpellMenu.Add("ComboR", new CheckBox("Kullan [R]"));
+            SpellMenu.Add("RMode", new ComboBox("R Mode:", 0, "Hizli [R]", "[R] Atakdan Sonra"));
+            SpellMenu.Add("ComboE", new CheckBox("Kullan [E]"));
 
             HarassMenu = Menu.AddSubMenu("Harass Settings", "Harass");
             HarassMenu.AddGroupLabel("Harass Settings");
             HarassMenu.Add("HarassQ", new CheckBox("Kullan [Q] Durtme"));
             HarassMenu.Add("HarassR", new CheckBox("Kullan [R] Durtme"));
             HarassMenu.Add("HarassE", new CheckBox("Kullan [E] Durtme"));
-            HarassMenu.Add("manaHarass", new Slider("Durtmek icin mana", 50, 0, 100));
+            HarassMenu.Add("manaHarass", new Slider("Durtmek icin enaz mana", 50, 0, 100));
             HarassMenu.Add("RocketHarass", new Slider("Roket sakla [R]", 3, 0, 6));
 
             ClearMenu = Menu.AddSubMenu("LaneClear Settings", "LaneClear");
             ClearMenu.AddGroupLabel("Laneclear Settings");
-            ClearMenu.Add("ClearQ", new CheckBox("Kullan [Q] KoridorTemizle", false));
-            ClearMenu.Add("ClearR", new CheckBox("Kullan [R] KoridorTemizle", false));
-            ClearMenu.Add("ClearE", new CheckBox("Kullan [E] KoridorTemizle", false));
-            ClearMenu.Add("manaClear", new Slider("KoridorTemizle icin mana", 65, 0, 100));
+            ClearMenu.Add("ClearQ", new CheckBox("Kullan [Q] KoridorTemizleme", false));
+            ClearMenu.Add("ClearR", new CheckBox("Kullan [R] KoridorTemizleme", false));
+            ClearMenu.Add("ClearE", new CheckBox("Kullan [E] KoridorTemizleme", false));
+            ClearMenu.Add("manaClear", new Slider("KoridorTemizleme icin enaz mana", 65, 0, 100));
             ClearMenu.Add("RocketClear", new Slider("Roket sakla [R]", 3, 0, 6));
 			
             JungleMenu = Menu.AddSubMenu("JungleClear Settings", "JungleClear");
@@ -82,22 +82,22 @@ namespace Borki7
             JungleMenu.Add("JungleQ", new CheckBox("Kullan [Q] Orman"));
             JungleMenu.Add("JungleR", new CheckBox("Kullan [R] Orman"));
             JungleMenu.Add("JungleE", new CheckBox("Kullan [E] Orman"));
-            JungleMenu.Add("manaJung", new Slider("Orman icin mana", 30, 0, 100));
+            JungleMenu.Add("manaJung", new Slider("Orman icin enaz mana", 30, 0, 100));
             JungleMenu.Add("RocketJung", new Slider("Roket sakla [R]", 3, 0, 6));
 
             KillstealMenu = Menu.AddSubMenu("KillSteal Settings", "KS");
             KillstealMenu.AddGroupLabel("KillSteal Settings");
             KillstealMenu.Add("RKs", new CheckBox("Kullan [R] Oldururken"));
             KillstealMenu.Add("QKs", new CheckBox("Kullan [Q] Oldururken"));
-            KillstealMenu.Add("ign", new CheckBox("Kullan [Tututur] Oldururken"));
+            KillstealMenu.Add("ign", new CheckBox("Kullan [Tutustur] Oldururken"));
 
             Misc = Menu.AddSubMenu("Misc Settings", "Misc");
             Misc.AddGroupLabel("Drawings Settings");
-            Misc.Add("Draw_Disabled", new CheckBox("Gostergeleri kapat", false));
-            Misc.Add("drawQ", new CheckBox("Goster [Q]"));
-            Misc.Add("drawW", new CheckBox("Goster [W]", false));
-            Misc.Add("drawE", new CheckBox("Goster [E]"));
-            Misc.Add("drawR", new CheckBox("Goster [R]"));
+            Misc.Add("Draw_Disabled", new CheckBox("Cizimleri Kapat", false));
+            Misc.Add("drawQ", new CheckBox("Goster [Q] Menzili"));
+            Misc.Add("drawW", new CheckBox("Goster [W] Menzili", false));
+            Misc.Add("drawE", new CheckBox("Goster [E] Menzili"));
+            Misc.Add("drawR", new CheckBox("Goster [R] Menzili"));
 
             items = Menu.AddSubMenu("Items Settings", "Items");
             items.AddGroupLabel("Items Settings");
