@@ -30,35 +30,35 @@ namespace CTTBOTKarma
             return m[item].Cast<ComboBox>().CurrentValue;
         }
 
-        public static Menu Main, Cizimler, Kombo, Durtme, Karisik;
+        public static Menu Main, drawMenu, comboMenu, harassMenu, miscMenu;
 
         public static void LoadMenu()
         {
             Main = MainMenu.AddMenu("Karma", "Karma");
 
-            Kombo = Main.AddSubMenu("Combo");
-            Kombo.Add("UseQ", new CheckBox("Kullan Q", true));
-            Kombo.Add("UseW", new CheckBox("Kullan W", true));
-            Kombo.Add("UseR", new CheckBox("Kullan R", true));
+            comboMenu = Main.AddSubMenu("Kombo");
+            comboMenu.Add("UseQ", new CheckBox("Kullan Q", true));
+            comboMenu.Add("UseW", new CheckBox("Kullan W", true));
+            comboMenu.Add("UseR", new CheckBox("Kullan R", true));          
 
-            Durtme = Main.AddSubMenu("Harass");
-            Durtme.Add("UseQ", new CheckBox("Kullan Q", true));
-            Durtme.Add("UseR", new CheckBox("Kullan R", true));
-            Durtme.Add("ManaHarass", new Slider("Durtmek icin mana ayari", 60, 0, 100));
+            harassMenu = Main.AddSubMenu("Durtme");
+            harassMenu.Add("UseQ", new CheckBox("Kullan Q", true));
+            harassMenu.Add("UseR", new CheckBox("Kullan R", true));
+            harassMenu.Add("ManaHarass", new Slider("Durtme icin mana ayari", 60, 0, 100));
 
-            Karisik = Main.AddSubMenu("Misc");
-            Karisik.Add("ESheild", new CheckBox("Make E Shield"));
-            Karisik.Add("egapclose", new CheckBox("Kullan E atilma yapana"));
-            Karisik.Add("qgapclose", new CheckBox("Kullan Q atilma yapana"));
-            Karisik.Add("skinHack", new CheckBox("Kostum Sec"));
-            Karisik.Add("SkinID", new Slider("Skin", 0, 0, 8));
+            miscMenu = Main.AddSubMenu("Karisik");
+            miscMenu.Add("ESheild", new CheckBox("Yap E Kalkan"));
+            miscMenu.Add("egapclose", new CheckBox("Kullan E atilma yapana"));
+            miscMenu.Add("qgapclose", new CheckBox("Kullan Q atilma yapana"));
+            miscMenu.Add("skinHack", new CheckBox("Kostum Sec"));
+            miscMenu.Add("SkinID", new Slider("Skin", 0, 0, 8));
 
-            Cizimler = Main.AddSubMenu("Draw");
-            Cizimler.AddGroupLabel("Draw Spell");
-            Cizimler.Add("qRange", new CheckBox("Goster Q Menzili", false));
-            Cizimler.Add("wRange", new CheckBox("Goster W Menzili", false));
-            Cizimler.Add("eRange", new CheckBox("Goster E Menzili", false));
-            Cizimler.Add("onlyRdy", new CheckBox("Sadece hazir olanlari goster", true));
+            drawMenu = Main.AddSubMenu("Cizimler");
+            drawMenu.AddGroupLabel("Draw Spell");
+            drawMenu.Add("qRange", new CheckBox("Q Menzili", false));
+            drawMenu.Add("wRange", new CheckBox("W Menzili", false));
+            drawMenu.Add("eRange", new CheckBox("E Menzili", false));
+            drawMenu.Add("onlyRdy", new CheckBox("Sadece Hazir olanlari goster", true));
         }
     }
 }

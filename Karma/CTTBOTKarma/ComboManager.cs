@@ -17,31 +17,31 @@ namespace CTTBOTKarma
             var qTarget = TargetSelector.GetTarget(SpellsManager.Q.Range, DamageType.Magical);
             var wTarget = TargetSelector.GetTarget(SpellsManager.W.Range, DamageType.Magical);
 
-            if (MenuManager.getCheckBoxItem(MenuManager.Kombo, "UseW") && wTarget != null && SpellsManager.W.IsReady())
+            if (MenuManager.getCheckBoxItem(MenuManager.comboMenu, "UseW") && wTarget != null && SpellsManager.W.IsReady())
             {
                 if ((ObjectManager.Player.Health / ObjectManager.Player.MaxHealth) /
                     (qTarget.Health / qTarget.MaxHealth) < 1)
                 {
-                    if (MenuManager.getCheckBoxItem(MenuManager.Kombo, "UseR"))
+                    if (MenuManager.getCheckBoxItem(MenuManager.comboMenu, "UseR"))
                     {
                         SpellsManager.R.Cast();
                     }
 
-                    if (!MenuManager.getCheckBoxItem(MenuManager.Kombo, "UseR") || !SpellsManager.R.IsReady())
+                    if (!MenuManager.getCheckBoxItem(MenuManager.comboMenu, "UseR") || !SpellsManager.R.IsReady())
                     {
                         SpellsManager.W.Cast(wTarget);
                     }
                 }
             }
 
-            if (MenuManager.getCheckBoxItem(MenuManager.Kombo, "UseQ") && qTarget != null && SpellsManager.Q.IsReady())
+            if (MenuManager.getCheckBoxItem(MenuManager.comboMenu, "UseQ") && qTarget != null && SpellsManager.Q.IsReady())
             {
-                if (MenuManager.getCheckBoxItem(MenuManager.Kombo, "UseR"))
+                if (MenuManager.getCheckBoxItem(MenuManager.comboMenu, "UseR"))
                 {
                     SpellsManager.R.Cast();
                 }
 
-                if (!MenuManager.getCheckBoxItem(MenuManager.Kombo, "UseR") || !SpellsManager.R.IsReady())
+                if (!MenuManager.getCheckBoxItem(MenuManager.comboMenu, "UseR") || !SpellsManager.R.IsReady())
                 {
                     var qPrediction = SpellsManager.Q.GetPrediction(qTarget);
                     if (qPrediction.HitChance >= HitChance.High)
@@ -64,7 +64,7 @@ namespace CTTBOTKarma
                 }
             }
 
-            if (MenuManager.getCheckBoxItem(MenuManager.Kombo, "UseW") && wTarget != null)
+            if (MenuManager.getCheckBoxItem(MenuManager.comboMenu, "UseW") && wTarget != null)
             {
                 SpellsManager.W.Cast(wTarget);
             }

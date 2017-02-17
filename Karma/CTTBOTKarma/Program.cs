@@ -27,7 +27,7 @@ namespace CTTBOTKarma
             Gapcloser.OnGapcloser += MiscManager.AntiGapcloser_OnEnemyGapcloser;
             Game.OnUpdate += Game_OnGameUpdate;
             Drawing.OnDraw += DrawManager.Drawing_OnDraw;
-            Chat.Print("<font color=\"#ca0711\" >Yapimci CTTBOT </font><font color=\"#ffffff\" >Turkce Ceviri </font><font color=\"#ca0711\" >TekinTR</font>");
+            Chat.Print("<font color=\"#ca0711\" >CTTBOT Presents </font><font color=\"#ffffff\" >Karma </font><font color=\"#ca0711\" >Kappa</font>");
         }
 
         private static void Game_OnGameUpdate(EventArgs args)
@@ -49,9 +49,9 @@ namespace CTTBOTKarma
 
             HarassManager.Harass();
 
-            if (MenuManager.getCheckBoxItem(MenuManager.Karisik, "skinHack"))
+            if (MenuManager.getCheckBoxItem(MenuManager.miscMenu, "skinHack"))
             {
-                Player.Instance.SetSkinId(MenuManager.getSliderItem(MenuManager.Karisik, "SkinID"));
+                Player.Instance.SetSkinId(MenuManager.getSliderItem(MenuManager.miscMenu, "SkinID"));
             }
             else { Player.Instance.SetSkinId(0); }
         }

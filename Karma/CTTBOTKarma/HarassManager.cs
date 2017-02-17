@@ -15,14 +15,14 @@ namespace CTTBOTKarma
         {
             var qTarget = TargetSelector.GetTarget(SpellsManager.Q.Range, DamageType.Magical);
 
-            if (MenuManager.getCheckBoxItem(MenuManager.Durtme, "UseQ") && qTarget != null && SpellsManager.Q.IsReady() && Player.Instance.ManaPercent > MenuManager.getSliderItem(MenuManager.Durtme, "ManaHarass"))
+            if (MenuManager.getCheckBoxItem(MenuManager.harassMenu, "UseQ") && qTarget != null && SpellsManager.Q.IsReady() && Player.Instance.ManaPercent > MenuManager.getSliderItem(MenuManager.harassMenu, "ManaHarass"))
             {
-                if (MenuManager.getCheckBoxItem(MenuManager.Durtme, "UseR"))
+                if (MenuManager.getCheckBoxItem(MenuManager.harassMenu, "UseR"))
                 {
                     SpellsManager.R.Cast();
                 }
 
-                if (!MenuManager.getCheckBoxItem(MenuManager.Durtme, "UseR") || !SpellsManager.R.IsReady())
+                if (!MenuManager.getCheckBoxItem(MenuManager.harassMenu, "UseR") || !SpellsManager.R.IsReady())
                 {
                     var qPrediction = SpellsManager.Q.GetPrediction(qTarget);
                     if (qPrediction.HitChance >= HitChance.High)

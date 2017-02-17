@@ -13,11 +13,11 @@ namespace CTTBOTKarma
     {
         public static void AntiGapcloser_OnEnemyGapcloser(AIHeroClient sender, Gapcloser.GapcloserEventArgs gapcloser)
         {
-            if (gapcloser.Sender.IsValidTarget(300f) && SpellsManager.E.IsReady() && MenuManager.getCheckBoxItem(MenuManager.Karisik, "egapclose"))
+            if (gapcloser.Sender.IsValidTarget(300f) && SpellsManager.E.IsReady() && MenuManager.getCheckBoxItem(MenuManager.miscMenu, "egapclose"))
             {
                 SpellsManager.E.Cast(ObjectManager.Player);
             }
-            if (gapcloser.Sender.IsValidTarget(300f) && SpellsManager.Q.IsReady() && MenuManager.getCheckBoxItem(MenuManager.Karisik, "qgapclose"))
+            if (gapcloser.Sender.IsValidTarget(300f) && SpellsManager.Q.IsReady() && MenuManager.getCheckBoxItem(MenuManager.miscMenu, "qgapclose"))
             {
                 SpellsManager.Q.Cast(gapcloser.Sender);
             }
@@ -25,7 +25,7 @@ namespace CTTBOTKarma
 
         public static void ExecuteAdditionals()
         {
-            if (MenuManager.getCheckBoxItem(MenuManager.Karisik, "ESheild"))
+            if (MenuManager.getCheckBoxItem(MenuManager.miscMenu, "ESheild"))
             {
                 foreach (var hero in
                     ObjectManager.Get<AIHeroClient>()
