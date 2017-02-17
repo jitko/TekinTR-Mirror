@@ -24,7 +24,7 @@ namespace TekinMorgana
         private static Spell.Targeted E;
         private static Spell.Active R;
         private static AIHeroClient User = Player.Instance;
-        private static Menu MorganaMenu, Saldiri, Cizimler, BuyulereKalkan, TakimaKalkan, Otomatik, Durtme, QAyarlari, KoridorTemizleme, W Ayari;
+        private static Menu MorganaMenu, Saldiri, Cizimler, BuyulereKalkan, TakimaKalkan, Otomatik, Durtme, QAyarlari, KoridorTemizleme, WAyari;
         private static List<Spell.SpellBase> SpellList = new List<Spell.SpellBase>();
         public static List<MissileClient> ProjectileList = new List<MissileClient>();
         public static List<SpellInfo> EnemyProjectileInformation = new List<SpellInfo>();
@@ -70,7 +70,7 @@ namespace TekinMorgana
 
             MorganaMenu = MainMenu.AddMenu("Morgana", "Morgana");
             QAyarlari = MorganaMenu.AddSubMenu("QAyarlari");
-            W Ayari = MorganaMenu.AddSubMenu("W Ayari");
+            WAyari = MorganaMenu.AddSubMenu("WAyari");
             Saldiri = MorganaMenu.AddSubMenu("Saldiri");
             Durtme = MorganaMenu.AddSubMenu("Durtme");
             KoridorTemizleme = MorganaMenu.AddSubMenu("KoridorTemizleme");
@@ -96,13 +96,13 @@ namespace TekinMorgana
 
             foreach (var Spell in SpellList)
             {
-                Cizimler.Add(Spell.Slot.ToString(), new CheckBox("Draw " + Spell.Slot));
+                Cizimler.Add(Spell.Slot.ToString(), new CheckBox("Cizimler " + Spell.Slot));
             }
 
             foreach (AIHeroClient client in EntityManager.Heroes.Enemies)
             {
                 QAyarlari.Add(client.ChampionName, new CheckBox("Q Aktif" + client.ChampionName));
-                W Ayari.Add(client.ChampionName, new CheckBox("W Aktif" + client.ChampionName));
+                WAyari.Add(client.ChampionName, new CheckBox("W Aktif" + client.ChampionName));
                 foreach (SpellInfo info in SpellDatabase.SpellList)
                 {
                     if (info.ChampionName == client.ChampionName)
@@ -223,12 +223,12 @@ namespace TekinMorgana
                 Q.Cast(t);
             }
 
-            if ((Saldiri["W"].Cast<CheckBox>().CurrentValue && t.IsValidTarget(W.Range) && W.IsReady() && W Ayari[t.ChampionName].Cast<CheckBox>().CurrentValue && Saldiri["SpamW"].Cast<CheckBox>().CurrentValue))
+            if ((Saldiri["W"].Cast<CheckBox>().CurrentValue && t.IsValidTarget(W.Range) && W.IsReady() && WAyari[t.ChampionName].Cast<CheckBox>().CurrentValue && Saldiri["SpamW"].Cast<CheckBox>().CurrentValue))
             {
                 W.Cast(t);
             }
 
-            if ((Saldiri["W"].Cast<CheckBox>().CurrentValue && t.IsValidTarget(W.Range) && W.IsReady() && W Ayari[t.ChampionName].Cast<CheckBox>().CurrentValue && Saldiri["SpamW"].Cast<CheckBox>().CurrentValue == false && t.HasBuffOfType(BuffType.Snare) || t.HasBuffOfType(BuffType.Stun)))
+            if ((Saldiri["W"].Cast<CheckBox>().CurrentValue && t.IsValidTarget(W.Range) && W.IsReady() && WAyari[t.ChampionName].Cast<CheckBox>().CurrentValue && Saldiri["SpamW"].Cast<CheckBox>().CurrentValue == false && t.HasBuffOfType(BuffType.Snare) || t.HasBuffOfType(BuffType.Stun)))
             {
                 W.Cast(t);
             }
@@ -261,12 +261,12 @@ namespace TekinMorgana
                 Q.Cast(t);
             }
 
-            if (t.IsValidTarget(W.Range) && W.IsReady() && Durtme["SpamW"].Cast<CheckBox>().CurrentValue && W Ayari[t.ChampionName].Cast<CheckBox>().CurrentValue && pred.HitChance >= HitChance.Medium)
+            if (t.IsValidTarget(W.Range) && W.IsReady() && Durtme["SpamW"].Cast<CheckBox>().CurrentValue && WAyari[t.ChampionName].Cast<CheckBox>().CurrentValue && pred.HitChance >= HitChance.Medium)
             {
                 W.Cast(t);
             }
 
-            if (t.IsValidTarget(W.Range) && W.IsReady() && Durtme["SpamW"].Cast<CheckBox>().CurrentValue == false && t.IsRooted || t.IsStunned && W Ayari[t.ChampionName].Cast<CheckBox>().CurrentValue)
+            if (t.IsValidTarget(W.Range) && W.IsReady() && Durtme["SpamW"].Cast<CheckBox>().CurrentValue == false && t.IsRooted || t.IsStunned && WAyari[t.ChampionName].Cast<CheckBox>().CurrentValue)
             {
                 W.Cast(t);
             }
