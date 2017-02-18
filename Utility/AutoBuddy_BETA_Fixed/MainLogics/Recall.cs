@@ -25,9 +25,9 @@ namespace AutoBuddy.MainLogics
             var menu = parMenu.AddSubMenu("Recall settings", "ergtrh");
             menu.AddLabel(
     @"
-Autobuddy will recall only if your HP/MP is lower than the percentage you specified.
-(defaulted to 25% HP/15% MP)
-So you won't lose easy kills just because you have enough gold to buy something.
+Autobuddy yanlizca HP/MP'niz belirttginiz yuzdeden daha dusukse geri doner.
+(varsayilan 25% HP/15% MP)
+Yani birsey satin alacak kadar altininiz oldugunda kolay oldurmeyi kaybetmessin.
             ");
             current = currentLogic;
             foreach (
@@ -79,7 +79,7 @@ So you won't lose easy kills just because you have enough gold to buy something.
 
         private void Drawing_OnDraw(EventArgs args)
         {
-            Drawing.DrawText(250, 55, Color.Gold, "Recall, active: " + active + " next item: " + ShopGlobals.Next + " gold needed:" + ShopGlobals.GoldForNextItem);
+            Drawing.DrawText(250, 55, Color.Gold, "geridonus aktif: " + active + " sonraki esya: " + ShopGlobals.Next + " gereken altin:" + ShopGlobals.GoldForNextItem);
         }
 
         private void Game_OnTick(EventArgs args)

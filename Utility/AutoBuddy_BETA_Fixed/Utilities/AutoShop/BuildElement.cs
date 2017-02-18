@@ -28,8 +28,8 @@ namespace AutoBuddy.Utilities.AutoShop
             this.item = item;
             p = index;
 
-            upBox = new CheckBox("up", false);
-            removeBox = new CheckBox("remove", false);
+            upBox = new CheckBox("Yukselt", false);
+            removeBox = new CheckBox("Sat", false);
             itemName = new Label(" ");
             costSlots = new Label(" ");
 

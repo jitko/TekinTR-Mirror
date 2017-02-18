@@ -40,10 +40,10 @@ namespace AutoBuddy.Utilities.AutoShop
             // OLD buildFile = Path.Combine(specialPath + "\\" + AutoWalker.p.ChampionName + "-" + Game.MapId + ".txt");
             buildFile = Path.Combine(specialPath + AutoWalker.p.ChampionName + "-" + Game.MapId + ".txt");
             l = new Label("Shopping list for " + Game.MapId);
-            enabled = new CheckBox("Auto buy enabled", true);
+            enabled = new CheckBox("Otomatik alma aktif", true);
             myBuild = new List<BuildElement>();
 
-            menu = parentMenu.AddSubMenu("AutoShop: " + AutoWalker.p.ChampionName, "AB_SHOP_" + AutoWalker.p.ChampionName);
+            menu = parentMenu.AddSubMenu("Otomatik market: " + AutoWalker.p.ChampionName, "AB_SHOP_" + AutoWalker.p.ChampionName);
             menu.Add("eeewgrververv", l);
             menu.Add(AutoWalker.p.ChampionName + "enabled", enabled);
             LoadBuild();
@@ -56,7 +56,7 @@ namespace AutoBuddy.Utilities.AutoShop
 
 
             var info = parentMenu.AddSubMenu("Shop-instructions");
-            toDefault = new CheckBox("Delete custom build and set default ADC build", false);
+            toDefault = new CheckBox("Ozel buildi sil ve adc buildi ile devam et", false);
 
             var property2 = typeof(CheckBox).GetProperty("Size");
 
@@ -144,7 +144,7 @@ you can copy/share them.
             b.updateText();
             if (b.freeSlots == -1)
             {
-                Chat.Print("Couldn't add " + it + ", inventory is full.");
+                Chat.Print("Eklenemedi " + it + ", envanter dolu.");
                 b.Remove(menu);
             }
             else
@@ -156,7 +156,7 @@ you can copy/share them.
             if (!File.Exists(buildFile))
 
             {
-                Chat.Print("Custom build doesn't exist: " + buildFile);
+                Chat.Print("Ozel build yok: " + buildFile);
                 if (!sugBuild.Equals(string.Empty))
                 {
                     LoadInternalBuild();
@@ -168,20 +168,20 @@ you can copy/share them.
                 var s = File.ReadAllText(buildFile);
                 if (s.Equals(string.Empty))
                 {
-                    Chat.Print("AutoBuddy: the build is empty.");
+                    Chat.Print("AutoBuddy: build yok.");
                     LoadInternalBuild();
                     return;
                 }
                 foreach (var ac in DeserializeBuild(s))
                 {
                     AddElement(BrutalItemInfo.GetItemByID(ac.item), ac.t);
-                    Console.Write("Custom Build Loading ");
+                    Console.Write("Ozel Build Yukleniyor ");
                 }
-                Chat.Print("Loaded build from: " + buildFile);
+                Chat.Print("Yuklu build: " + buildFile);
             }
             catch (Exception e)
             {
-                Chat.Print("AutoBuddy: couldn't load the build.");
+                Chat.Print("AutoBuddy: build yuklenemedi.");
 
                 LoadInternalBuild();
                 Console.WriteLine(e.Message);
@@ -195,7 +195,7 @@ you can copy/share them.
             {
                 if (sugBuild.Equals(string.Empty))
                 {
-                    Chat.Print("AutoBuddy: internal build is empty.");
+                    Chat.Print("AutoBuddy: mevcut build yok.");
                     return;
                 }
                 foreach (var ac in DeserializeBuild(sugBuild))
@@ -205,10 +205,10 @@ you can copy/share them.
             }
             catch (Exception e)
             {
-                Chat.Print("AutoBuddy: internal build load failed.");
+                Chat.Print("AutoBuddy: mevcut build yuklemesi basarisiz.");
                 Console.WriteLine(e.Message);
             }
-            Chat.Print("AutoBuddy: Internal build loaded.");
+            Chat.Print("AutoBuddy: mevcut build yuklendi.");
         }
 
         private void SaveBuild()

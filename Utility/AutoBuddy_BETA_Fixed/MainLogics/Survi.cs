@@ -71,7 +71,7 @@ namespace AutoBuddy.MainLogics
         private void Drawing_OnDraw(EventArgs args)
         {
             Drawing.DrawText(250, 10, Color.Gold,
-                "Survi, active: " + active + "  hits: " + hits + "  dangervalue: " + dangerValue);
+                "Hayatta kalma aktif: " + active + "  isabetler: " + hits + "  tehlike seviyesi: " + dangerValue);
         }
 
         public void Deactivate()

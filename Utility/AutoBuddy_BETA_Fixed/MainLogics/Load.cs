@@ -61,12 +61,12 @@ namespace AutoBuddy.MainLogics
         {
             SetLane();
             waitingSlider = false;
-            Chat.Print("Reselecting lane");
+            Chat.Print("Koridor yeniden seciliyor");
         }
 
         private void Drawing_OnDraw(EventArgs args)
         {
-            Drawing.DrawText(250, 70, Color.Gold, "Lane selector status: " + status);
+            Drawing.DrawText(250, 70, Color.Gold, "Koridor secici durumu: " + status);
         }
 
         public void Activate()
@@ -125,7 +125,7 @@ namespace AutoBuddy.MainLogics
         private void CanSelectLane()
         {
             waiting = true;
-            status = "Looking for free lane, time left " + (int)(startTime - Game.Time);
+            status = "Bos koridor gorunuyor, kalan sure " + (int)(startTime - Game.Time);
             if (Game.Time > startTime || GetChampLanes().All(cl => cl.lane != Lane.Unknown))
             {
                 waiting = false;
@@ -139,7 +139,7 @@ namespace AutoBuddy.MainLogics
 
         private void SelectMostPushedLane()
         {
-            status = "selected most pushed lane";
+            status = "encok itilen koridoru sec";
             var nMyNexus = ObjectManager.Get<Obj_HQ>().First(hq => hq.IsEnemy);
 
             var andrzej =
@@ -193,7 +193,7 @@ namespace AutoBuddy.MainLogics
 
         public void SelectLane2(Lane l)
         {
-            status = "selected " + l;
+            status = "secildi " + l;
             Obj_AI_Turret ally = null, enemy = null;
 
             if (l == Lane.Top)
@@ -257,7 +257,7 @@ namespace AutoBuddy.MainLogics
 
         private void SelectLane()
         {
-            status = "selected free lane";
+            status = "bos koridor secildi";
             var list = GetChampLanes();
             if (list.All(cl => cl.lane != Lane.Mid))
             {

@@ -44,7 +44,7 @@ namespace AutoBuddy
             if (myHero.Hero == Champion.Kalista)
             {
                 BlackSpear = new Item(ItemId.The_Black_Spear);
-                Chat.Print("Auto Black Spear loaded! Thanks @Enelx");
+                Chat.Print("Autobuddy yuklendi!Turkce ceviri TekinTR.");
                 Game.OnUpdate += On_Update;
             }
             //Causes freeze
@@ -57,15 +57,15 @@ namespace AutoBuddy
             var ABVersion = $"{v.Major}.{v.MajorRevision}.{v.Minor}.{v.MinorRevision}";
 
             Chat.Print("AutoBuddy:", System.Drawing.Color.White);
-            Chat.Print($"Loaded Version: {ABVersion}", System.Drawing.Color.LimeGreen);
-            Chat.Print("AutoBuddy: Starting in 5 seconds.");
+            Chat.Print($"Yuklenen versiyon: {ABVersion}", System.Drawing.Color.LimeGreen);
+            Chat.Print("AutoBuddy: 5 saniye icinde baslicak.");
             var startTime = Game.Time < 13
                 ? (13000 - (int) (Game.Time * 1000) < 5000 ? 5000 : 13000 - (int) (Game.Time * 1000))
                 : 5000;
             Core.DelayAction(Start, startTime);
             menu = MainMenu.AddMenu("AUTOBUDDY", "AB");
             menu.Add("sep1", new Separator(1));
-            var c = new CheckBox("Mid ara,diger oyuncu ortada kalirsa terk eder (yalnizca otomatik serit)");
+            var c = new CheckBox("Mide git, diger oyuncu midden ayrilmiyorsa otomatik koridor sec(sadece otomatik modda)");
             var property2 = typeof(CheckBox).GetProperty("Size");
             property2.GetSetMethod(true).Invoke(c, new object[] {new Vector2(500, 20)});
             menu.Add("mid", c);
@@ -73,10 +73,10 @@ namespace AutoBuddy
             string[] lanes =
             {
                 "",
-                "Selected lane: Auto",
-                "Selected lane: Top",
-                "Selected lane: Mid",
-                "Selected lane: Bot"
+                "Koridor sec: Otomatik",
+                "Koridor sec: Ust ",
+                "Koridor sec: Orta",
+                "Koridor sec: Alt"
             };
             s.DisplayName = lanes[s.CurrentValue];
             s.OnValueChange +=
@@ -84,12 +84,12 @@ namespace AutoBuddy
                 {
                     sender.DisplayName = lanes[changeArgs.NewValue];
                 };
-            menu.Add("reselectlane", new CheckBox("Koridoru tekrar sec", false));
-            menu.Add("disablepings", new CheckBox("Piglemeyi kapat"));
-            menu.Add("disablechat", new CheckBox("Chat kapat"));
-            var newpf = new CheckBox("Akilli yol bulma kullan");
+            menu.Add("reselectlane", new CheckBox("Koridoru yeniden sec", false));
+            menu.Add("disablepings", new CheckBox("Ping atmayi kapat"));
+            menu.Add("disablechat", new CheckBox("Konusmayi kapat"));
+            var newpf = new CheckBox("Akilli yol bulma araci");
             menu.Add("newPF", newpf);
-            var hpValue = menu.Add("HPPot", new Slider("En az HP% iksir kullanmak icin?", 40, 1));
+            var hpValue = menu.Add("HPPot", new Slider("Azalinca HP% saglik iksiri kullan?", 40, 1));
             hpvaluePot = hpValue.CurrentValue;
             hpValue.OnValueChange += delegate
             {
@@ -109,28 +109,28 @@ namespace AutoBuddy
             recallHp = hpRecall.CurrentValue;
             recallMana = mpRecall.CurrentValue;
             menu.AddSeparator(10);
-            menu.AddLabel("Turn on to improve RAM usage.");
-            var noTextures = new CheckBox("Dokulari yuklemeyin. Uygulamak icin lol tekrar baslat.");
+            menu.AddLabel("Ram kullanimini gelistirmek icin acin.");
+            var noTextures = new CheckBox("Yazilar yuklenmesin. Gecerli olmasi icin lolu yeniden baslat.");
             menu.Add("noTextures", noTextures);
             noTextures.OnValueChange += noTextures_OnValueChange;
             menu.Add("sep2", new Separator(10));
-            menu.AddLabel("Champ imleci takip edecek. DýKKAT EDýYORSANIZ ACMAYIN!");
-            menu.Add("disableAutoBuddy", new CheckBox("Kapat AutoBuddy yurumesini. F5 uygular.", false));
+            menu.AddLabel("Sampiyon imleci takip edicek.Bota biraktiginda ACMA!");
+            menu.Add("disableAutoBuddy", new CheckBox("Kapat AutoBuddy yurumesi. F5 basmalisin.", false));
             menu.AddSeparator(5);
-            var autoclose = new CheckBox("Oyun bitince lolu kapat. F5 uygular");
+            var autoclose = new CheckBox("Oyun bitince lolu otomatik kapat. F5 basmalisin");
             property2.GetSetMethod(true).Invoke(autoclose, new object[] {new Vector2(500, 20)});
             menu.Add("autoclose", autoclose);
             menu.AddSeparator(5);
-            menu.Add("oldWalk", new CheckBox("Eski orbwalkeri kullan. F5 uygular", false));
-            menu.Add("debuginfo", new CheckBox("Hata bilgisi goster. F5 uygular"));
+            menu.Add("oldWalk", new CheckBox("Eski orbwalkeri kullan. F5 basmalisin", false));
+            menu.Add("debuginfo", new CheckBox("Hata bilgilerini goster. F5 basmalisin"));
             menu.Add("spdghofj", new Separator(10));
-            menu.Add("z", new Label("Harici sampiyon addons kullanmak istiyorsan, bu secenegi devre disi býrak ve F5 bas."));
-            menu.Add("z1", new Label("Ayrica, eger bunu yaparsaniz, ozel yapimlari kullanmaniz önerilir."));
-            menu.Add("z2", new Label("AutoBuddy, daha sonra genel, made-for-any-carry build varsayilani olacak."));
-            menu.Add("toUseOurChampLogic", new CheckBox("Autobuddy'nin sampiyon mantigini kullan. F5 uygular."));
+            menu.Add("z", new Label("Ayriyeten bir sampiyon addonu kullanicaksan, bu secenegi kapat ve F5 e bas."));
+            menu.Add("z1", new Label("Ayrica, ozel build kullanmak icin onerilir."));
+            menu.Add("z2", new Label("AutoBuddynin varsayilan buildi, adc buildi."));
+            menu.Add("toUseOurChampLogic", new CheckBox("Kullan AutoBuddy'nin sampiyon destegi. F5 basmalisin."));
             menu.Add("z3", new Separator(2));
-            menu.Add("l1", new Label("By Christian Brutal Sniper - Was maintained by TheYasuoMain - Now maintaned by FurkanS"));
-            menu.Add("l2", new Label($"Version: {ABVersion}"));
+            menu.Add("l1", new Label("Turkce ceviri by TekinTR - Yardimci by TheYasuoMain - Devam ettiren by FurkanS"));
+            menu.Add("l2", new Label($"Versiyon: {ABVersion}"));
         }
 
         static void newpf_OnValueChange(ValueBase<bool> sender, ValueBase<bool>.ValueChangeArgs args)
@@ -163,7 +163,7 @@ namespace AutoBuddy
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Load Texture Error: '{e}'");
+                Console.WriteLine($"Yazilarin yuklenmesi basarisiz oldu: '{e}'");
             }
         }
 
@@ -504,7 +504,7 @@ namespace AutoBuddy
                 if (MainMenu.GetMenu("AB_" + ObjectManager.Player.ChampionName) != null &&
                     MainMenu.GetMenu("AB_" + ObjectManager.Player.ChampionName).Get<Label>("shopSequence") != null)
                 {
-                    Chat.Print("Autobuddy: Loaded shop plugin for " + ObjectManager.Player.ChampionName);
+                    Chat.Print("Autobuddy: Market yardimcisi yuklendi " + ObjectManager.Player.ChampionName);
                     var bc = new BuildCreator(menu, Path.Combine(SandboxConfig.DataDirectory
                         , "AutoBuddy\\Builds"),
                         MainMenu.GetMenu("AB_" + ObjectManager.Player.ChampionName)

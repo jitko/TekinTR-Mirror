@@ -47,7 +47,7 @@ namespace AutoBuddy.Utilities.AutoShop
             ShopGlobals.GoldForNextItem = 9999999;
             var currentPos = BrutalItemInfo.GetNum(buildElements);
             if (currentPos == -1)
-                ShopGlobals.Next = "Inventories mismatch, won't buy any items";
+                ShopGlobals.Next = "Stoklar uyumsuz, herhangi bir item alinmayacak";
             if (currentPos == 0) // Run when currentPos is 0
             {
                 if (!myit.Any()) // Run when we have no items
