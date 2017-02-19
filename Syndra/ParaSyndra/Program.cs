@@ -8,7 +8,7 @@ using EloBuddy.SDK.Menu;
 using EloBuddy.SDK.Menu.Values;
 using SharpDX;
 
-namespace TekinSyndra
+namespace ParaSyndra
 {
 	public class Timer
 	{
@@ -53,25 +53,25 @@ namespace TekinSyndra
 			{
 				return;
 			}
-			Config = MainMenu.AddMenu("TekinSyndra", "TekinSyndra");
-			Config.AddGroupLabel("TekinSyndra [1.0.1.4]");
-			Auto = Config.AddSubMenu("Automatic");
-			Auto.AddGroupLabel("Ulti ON:");
+			Config = MainMenu.AddMenu("ParaSyndra", "parasyndra");
+			Config.AddGroupLabel("ParaSyndra [1.0.1.4] Turkce Ceviri TekinTR");
+			Auto = Config.AddSubMenu("Otomatik");
+			Auto.AddGroupLabel("Uzerinde Ulti kullan:");
 			foreach (var enemy in EntityManager.Heroes.Enemies)
 			{
 				Timers.Add(enemy.NetworkId, new Timer(0f, 0f, enemy.Path));
 				Auto.Add(enemy.ChampionName, new CheckBox(enemy.ChampionName));
 			}
 			Auto.AddSeparator();
-			Auto.AddGroupLabel("AUTO Harras:");
-			Auto.Add("autoq", new CheckBox("Oto Q"));
-			Auto.Add("automana", new Slider("Oto Q - Gereken enaz mana", 50));
-			Auto.Add("autoei", new CheckBox("Oto QE - Dusman Q menzilindeyse", false));
-			Auto.Add("autoeo", new CheckBox("Oto QE - Dusman Q menzili disindaysa", false));
-			AASettings = Config.AddSubMenu("Attack");
-			AASettings.Add("readyaa", new CheckBox("Buyu hazir kontrolu kapat"));
-			AASettings.Add("disaa", new Slider("Seviyede pasif kalsin", 11, 1, 18));
-			AASettings.Add("minaa", new Slider("Oldurme etkinlestirilsin x mi", 3, 1, 6));
+			Auto.AddGroupLabel("Otomatik Durtme:");
+			Auto.Add("autoq", new CheckBox("Otomatik Q"));
+			Auto.Add("automana", new Slider("Otomatik Q - Gereken enaz mana", 50));
+			Auto.Add("autoei", new CheckBox("Otomatik QE - Dusman Q menzilinde ise", false));
+			Auto.Add("autoeo", new CheckBox("Otomatik QE - Dusman Q menzilinin disinda ise", false));
+			AASettings = Config.AddSubMenu("Saldiri");
+			AASettings.Add("readyaa", new CheckBox("Hazir olan buyuleri kontrol etmeyi kapat"));
+			AASettings.Add("disaa", new Slider("Seviyeyi arttirmayi kapat", 11, 1, 18));
+			AASettings.Add("minaa", new Slider("AA ile olucekse oldurme aktif x aa sayisi", 3, 1, 6));
 			Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
 			Obj_AI_Base.OnBasicAttack += Obj_AI_Base_OnBasicAttack;
 			GameObject.OnCreate += GameObject_OnCreate;
