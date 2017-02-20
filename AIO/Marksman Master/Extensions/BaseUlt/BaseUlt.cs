@@ -302,7 +302,7 @@ namespace Marksman_Master.Extensions.BaseUlt
                     if (args.Type == TeleportType.Recall)
                     {
                         if (IsRecallTrackerEnabled)
-                            Notifications.Show(new SimpleNotification("Recall tracker", $"{hero.Hero} ({hero.Name}) just started recalling."), 2500);
+                            Notifications.Show(new SimpleNotification("Geri dosunse", $"{hero.Hero} ({hero.Name}) basladi."), 2500);
 
                         ActiveRecalls[hero.NetworkId] = args;
                     }
@@ -319,7 +319,7 @@ namespace Marksman_Master.Extensions.BaseUlt
                     if (args.Type == TeleportType.Recall)
                     {
                         if(IsRecallTrackerEnabled)
-                            Notifications.Show(new SimpleNotification("Recall tracker", $"{hero.Hero} ({hero.Name}) just finished recalling."), 2500);
+                            Notifications.Show(new SimpleNotification("Geri dosunsu", $"{hero.Hero} ({hero.Name}) bitirdi."), 2500);
 
                         ActiveRecalls.Remove(hero.NetworkId);
                     }
@@ -349,9 +349,9 @@ namespace Marksman_Master.Extensions.BaseUlt
         private void BuildMenu()
         {
             BaseUltMenu.AddGroupLabel("Recall tracker settings");
-            BaseUltMenu.Add("RecallTracker.Enable", new CheckBox("Enable Recall tracker"));
+            BaseUltMenu.Add("RecallTracker.Enable", new CheckBox("Geri donus gostergesi"));
 
-            BaseUltMenu.Add("RecallTracker.BarColor", new CheckBox("Change bar color", false)).OnValueChange += (a, b) =>
+            BaseUltMenu.Add("RecallTracker.BarColor", new CheckBox("Rengini sec", false)).OnValueChange += (a, b) =>
             {
                 if (!b.NewValue)
                     return;
@@ -388,9 +388,9 @@ namespace Marksman_Master.Extensions.BaseUlt
             BaseUltMenu.AddGroupLabel("Base ult settings");
 
             BaseUltMenu.AddLabel("Basic settings : ");
-            BaseUltMenu.Add("BaseUlt.Enable", new CheckBox("Enable Base ult"));
-            BaseUltMenu.Add("BaseUlt.DisableInComboMode", new CheckBox("Disable Base ult in combo mode", false));
-            BaseUltMenu.Add("BaseUlt.MaxTimeout", new Slider("Maximum target invisibility time : {0} seconds", 30, 0, 120));
+            BaseUltMenu.Add("BaseUlt.Enable", new CheckBox("Base ult Aktif"));
+            BaseUltMenu.Add("BaseUlt.DisableInComboMode", new CheckBox("Kombo modunda base ulti'yi kapat", false));
+            BaseUltMenu.Add("BaseUlt.MaxTimeout", new Slider("Hedefin maximum gorunmezlik : {0} suresi", 30, 0, 120));
             BaseUltMenu.AddSeparator(2);
             BaseUltMenu.AddLabel("Health prediction is not working currently.\nPlease don't set this value too high or you will see a lot missed baseults.");
             BaseUltMenu.AddSeparator(5);
@@ -399,7 +399,7 @@ namespace Marksman_Master.Extensions.BaseUlt
 
             foreach (var aiHeroClient in StaticCacheProvider.GetChampions(CachedEntityType.EnemyHero))
             {
-                BaseUltMenu.Add($"BaseUlt.Enable.{aiHeroClient.ChampionName}", new CheckBox($"Enable on {aiHeroClient.ChampionName}"));
+                BaseUltMenu.Add($"BaseUlt.Enable.{aiHeroClient.ChampionName}", new CheckBox($"Aktif uzerinde {aiHeroClient.ChampionName}"));
             }
 
             SubscribeToEvents();
